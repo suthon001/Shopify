@@ -32,48 +32,52 @@ codeunit 70000 "TPP Shopify Function"
         CustLedgerEntry.reset();
         CustLedgerEntry.SetRange("Ref. Shopify Order No.", pOderID);
         if CustLedgerEntry.FindFirst() then begin
-            ltDocumentNo := NoSeriesMgt.GetNextNo(ltShopifyonfig."Journal No. Series", WorkDate(), true);
-            GenJournalLine.Init();
-            GenJournalLine."Journal Template Name" := ltShopifyonfig."Journal Template Name";
-            GenJournalLine."Journal Batch Name" := ltShopifyonfig."Journal Batch Name";
-            GenJournalLine."Line No." := GenJournalLine.ShopifyGenLastLine();
-            GenJournalLine."Document No." := ltDocumentNo;
-            GenJournalLine."Document Date" := TODAY();
-            GenJournalLine."Posting Date" := TODAY();
-            GenJournalLine."Account Type" := GenJournalLine."Account Type"::Customer;
-            GenJournalLine."Source Code" := GemJournalTemp."Source Code";
-            GenJournalLine.Insert();
-            GenJournalLine.Validate("Account No.", CustLedgerEntry."Customer No.");
-            GenJournalLine.Validate(Amount, -pAmount);
-            GenJournalLine."Applies-to Doc. Type" := GenJournalLine."Applies-to Doc. Type"::Invoice;
-            GenJournalLine.Validate("Applies-to Doc. No.", CustLedgerEntry."Document No.");
-            GenJournalLine."Ref. Shopify Order No." := pOderID;
-            GenJournalLine.Modify();
+            if not CustLedgerEntry.Open then
+                Message('The Remaining Amount to apply is 0')
+            else begin
+                ltDocumentNo := NoSeriesMgt.GetNextNo(ltShopifyonfig."Journal No. Series", WorkDate(), true);
+                GenJournalLine.Init();
+                GenJournalLine."Journal Template Name" := ltShopifyonfig."Journal Template Name";
+                GenJournalLine."Journal Batch Name" := ltShopifyonfig."Journal Batch Name";
+                GenJournalLine."Line No." := GenJournalLine.ShopifyGenLastLine();
+                GenJournalLine."Document No." := ltDocumentNo;
+                GenJournalLine."Document Date" := TODAY();
+                GenJournalLine."Posting Date" := TODAY();
+                GenJournalLine."Account Type" := GenJournalLine."Account Type"::Customer;
+                GenJournalLine."Source Code" := GemJournalTemp."Source Code";
+                GenJournalLine.Insert();
+                GenJournalLine.Validate("Account No.", CustLedgerEntry."Customer No.");
+                GenJournalLine.Validate(Amount, -pAmount);
+                GenJournalLine."Applies-to Doc. Type" := GenJournalLine."Applies-to Doc. Type"::Invoice;
+                GenJournalLine.Validate("Applies-to Doc. No.", CustLedgerEntry."Document No.");
+                GenJournalLine."Ref. Shopify Order No." := pOderID;
+                GenJournalLine.Modify();
 
-            GenJournalLine.Init();
-            GenJournalLine."Journal Template Name" := ltShopifyonfig."Journal Template Name";
-            GenJournalLine."Journal Batch Name" := ltShopifyonfig."Journal Batch Name";
-            GenJournalLine."Line No." := GenJournalLine.ShopifyGenLastLine();
-            GenJournalLine."Document No." := ltDocumentNo;
-            GenJournalLine."Document Date" := TODAY();
-            GenJournalLine."Posting Date" := TODAY();
-            GenJournalLine."Account Type" := GenJournalLine."Account Type"::"Bank Account";
-            GenJournalLine."Source Code" := GemJournalTemp."Source Code";
-            GenJournalLine.Insert();
-            GenJournalLine.Validate("Account No.", ltShopifyonfig."Bank Account No.");
-            GenJournalLine.Validate(Amount, pAmount);
-            GenJournalLine."Ref. Shopify Order No." := pOderID;
-            GenJournalLine.Modify();
-            if ltShopifyPayment.GET(ltShopifyPayment."Transaction Type"::Payment, pOderID, pTransactionID) then begin
-                ltShopifyPayment."Create to RV No." := ltDocumentNo;
-                ltShopifyPayment."Create to RV DateTime" := ltCurrDateTime;
-                ltShopifyPayment."Sales Invoice No." := CustLedgerEntry."Document No.";
-                ltShopifyPayment.Modify();
-            end;
-            if ltShopifyOrder.GET(pOderID) then begin
-                ltShopifyOrder."Create to RV No." := ltDocumentNo;
-                ltShopifyOrder."Create to RV DateTime" := ltCurrDateTime;
-                ltShopifyOrder.Modify();
+                GenJournalLine.Init();
+                GenJournalLine."Journal Template Name" := ltShopifyonfig."Journal Template Name";
+                GenJournalLine."Journal Batch Name" := ltShopifyonfig."Journal Batch Name";
+                GenJournalLine."Line No." := GenJournalLine.ShopifyGenLastLine();
+                GenJournalLine."Document No." := ltDocumentNo;
+                GenJournalLine."Document Date" := TODAY();
+                GenJournalLine."Posting Date" := TODAY();
+                GenJournalLine."Account Type" := GenJournalLine."Account Type"::"Bank Account";
+                GenJournalLine."Source Code" := GemJournalTemp."Source Code";
+                GenJournalLine.Insert();
+                GenJournalLine.Validate("Account No.", ltShopifyonfig."Bank Account No.");
+                GenJournalLine.Validate(Amount, pAmount);
+                GenJournalLine."Ref. Shopify Order No." := pOderID;
+                GenJournalLine.Modify();
+                if ltShopifyPayment.GET(ltShopifyPayment."Transaction Type"::Payment, pOderID, pTransactionID) then begin
+                    ltShopifyPayment."Create to RV No." := ltDocumentNo;
+                    ltShopifyPayment."Create to RV DateTime" := ltCurrDateTime;
+                    ltShopifyPayment."Sales Invoice No." := CustLedgerEntry."Document No.";
+                    ltShopifyPayment.Modify();
+                end;
+                if ltShopifyOrder.GET(pOderID) then begin
+                    ltShopifyOrder."Create to RV No." := ltDocumentNo;
+                    ltShopifyOrder."Create to RV DateTime" := ltCurrDateTime;
+                    ltShopifyOrder.Modify();
+                end;
             end;
         end else
             Message('cannot find invoice in customer ledger');
@@ -89,7 +93,6 @@ codeunit 70000 "TPP Shopify Function"
                 ltShopifyOrder."Posted Sales Invoice No." := SalesInvoiceHeader."No.";
                 ltShopifyOrder.Modify();
             end;
-
     end;
 
     /// <summary>
@@ -127,7 +130,6 @@ codeunit 70000 "TPP Shopify Function"
                     ltTrackinNo := ltTrackinNo + SelectJsonTokenText(ltJsonObjectValue, '$.tracking_number');
                 end;
             end;
-
         end;
         exit(COPYSTR(ltTrackinNo, 1, 100));
     end;
@@ -438,8 +440,6 @@ codeunit 70000 "TPP Shopify Function"
                 if ltJsonObjectValue.SelectToken('$.refund_line_items', ltJsonTokenRefund) then begin
                     ltJsonArrayRefund := ltJsonTokenRefund.AsArray();
                     for ltmyLoopRefund := 0 to ltJsonArrayRefund.Count - 1 do begin
-
-
                         ltRecordRef.Init();
                         ltFieldRef := ltRecordRef.Field(1);
                         ltFieldRef.Validate(SelectJsonTokenText(ltJsonObjectValue, '$.order_id'));
