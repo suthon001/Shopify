@@ -33,11 +33,6 @@ page 70001 "TPP Shopify Product Lists"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the title field.';
                 }
-                field(body_html; Rec.body_html)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the body_html field.';
-                }
                 field(vendor; Rec.vendor)
                 {
                     ApplicationArea = All;

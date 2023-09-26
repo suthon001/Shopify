@@ -77,11 +77,35 @@ page 70002 "TPP Shopify Product Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the admin_graphql_api_id field.';
                 }
-                field(body_html; Rec.body_html)
+                group(bodyHtml)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the body_html field.';
-                    MultiLine = true;
+                    Caption = 'Body HTML';
+                    usercontrol(EditCtl; Wysiwyg)
+                    {
+                        ApplicationArea = all;
+                        trigger ControlReady()
+                        begin
+                            CurrPage.EditCtl.Init();
+                        end;
+
+                        trigger OnAfterInit()
+                        begin
+                            EditorReady := true;
+                            if rec.body_html <> '' then
+                                CurrPage.EditCtl.Load(rec.body_html);
+                            CurrPage.EditCtl.SetReadOnly(not CurrPage.Editable);
+                        end;
+
+                        trigger ContentChanged()
+                        begin
+                            CurrPage.EditCtl.RequestSave();
+                        end;
+
+                        trigger SaveRequested(data: Text[2047])
+                        begin
+                            rec.body_html := Data;
+                        end;
+                    }
                 }
             }
             part(Shopifyvariant; "TPP Shopify Variants Subform")
@@ -110,4 +134,14 @@ page 70002 "TPP Shopify Product Card"
             }
         }
     }
+    trigger OnAfterGetRecord()
+    begin
+        if EditorReady then begin
+            EditorReady := false;
+            CurrPage.EditCtl.Init();
+        end;
+    end;
+
+    var
+        EditorReady: Boolean;
 }

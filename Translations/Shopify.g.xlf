@@ -2698,10 +2698,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control admin_graphql_api_id - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2566904107 - Control 1199623206 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the body_html field.</source>
+        <trans-unit id="Page 2566904107 - Control 1007990583 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Body HTML</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control body_html - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control bodyHtml - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2566904107 - Control 496290540 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Create Date field.</source>
@@ -2842,11 +2842,6 @@
           <source>Specifies the value of the admin_graphql_api_id field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Lists - Control admin_graphql_api_id - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3358880080 - Control 1199623206 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the body_html field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Lists - Control body_html - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3358880080 - Control 496290540 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Create Date field.</source>
