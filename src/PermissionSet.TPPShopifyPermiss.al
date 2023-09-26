@@ -58,5 +58,9 @@ permissionset 70000 "TPP Shopify Permiss"
         page "TPP Shopify Role Activity" = X,
         page "TPP Shopify Role Center" = X,
         page "TPP Shopify Pending RV" = X,
-        page "TPP Shopify Get Payment Dialog" = X;
+        page "TPP Shopify Show Product Img 1" = X,
+        page "TPP Shopify Show Product Img 2" = X,
+        page "TPP Shopify Show Product Img 3" = X,
+        page "TPP Shopify Get Payment Dialog" = X,
+        page "TPP Shopify Update Status Item" = X;
 }

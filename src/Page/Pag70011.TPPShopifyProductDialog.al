@@ -70,7 +70,7 @@ page 70011 "TPP Shopify Product Dialog"
         ltShopifyConfig.TestField("Limit Page");
         ltTextFilter := '?limit=' + format(ltShopifyConfig."Limit Page");
         if ProductStatus <> ProductStatus::any then
-            ltTextFilter := '&status=' + format(ProductStatus);
+            ltTextFilter := ltTextFilter + '&status=' + format(ProductStatus);
 
 
 

@@ -80,6 +80,12 @@ table 70001 "TPP Shopify Product"
             Caption = 'Create Date';
             DataClassification = CustomerContent;
         }
+        field(14; status; Text[50])
+        {
+            Caption = 'status';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
     keys
     {

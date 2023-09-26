@@ -42,12 +42,27 @@ table 70004 "TPP Shopify Image"
         {
             Caption = 'src';
             DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                if rec.src <> '' then
+                    ImportItemPictureFromURL()
+                else
+                    clear(Picture);
+            end;
         }
         field(9; admin_graphql_api_id; Text[2047])
         {
             Caption = 'admin_graphql_api_id';
             DataClassification = CustomerContent;
         }
+        field(10; Picture; MediaSet)
+        {
+            Caption = 'Picture';
+            DataClassification = CustomerContent;
+
+        }
+
+
     }
     keys
     {
@@ -56,4 +71,19 @@ table 70004 "TPP Shopify Image"
             Clustered = true;
         }
     }
+    /// <summary>
+    /// ImportItemPictureFromURL.
+    /// </summary>
+    procedure ImportItemPictureFromURL()
+    var
+        Client: HttpClient;
+        Response: HttpResponseMessage;
+        InStr: InStream;
+    begin
+        if Client.Get(src, Response) then begin
+            Response.Content.ReadAs(InStr);
+            Clear(Picture);
+            rec.Picture.ImportStream(InStr, 'Picture');
+        end;
+    end;
 }

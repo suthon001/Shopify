@@ -23,6 +23,11 @@ page 70001 "TPP Shopify Product Lists"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the id field.';
                 }
+                field(status; Rec.status)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the id field.';
+                }
                 field("Create Date"; Rec."Create Date")
                 {
                     ApplicationArea = All;

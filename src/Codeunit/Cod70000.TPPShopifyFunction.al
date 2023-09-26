@@ -103,6 +103,164 @@ codeunit 70000 "TPP Shopify Function"
     begin
         InsertToTable('GET', Database::"TPP Shopify Fulfillment Header", 'orders/' + pOrderID + '/fulfillments.json', 'fulfillments', 0);
     end;
+    /// <summary>
+    /// UpdateStatusProduct.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    /// <param name="pStatus">Text.</param>
+    procedure UpdateStatusProduct(pProductID: code[50]; pStatus: Text)
+    var
+        ltshopifyProduct: Record "TPP Shopify Product";
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltJsonObject, ltJsonObjectBuild : JsonObject;
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        JsonBody, ltUrlAddress, ltResponseText : Text;
+    begin
+        if (pProductID = '') or (pStatus = '') then
+            exit;
+        ltShopifyConfiguration.GET();
+        ltJsonObject.Add('id', pProductID);
+        ltJsonObject.Add('status', pStatus);
+        ltJsonObjectBuild.Add('product', ltJsonObject);
+        ltJsonObjectBuild.WriteTo(JsonBody);
+        ltHttpContent.WriteFrom(JsonBody);
+        ltHttpContent.GetHeaders(ltHttpHeadersContent);
+        ltHttpHeadersContent.Clear();
+        ltHttpHeadersContent.Add('Content-Type', 'application/json');
+        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", 'products/' + pProductID + '.json');
+        ltHttpRequestMessage.Content := ltHttpContent;
+        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+        ltHttpRequestMessage.Method := 'PUT';
+        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+        if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
+            ltshopifyProduct.GET(pProductID);
+            ltshopifyProduct.status := COPYSTR(pStatus, 1, 50);
+            ltshopifyProduct.Modify();
+        end;
+    end;
+
+    /// <summary>
+    /// DeleteImage.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    /// <param name="pid">Code[50].</param>
+    /// <param name="pSrc">Text.</param>
+    procedure DeleteImage(pProductID: code[50]; pid: Code[50]; pSrc: Text)
+    var
+        ltJsonObject: JsonObject;
+    begin
+        if (pSrc = '') or (pProductID = '') or (pid = '') then
+            exit;
+
+        ConnectTOShopify('DELETE', 'products/' + pProductID + '/images/' + pid + '.json', ltJsonObject);
+    end;
+    /// <summary>
+    /// DeleteProduct.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    procedure DeleteProduct(pProductID: code[50])
+    var
+        ltJsonObject: JsonObject;
+    begin
+        if (pProductID = '') then
+            exit;
+
+        ConnectTOShopify('DELETE', 'products/' + pProductID + '.json', ltJsonObject);
+    end;
+
+    /// <summary>
+    /// UpdateProductImg.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    /// <param name="pid">Code[50].</param>
+    /// <param name="pPosition">Integer.</param>
+    procedure UpdateProductImg(pProductID: code[50]; pid: Code[50]; pPosition: Integer)
+    var
+        ltProductImg: Record "TPP Shopify Image";
+        ShopifyConfiguration: Record "TPP Shopify Configuration";
+        Base64Convert: codeunit "Base64 Convert";
+        ltJsonObject, ltJsonObject2, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
+        ltJsonToken, ltJsonTokenFileName : JsonToken;
+        ltJsonArray: JsonArray;
+        Base64Text, ltFileName, JsonBody, ltUrlAddress, ltResponseText : Text;
+        ltInstream: InStream;
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        ltDateTime: DateTime;
+    begin
+        CLEAR(ltInstream);
+        CLEAR(ltJsonObject);
+        CLEAR(ltJsonObject2);
+        CLEAR(ltJsonObjectBuild);
+        CLEAR(ltJsonArray);
+        CLEAR(ltJsonToken);
+        ltFileName := '';
+        UploadIntoStream('Select Picture', '', '', ltFileName, ltInstream);
+        if ltFileName <> '' then begin
+            ShopifyConfiguration.GET();
+            Base64Text := Base64Convert.ToBase64(ltInstream);
+            ltJsonObject.Add('key', 'new');
+            ltJsonObject.Add('value', 'newvalue');
+            ltJsonObject.Add('type', 'single_line_text_field');
+            ltJsonObject.Add('namespace', 'global');
+            ltJsonArray.Add(ltJsonObject);
+            ltJsonObject2.Add('position', pPosition);
+            ltJsonObject2.Add('metafields', ltJsonArray);
+            ltJsonObject2.Add('attachment', Base64Text);
+            ltJsonObject2.Add('filename ', ltFileName);
+            ltJsonObjectBuild.Add('image', ltJsonObject2);
+            ltJsonObjectBuild.WriteTo(JsonBody);
+            ltHttpContent.WriteFrom(JsonBody);
+            ltHttpContent.GetHeaders(ltHttpHeadersContent);
+            ltHttpHeadersContent.Clear();
+            ltHttpHeadersContent.Add('Content-Type', 'application/json');
+            ltHttpHeadersContent.Add('X-Shopify-Access-Token', ShopifyConfiguration."API Key");
+            ltUrlAddress := StrSubstNo(gvUrlAddress, ShopifyConfiguration."Shop ID", ShopifyConfiguration."URL Address", ShopifyConfiguration."API Version", 'products/' + pProductID + '/images.json');
+            ltHttpRequestMessage.Content := ltHttpContent;
+            ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+            ltHttpRequestMessage.Method := 'POST';
+            ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+            ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+            if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
+                ltJsonTokenFileName.ReadFrom(ltResponseText);
+                ltJsonTokenFileName.SelectToken('$.image', ltJsonToken);
+                ltJsonObjectFileName := ltJsonToken.AsObject();
+
+                ltProductImg.reset();
+                ltProductImg.SetRange(product_id, pProductID);
+                ltProductImg.SetRange(id, pid);
+                if ltProductImg.FindFirst() then
+                    ltProductImg.Delete();
+                ltProductImg.Init();
+                ltProductImg.product_id := pProductID;
+                ltProductImg.id := format(SelectJsonTokenText(ltJsonObjectFileName, '$.id'));
+                ltProductImg.width := SelectJsonTokenInteger(ltJsonObjectFileName, '$.width');
+                ltProductImg.height := SelectJsonTokenInteger(ltJsonObjectFileName, '$.height');
+                ltProductImg.position := SelectJsonTokenInteger(ltJsonObjectFileName, '$.position');
+                ltProductImg.Insert();
+                ltProductImg.Validate(src, SelectJsonTokenText(ltJsonObjectFileName, '$.src'));
+                ltProductImg.admin_graphql_api_id := COPYSTR(SelectJsonTokenText(ltJsonObjectFileName, '$.admin_graphql_api_id'), 1, 2047);
+                Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.created_at'));
+                ltProductImg.created_at := ltDateTime;
+                ltProductImg.Modify();
+            end;
+
+
+        end;
+
+        // if ltJsonObject.SelectToken('$.image', ltJsonToken) then begin
+
+        // end;
+    end;
 
     /// <summary>
     /// GetTrackingNo.

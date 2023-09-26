@@ -308,6 +308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Image - Field id - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 532124851 - Field 1594621544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Image - Field Picture - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 532124851 - Field 3560097507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>position</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1118,6 +1123,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Product - Field published_scope - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2623624143 - Field 998393528 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Product - Field status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2623624143 - Field 2546837155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>tags</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1914,7 +1924,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Image Subform - Control created_at - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2167573709 - Control 4107668617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the width field.</source>
+          <source>Specifies the value of the height field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Image Subform - Control height - Property ToolTip</note>
         </trans-unit>
@@ -2693,11 +2703,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control General - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2566904107 - Control 1877412328 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the admin_graphql_api_id field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control admin_graphql_api_id - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2566904107 - Control 1007990583 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Body HTML</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2738,6 +2743,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control published_scope - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2566904107 - Control 998393528 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the id field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control status - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2566904107 - Control 2546837155 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the tags field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2772,6 +2782,46 @@
           <source>Variants</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control Shopifyvariant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Control 3602063860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control ShopifyPic - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Control 3555338695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control ShopifyPic_2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Control 4193035312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Control ShopifyPic_3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 4020252190 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Delete Product action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action DeleteProduct - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 4020252190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Product</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action DeleteProduct - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 4020252190 - Method 1377591017 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the product?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action DeleteProduct - Method OnAction - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 2421935703 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Update Status action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action UpdateStatus - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 2421935703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action UpdateStatus - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3539354807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Product Dialog</source>
@@ -2877,6 +2927,11 @@
           <source>Specifies the value of the published_scope field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Lists - Control published_scope - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3358880080 - Control 998393528 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the id field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Lists - Control status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3358880080 - Control 2546837155 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the tags field.</source>
@@ -3237,6 +3292,156 @@
           <source> Shopify Mapping</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action ShopifyMapping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Show Product Img</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Method 3119204463 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the Picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Method DeletePicture - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Control 1594621544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Signature field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Control Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Action 3178470693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Action DeleteSignatureAction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Action 3178470693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Action DeleteSignatureAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Action 2469151111 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Action IPicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3261313384 - Action 2469151111 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 1 - Action IPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Show Product Img</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Method 3119204463 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the Picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Method DeletePicture - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Control 1594621544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Signature field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Control Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Action 3178470693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Action DeleteSignatureAction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Action 3178470693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Action DeleteSignatureAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Action 2469151111 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Action IPicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3899010001 - Action 2469151111 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 2 - Action IPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Show Product Img</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Method 3119204463 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the Picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Method DeletePicture - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Control 1594621544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Signature field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Control Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Action 3178470693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Action DeleteSignatureAction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Action 3178470693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Action DeleteSignatureAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Action 2469151111 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Action IPicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 241739322 - Action 2469151111 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Show Product Img 3 - Action IPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Update Status Item</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 1829401174 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the From Status field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control FromStatus - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 1829401174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control FromStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 4272188977 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the From Status field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control gvProductID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 4272188977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control gvProductID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 314032537 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Status field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control ToStatus - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 314032537 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control ToStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 76143474 - Control 314032537 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>active,archived,draft</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Update Status Item - Control ToStatus - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Page 3465675748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Variants Subform</source>

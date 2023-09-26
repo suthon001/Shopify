@@ -6,7 +6,12 @@ page 70004 "TPP Shopify Image Subform"
     Caption = 'Shopify Image Subform';
     PageType = ListPart;
     SourceTable = "TPP Shopify Image";
-    UsageCategory = None;    Extensible = false;
+    UsageCategory = None;
+    Extensible = false;
+    Editable = false;
+    InsertAllowed = false;
+    DeleteAllowed = false;
+    ModifyAllowed = false;
     layout
     {
         area(content)
@@ -19,25 +24,25 @@ page 70004 "TPP Shopify Image Subform"
                     ToolTip = 'Specifies the value of the position field.';
                 }
 
-                field(created_at; Rec.created_at)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the created_at field.';
-                }
-                field("width"; Rec."width")
+                field(width; Rec.width)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the width field.';
                 }
-                field("height"; Rec."height")
+                field(height; Rec.height)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the width field.';
+                    ToolTip = 'Specifies the value of the height field.';
                 }
                 field(src; Rec.src)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the src field.';
+                }
+                field(created_at; Rec.created_at)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the created_at field.';
                 }
             }
         }

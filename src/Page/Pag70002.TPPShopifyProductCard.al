@@ -72,10 +72,10 @@ page 70002 "TPP Shopify Product Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the tags field.';
                 }
-                field(admin_graphql_api_id; Rec.admin_graphql_api_id)
+                field(status; Rec.status)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the admin_graphql_api_id field.';
+                    ToolTip = 'Specifies the value of the id field.';
                 }
                 group(bodyHtml)
                 {
@@ -108,6 +108,7 @@ page 70002 "TPP Shopify Product Card"
                     }
                 }
             }
+
             part(Shopifyvariant; "TPP Shopify Variants Subform")
             {
                 Caption = 'Variants';
@@ -131,6 +132,82 @@ page 70002 "TPP Shopify Product Card"
                 SubPageView = sorting(product_id, id);
                 UpdatePropagation = Both;
                 ApplicationArea = Basic, Suite;
+            }
+
+
+        }
+        area(FactBoxes)
+        {
+
+            part(ShopifyPic; "TPP Shopify Show Product Img 1")
+            {
+                ApplicationArea = all;
+                SubPageLink = product_id = field(id);
+                SubPageView = where(position = filter(1));
+                Caption = 'Position 1';
+            }
+            part(ShopifyPic_2; "TPP Shopify Show Product Img 2")
+            {
+                ApplicationArea = all;
+                SubPageLink = product_id = field(id);
+                SubPageView = where(position = filter(2));
+                Caption = 'Position 2';
+            }
+            part(ShopifyPic_3; "TPP Shopify Show Product Img 3")
+            {
+                ApplicationArea = all;
+                SubPageLink = product_id = field(id);
+                SubPageView = where(position = filter(3));
+                Caption = 'Position 3';
+            }
+
+        }
+    }
+    actions
+    {
+        area(Processing)
+        {
+            action(DeleteProduct)
+            {
+                Caption = 'Delete Product';
+                Image = DeleteQtyToHandle;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Delete Product action.';
+                trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    DeleteImageQst: Label 'Are you sure you want to delete the product?';
+                begin
+                    if not Confirm(DeleteImageQst) then
+                        exit;
+                    ShopifyFunction.DeleteProduct(rec.id);
+                    rec.Delete(true);
+                end;
+
+            }
+            action(UpdateStatus)
+            {
+                Caption = 'Update Status';
+                Image = UpdateDescription;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Update Status action.';
+                trigger OnAction()
+                var
+                    ShopifyUpdateStat: Page "TPP Shopify Update Status Item";
+                begin
+                    CLEAR(ShopifyUpdateStat);
+                    ShopifyUpdateStat.SetFromStatus(rec.status, rec.id);
+                    ShopifyUpdateStat.RunModal();
+                    CLEAR(ShopifyUpdateStat);
+                end;
             }
         }
     }
