@@ -83,16 +83,15 @@ codeunit 70000 "TPP Shopify Function"
             Message('cannot find invoice in customer ledger');
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeDeleteAfterPosting', '', false, false)]
-    local procedure OnBeforeDeleteAfterPostingSales(var SalesHeader: Record "Sales Header"; var SalesInvoiceHeader: Record "Sales Invoice Header")
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterInsertInvoiceHeader', '', false, false)]
+    local procedure OnBeforeDeleteAfterPostingSales(var SalesHeader: Record "Sales Header"; var SalesInvHeader: Record "Sales Invoice Header")
     var
         ltShopifyOrder: Record "TPP Shopify Order";
     begin
-        if SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice then
-            if ltShopifyOrder.GET(SalesHeader."Ref. Shopify Order No.") then begin
-                ltShopifyOrder."Posted Sales Invoice No." := SalesInvoiceHeader."No.";
-                ltShopifyOrder.Modify();
-            end;
+        if ltShopifyOrder.GET(SalesHeader."Ref. Shopify Order No.") then begin
+            ltShopifyOrder."Posted Sales Invoice No." := SalesInvHeader."No.";
+            ltShopifyOrder.Modify();
+        end;
     end;
 
     /// <summary>
@@ -103,6 +102,154 @@ codeunit 70000 "TPP Shopify Function"
     begin
         InsertToTable('GET', Database::"TPP Shopify Fulfillment Header", 'orders/' + pOrderID + '/fulfillments.json', 'fulfillments', 0);
     end;
+
+    /// <summary>
+    /// UpdateStatusProduct.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    procedure updateProduct(pProductID: code[50])
+    var
+        ltshopifyProduct: Record "TPP Shopify Product";
+        ltshopifyOptions: Record "TPP Shopify Options";
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltJsonObject, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
+        ltJsonToken, ltJsonTokenFileName : JsonToken;
+        // ltJsonArray: JsonArray;
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        JsonBody, ltUrlAddress, ltResponseText : Text;
+        ltDateTime: DateTime;
+        ltHaveOptions: Boolean;
+    begin
+        ltShopifyConfiguration.GET();
+        ltshopifyProduct.GET(pProductID);
+        ltHaveOptions := false;
+
+        // ltshopifyOptions.reset();
+        // ltshopifyOptions.SetRange(product_id, ltshopifyProduct.id);
+        // ltshopifyOptions.SetFilter(id, '<>%1', '');
+        // if ltshopifyOptions.FindSet() then
+        //     repeat
+        //         ltJsonObject.Add('id', ltshopifyOptions.id);
+        //         ltJsonObject.Add('product_id', ltshopifyOptions.product_id);
+        //         ltJsonObject.Add('position', ltshopifyOptions.position);
+        //         ltJsonArray.Add(ltJsonObject);
+        //         ltHaveOptions := true;
+        //     until ltshopifyOptions.Next() = 0;
+
+
+        CLEAR(ltJsonObject);
+        ltJsonObject.Add('id', ltshopifyProduct.id);
+        ltJsonObject.Add('title', ltshopifyProduct.title);
+        ltJsonObject.Add('body_html', ltshopifyProduct.body_html);
+        ltJsonObject.Add('vendor', ltshopifyProduct.vendor);
+        ltJsonObject.Add('product_type', ltshopifyProduct.product_type);
+        ltJsonObject.Add('handle', ltshopifyProduct.handle);
+        ltJsonObject.Add('published_scope', ltshopifyProduct.published_scope);
+        ltJsonObject.Add('tags', ltshopifyProduct.tags);
+        // if ltHaveOptions then
+        //     ltJsonObject.Add('options', ltJsonArray);
+        ltJsonObjectBuild.Add('product', ltJsonObject);
+        ltJsonObjectBuild.WriteTo(JsonBody);
+        ltHttpContent.WriteFrom(JsonBody);
+        ltHttpContent.GetHeaders(ltHttpHeadersContent);
+        ltHttpHeadersContent.Clear();
+        ltHttpHeadersContent.Add('Content-Type', 'application/json');
+        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", 'products/' + pProductID + '.json');
+        ltHttpRequestMessage.Content := ltHttpContent;
+        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+        ltHttpRequestMessage.Method := 'PUT';
+        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+        if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
+            ltJsonTokenFileName.ReadFrom(ltResponseText);
+            ltJsonTokenFileName.SelectToken('$.product', ltJsonToken);
+            ltJsonObjectFileName := ltJsonToken.AsObject();
+            Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.updated_at'));
+            ltshopifyProduct.updated_at := ltDateTime;
+            ltshopifyProduct.Modify();
+            UpdateVariant(ltshopifyProduct.id);
+            Message('Update Detail is successfully');
+        end else
+            Message('%1', ltResponseText);
+    end;
+    /// <summary>
+    /// UpdateVariant.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    procedure UpdateVariant(pProductID: code[50])
+    var
+        ltshopifyVariant: Record "TPP Shopify Variants";
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltJsonObject, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
+        ltJsonTokenFileName, ltJsonToken : JsonToken;
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        JsonBody, ltUrlAddress, ltResponseText : Text;
+        ltDateTime: DateTime;
+    begin
+        if (pProductID = '') then
+            exit;
+        ltShopifyConfiguration.GET();
+        ltshopifyVariant.reset();
+        ltshopifyVariant.SetRange(product_id, pProductID);
+        ltshopifyVariant.SetFilter(id, '<>%1', '');
+        if ltshopifyVariant.FindSet() then
+            repeat
+                CLEAR(ltHttpContent);
+                CLEAR(ltHttpHeadersContent);
+                CLEAR(ltHttpRequestMessage);
+                CLEAR(ltHttpResponseMessage);
+                CLEAR(ltJsonObjectBuild);
+                CLEAR(ltJsonObject);
+                CLEAR(ltJsonObjectFileName);
+                CLEAR(ltJsonTokenFileName);
+                CLEAR(ltJsonToken);
+                CLEAR(ltResponseText);
+                ltJsonObject.Add('id', ltshopifyVariant.id);
+                ltJsonObject.Add('title', ltshopifyVariant.title);
+                ltJsonObject.Add('price', ltshopifyVariant.price);
+                ltJsonObject.Add('sku', ltshopifyVariant.sku);
+                ltJsonObject.Add('position', ltshopifyVariant.position);
+                ltJsonObject.Add('option1', ltshopifyVariant.option1);
+                ltJsonObject.Add('option2', ltshopifyVariant.option2);
+                ltJsonObject.Add('option3', ltshopifyVariant.option3);
+                ltJsonObject.Add('barcode', ltshopifyVariant.barcode);
+                ltJsonObject.Add('grams', ltshopifyVariant.grams);
+                ltJsonObject.Add('weight', ltshopifyVariant.weight);
+                ltJsonObject.Add('weight_unit', ltshopifyVariant.weight_unit);
+                ltJsonObjectBuild.Add('variant', ltJsonObject);
+                ltJsonObjectBuild.WriteTo(JsonBody);
+                ltHttpContent.WriteFrom(JsonBody);
+                ltHttpContent.GetHeaders(ltHttpHeadersContent);
+                ltHttpHeadersContent.Clear();
+                ltHttpHeadersContent.Add('Content-Type', 'application/json');
+                ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+                ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", 'variants/' + ltshopifyVariant.id + '.json');
+                ltHttpRequestMessage.Content := ltHttpContent;
+                ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+                ltHttpRequestMessage.Method := 'PUT';
+                ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+                ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+                if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
+                    ltJsonTokenFileName.ReadFrom(ltResponseText);
+                    ltJsonTokenFileName.SelectToken('$.variant', ltJsonToken);
+                    ltJsonObjectFileName := ltJsonToken.AsObject();
+                    Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.updated_at'));
+                    ltshopifyVariant.updated_at := ltDateTime;
+                    ltshopifyVariant.Modify();
+                end;
+            until ltshopifyVariant.Next() = 0;
+    end;
+
+
     /// <summary>
     /// UpdateStatusProduct.
     /// </summary>
@@ -142,7 +289,26 @@ codeunit 70000 "TPP Shopify Function"
             ltshopifyProduct.GET(pProductID);
             ltshopifyProduct.status := COPYSTR(pStatus, 1, 50);
             ltshopifyProduct.Modify();
-        end;
+            Message('Update status is successfully');
+        end else
+            Message('%1', ltResponseText);
+    end;
+
+
+    /// <summary>
+    /// DeleteVariant.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    /// <param name="pid">Code[50].</param>
+    procedure DeleteVariant(pProductID: code[50]; pid: Code[50])
+    var
+        ltJsonObject: JsonObject;
+    begin
+        if (pProductID = '') or (pid = '') then
+            exit;
+
+        ConnectTOShopify('DELETE', 'products/' + pProductID + '/variants/' + pid + '.json', ltJsonObject);
+
     end;
 
     /// <summary>
@@ -480,6 +646,9 @@ codeunit 70000 "TPP Shopify Function"
         ltFieldName, ltFilter : Text;
         ltCountLine: Integer;
         ltsinceID: code[50];
+        ltShopifyVariants: Record "TPP Shopify Variants";
+        ltShopifyImage: Record "TPP Shopify Image";
+        ltShopifyOptions: Record "TPP Shopify Options";
 
     begin
         ltCountLine := 0;
@@ -535,10 +704,22 @@ codeunit 70000 "TPP Shopify Function"
                     until ltField.Next() = 0;
                     if not ltRecordRef.insert() then
                         ltRecordRef.Modify();
-                    if pSelectToken = 'products' then begin
+                    if pSelectToken in ['products', 'product'] then begin
                         ltsinceID := COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.id'), 1, 50);
+
+                        ltShopifyVariants.reset();
+                        ltShopifyVariants.SetRange(product_id, ltsinceID);
+                        ltShopifyVariants.DeleteAll();
                         InsertToDetailTable(Database::"TPP Shopify Variants", ltJsonObjectValue, 'variants', '');
+
+                        ltShopifyOptions.reset();
+                        ltShopifyOptions.SetRange(product_id, ltsinceID);
+                        ltShopifyOptions.DeleteAll();
                         InsertToDetailTable(Database::"TPP Shopify Options", ltJsonObjectValue, 'options', '');
+
+                        ltShopifyImage.reset();
+                        ltShopifyImage.SetRange(product_id, ltsinceID);
+                        ltShopifyImage.DeleteAll();
                         InsertToDetailTable(Database::"TPP Shopify Image", ltJsonObjectValue, 'images', '');
                     end;
                     if pSelectToken = 'fulfillments' then

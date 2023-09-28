@@ -12,11 +12,13 @@ table 70003 "TPP Shopify Options"
         {
             Caption = 'product_id';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(2; id; code[50])
         {
             Caption = 'id';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(3; name; Text[250])
         {

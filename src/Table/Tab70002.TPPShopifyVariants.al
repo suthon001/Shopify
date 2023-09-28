@@ -12,11 +12,13 @@ table 70002 "TPP Shopify Variants"
         {
             Caption = 'product_id';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(2; id; code[50])
         {
             Caption = 'id';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(3; title; Text[250])
         {
@@ -42,6 +44,7 @@ table 70002 "TPP Shopify Variants"
         {
             Caption = 'inventory_policy';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(8; fulfillment_service; Text[250])
         {
@@ -67,11 +70,13 @@ table 70002 "TPP Shopify Variants"
         {
             Caption = 'created_at';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(13; updated_at; DateTime)
         {
             Caption = 'updated_at';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(14; taxable; Boolean)
         {
@@ -107,16 +112,19 @@ table 70002 "TPP Shopify Variants"
         {
             Caption = 'inventory_item_id';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(21; inventory_quantity; Integer)
         {
             Caption = 'inventory_quantity';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(22; old_inventory_quantity; Integer)
         {
             Caption = 'old_inventory_quantity';
             DataClassification = CustomerContent;
+            Editable = false;
         }
     }
     keys

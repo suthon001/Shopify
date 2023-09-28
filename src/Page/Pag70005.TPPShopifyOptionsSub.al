@@ -8,6 +8,9 @@ page 70005 "TPP Shopify Options Sub."
     SourceTable = "TPP Shopify Options";
     UsageCategory = None;
     Extensible = false;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    DeleteAllowed = false;
     layout
     {
         area(content)

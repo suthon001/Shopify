@@ -209,6 +209,52 @@ page 70002 "TPP Shopify Product Card"
                     CLEAR(ShopifyUpdateStat);
                 end;
             }
+            action(UpdateProduct)
+            {
+                Caption = 'Update detail To Shopify';
+                Image = UpdateDescription;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Update Status action.';
+                trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    UpdateQst: Label 'Are you sure you want to Update product detail to shopify?';
+                begin
+                    if not Confirm(UpdateQst) then
+                        exit;
+                    ShopifyFunction.updateProduct(rec.id);
+                    CurrPage.Update();
+                end;
+            }
+            action(SyncProduct)
+            {
+                Caption = 'Sync from shopify';
+                Image = Refresh;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Update Status action.';
+                trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    UpdateQst: Label 'Are you sure you want to Sync from shopify?';
+                    ltTextFilter: Text;
+                begin
+                    if not Confirm(UpdateQst) then
+                        exit;
+                    ltTextFilter := '?ids=' + rec.id;
+                    ShopifyFunction.InsertToTable('GET', Database::"TPP Shopify Product", 'products.json' + ltTextFilter, 'products', 0);
+                    CurrPage.Update();
+                end;
+            }
+
+
         }
     }
     trigger OnAfterGetRecord()

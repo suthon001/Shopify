@@ -8,6 +8,8 @@ page 70003 "TPP Shopify Variants Subform"
     SourceTable = "TPP Shopify Variants";
     UsageCategory = None;
     Extensible = false;
+    DeleteAllowed = false;
+    InsertAllowed = false;
     layout
     {
         area(content)
@@ -74,11 +76,7 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the updated_at field.';
                 }
-                field(taxable; Rec.taxable)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the taxable field.';
-                }
+
                 field(barcode; Rec.barcode)
                 {
                     ApplicationArea = All;
@@ -89,11 +87,7 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the grams field.';
                 }
-                field(image_id; Rec.image_id)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the image_id field.';
-                }
+
                 field(weight; Rec.weight)
                 {
                     ApplicationArea = All;
@@ -119,6 +113,30 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the old_inventory_quantity field.';
                 }
+            }
+        }
+    }
+    actions
+    {
+        area(Processing)
+        {
+            action(DeleteVariant)
+            {
+                Caption = 'Delete Variant';
+                Image = Delete;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Delete Variant action.';
+                trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    DeleteImageQst: Label 'Are you sure you want to delete Variant id %1 , %2 ?', Locked = true;
+                begin
+                    if not Confirm(StrSubstNo(DeleteImageQst, rec.id, rec.title)) then
+                        exit;
+                    ShopifyFunction.DeleteVariant(rec.product_id, rec.id);
+                    rec.Delete(true);
+                end;
+
             }
         }
     }

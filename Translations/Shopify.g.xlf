@@ -2813,6 +2813,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action DeleteProduct - Method OnAction - NamedType DeleteImageQst</note>
         </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 481512120 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Update Status action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action SyncProduct - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 481512120 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sync from shopify</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action SyncProduct - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 481512120 - Method 1377591017 - NamedType 3646957145" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to Sync from shopify?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action SyncProduct - Method OnAction - NamedType UpdateQst</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 3136951550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Update Status action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action UpdateProduct - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 3136951550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update detail To Shopify</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action UpdateProduct - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2566904107 - Action 3136951550 - Method 1377591017 - NamedType 3646957145" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to Update product detail to shopify?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action UpdateProduct - Method OnAction - NamedType UpdateQst</note>
+        </trans-unit>
         <trans-unit id="Page 2566904107 - Action 2421935703 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executes the Update Status action.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3473,11 +3503,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control id - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3465675748 - Control 2298823415 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the image_id field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control image_id - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 3465675748 - Control 3509894894 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the inventory_item_id field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3528,11 +3553,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control sku - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3465675748 - Control 258841233 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the taxable field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control taxable - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 3465675748 - Control 1656136372 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the title field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3552,6 +3572,16 @@
           <source>Specifies the value of the weight_unit field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control weight_unit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3465675748 - Action 3672820106 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Delete Variant action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action DeleteVariant - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3465675748 - Action 3672820106 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action DeleteVariant - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2238237249 - Control 50086088 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Specifies the value of the Shopify Ref. ID field.</source>

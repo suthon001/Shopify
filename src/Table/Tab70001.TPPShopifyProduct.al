@@ -39,6 +39,7 @@ table 70001 "TPP Shopify Product"
         {
             Caption = 'created_at';
             DataClassification = CustomerContent;
+            Editable = false;
             trigger OnValidate()
             begin
                 if created_at <> 0DT then
@@ -54,11 +55,13 @@ table 70001 "TPP Shopify Product"
         {
             Caption = 'updated_at';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(9; published_at; Text[250])
         {
             Caption = 'published_at';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(10; published_scope; Text[250])
         {
@@ -79,6 +82,7 @@ table 70001 "TPP Shopify Product"
         {
             Caption = 'Create Date';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(14; status; Text[50])
         {
