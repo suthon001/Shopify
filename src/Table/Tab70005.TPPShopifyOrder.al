@@ -345,15 +345,15 @@ table 70005 "TPP Shopify Order"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(69; "Clased Order"; Boolean)
+        field(69; "Closed Order"; Boolean)
         {
-            Caption = 'Clased Order';
+            Caption = 'Closed Order';
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(70; "Cloase Order at"; DateTime)
+        field(70; closed_at; DateTime)
         {
-            Caption = 'closed Order at';
+            Caption = 'closed_at';
             DataClassification = CustomerContent;
             Editable = false;
         }
@@ -363,12 +363,7 @@ table 70005 "TPP Shopify Order"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72; "Cancelled at"; DateTime)
-        {
-            Caption = 'Cancelled at';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
+
         field(73; "Create to Sales Order No."; Code[20])
         {
             Caption = 'Create to Sales Order No.';
@@ -399,6 +394,18 @@ table 70005 "TPP Shopify Order"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(78; "cart_token"; text[50])
+        {
+            Caption = 'cart_token';
+            DataClassification = CustomerContent;
+        }
+        field(79; status; text[50])
+        {
+            Caption = 'status';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+
     }
     keys
     {
@@ -414,7 +421,7 @@ table 70005 "TPP Shopify Order"
         ShopifyRefurnDetail: Record "TPP Shopify Refund Detail";
     begin
         rec.TestField("Create to Sales Order", false);
-        rec.TestField("Clased Order", false);
+        rec.TestField("Closed Order", false);
         ShopifyOrderLine.reset();
         ShopifyOrderLine.SetRange(order_number, rec.order_number);
         ShopifyOrderLine.DeleteAll();

@@ -518,11 +518,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field browser_ip - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3244026332 - Field 297027778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cancelled at</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field Cancelled at - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3244026332 - Field 349505679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancelled Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -538,6 +533,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field cancel_reason - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3244026332 - Field 2373012196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>cart_token</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field cart_token - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3244026332 - Field 861935790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>checkout_id</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -548,15 +548,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field checkout_token - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3244026332 - Field 3176059606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Clased Order</source>
+        <trans-unit id="Table 3244026332 - Field 2700943576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field Clased Order - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field Closed Order - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3244026332 - Field 2750519776 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>closed Order at</source>
+        <trans-unit id="Table 3244026332 - Field 2900888388 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>closed_at</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field Cloase Order at - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field closed_at - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3244026332 - Field 3341719881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>company</source>
@@ -787,6 +787,11 @@
           <source>shipping_address zip</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field shipping_address.zip - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3244026332 - Field 998393528 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3244026332 - Field 898354036 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>total_shipping_price_set</source>
@@ -1383,6 +1388,61 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Variants - Field weight_unit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1045628364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Add Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 1135430272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the barcode field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control barcode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 678288270 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the grams field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control grams - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 3611123750 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the option1 field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control option1 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 3560097507 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the position field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control position - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 3328426687 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the price field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 2414180447 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the sku field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control sku - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 1321787652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the weight field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Control 694792891 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the weight_unit field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Control weight_unit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Action 3234080481 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Post Variant action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Action PostVariant - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1045628364 - Action 3234080481 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Action PostVariant - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4105443103 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Config. Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1818,6 +1878,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Fulfillment Sub. - Control vendor - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 598285752 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Get Order Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount Including VAT field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Amount Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 2327500488 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Shopify Order No. of the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Ref. Shopify Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 1474036805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's name.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Sell-to Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 2958825091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Sell-to Customer Name 2 field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Sell-to Customer Name 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 598285752 - Control 1225278069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the customer the invoice concerns.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Sell-to Customer No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1669677783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Get Orders Dialog</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2208,6 +2313,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Control order_number - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3896740712 - Control 998393528 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the status field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Control status - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3896740712 - Control 898354036 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the total_shipping_price_set field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2297,6 +2407,16 @@
           <source>Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Control ShopifySubform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 3084438396 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Cancel action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action CancelOrder - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 3084438396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action CancelOrder - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3896740712 - Action 885171985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executes the Create To Sales Order action.</source>
@@ -2437,6 +2557,11 @@
           <source>Specifies the value of the phone field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Lists - Control phone - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3762703355 - Control 998393528 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the status field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Lists - Control status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3762703355 - Control 898354036 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the total_shipping_price_set field.</source>
@@ -2992,6 +3117,36 @@
           <source>Get Product</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Lists - Action GetProduct - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1034749670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Reason</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Reason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1034749670 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Reason - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1034749670 - Control 847715957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Order ID field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Reason - Control OrderID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1034749670 - Control 847715957 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Reason - Control OrderID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1034749670 - Control 921629851 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Reason field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Reason - Control ReasonCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1034749670 - Control 921629851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Reason - Control ReasonCode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3966125069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Refund Detail List</source>
@@ -3553,11 +3708,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control sku - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3465675748 - Control 1656136372 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the title field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control title - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 3465675748 - Control 2126525473 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the updated_at field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3572,6 +3722,16 @@
           <source>Specifies the value of the weight_unit field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control weight_unit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3465675748 - Action 574688138 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Add Variant action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action AddVariant - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3465675748 - Action 574688138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action AddVariant - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3465675748 - Action 3672820106 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executes the Delete Variant action.</source>
@@ -3597,6 +3757,16 @@
           <source>Specifies the value of the TPP Shopify Variant ID field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TPP Shopify Item Variants List - Control TPP Shopify Variant ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1695962437 - Field 2327500488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Ref. Shopify Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TPP Sales Invoice Line - Field Ref. Shopify Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1695962437 - Field 1787818030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Tracking No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TPP Sales Invoice Line - Field Shopify Tracking No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3262608455 - Field 2327500488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
           <source>Ref. Shopify Order No.</source>
@@ -3712,6 +3882,21 @@
           <source>Shopify Tracking No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TPP Shopify Sales Header - Field Shopify Tracking No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2739420905 - Field 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Open</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TPP Shopify Sales Invoice Head - Field Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2739420905 - Field 2327500488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Ref. Shopify Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TPP Shopify Sales Invoice Head - Field Ref. Shopify Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2739420905 - Field 1787818030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Shopify Tracking No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TPP Shopify Sales Invoice Head - Field Shopify Tracking No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2823542388 - Field 2327500488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Ref. Shopify Order No.</source>
@@ -3872,6 +4057,31 @@
           <source>draft</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Product Status - EnumValue draft - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1034749670 - EnumValue 1028583360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Reason - EnumValue customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1034749670 - EnumValue 1130659780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>declined</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Reason - EnumValue declined - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1034749670 - EnumValue 1970454608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>fraud</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Reason - EnumValue fraud - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1034749670 - EnumValue 3429668174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>inventory</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Reason - EnumValue inventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1034749670 - EnumValue 3883758224 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>other</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Reason - EnumValue other - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2041985031 - Property 2879900210" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Permiss</source>

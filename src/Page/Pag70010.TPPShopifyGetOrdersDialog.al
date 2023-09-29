@@ -105,7 +105,7 @@ page 70010 "TPP Shopify Get Orders Dialog"
 
         ltShopifyOrder.reset();
         ltShopifyOrder.SetRange("Create to Sales Order", false);
-        ltShopifyOrder.SetRange("Clased Order", false);
+        ltShopifyOrder.SetRange("Closed Order", false);
         ltShopifyOrder.DeleteAll(true);
         ltTextFilter := ltTextFilter + '&order=created_at asc';
         ShopifyFunction.InsertToTable('GET', Database::"TPP Shopify Order", 'orders.json' + ltTextFilter, 'orders', 0);

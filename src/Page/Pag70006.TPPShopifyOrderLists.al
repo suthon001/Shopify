@@ -6,7 +6,7 @@ page 70006 "TPP Shopify Order Lists"
     Caption = 'Shopify Order Lists';
     PageType = List;
     SourceTable = "TPP Shopify Order";
-    SourceTableView = sorting(id) where("Clased Order" = const(false), "Create to Sales Order" = const(false));
+    SourceTableView = sorting(id) where("Closed Order" = const(false), "Create to Sales Order" = const(false));
     ApplicationArea = all;
     UsageCategory = Lists;
     Editable = false;
@@ -28,6 +28,11 @@ page 70006 "TPP Shopify Order Lists"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the id field.';
+                }
+                field(status; rec.status)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the status field.';
                 }
                 field("Tracking No."; Rec."Tracking No.")
                 {
@@ -323,16 +328,16 @@ page 70006 "TPP Shopify Order Lists"
             //         ShopifyOrder.Copy(rec);
             //         CurrPage.SetSelectionFilter(ShopifyOrder);
             //         ShopifyOrder.SetRange("Create to Sales Order", false);
-            //         ShopifyOrder.SetRange("Clased Order", false);
-            //         ShopifyOrder.SetFilter(financial_status, '%1|%2', 'pending', 'unpaid');
+            //         ShopifyOrder.SetRange("Closed Order", false);
+            //         ShopifyOrder.SetFilter(financial_status, '%1|%2', 'pending', 'unpaid', 'paid');
             //         if ShopifyOrder.FindSet() then begin
             //             repeat
             //                 ShopifyFunction.CancelOrder(ShopifyOrder.id);
             //             until ShopifyOrder.Next() = 0;
-            //             Message('Calcen Order is successfully');
+            //             Message('Cancel Order is successfully');
             //         end;
             //     end;
-            //}
+            // }
         }
     }
 }

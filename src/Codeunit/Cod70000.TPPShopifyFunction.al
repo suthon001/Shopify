@@ -104,17 +104,97 @@ codeunit 70000 "TPP Shopify Function"
     end;
 
     /// <summary>
+    /// GetProductOptions.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    procedure GetProductOptions(pProductID: code[50])
+    var
+        ltShopifyOptions: Record "TPP Shopify Options";
+        ltJsonObject, ltJsonObject2 : JsonObject;
+        ltJsonToken: JsonToken;
+    begin
+        if pProductID = '' then
+            exit;
+        ConnectTOShopify('GET', 'products/' + pProductID + '.json', ltJsonObject);
+        ltShopifyOptions.reset();
+        ltShopifyOptions.SetRange(product_id, pProductID);
+        ltShopifyOptions.DeleteAll();
+        ltJsonObject.SelectToken('$.product', ltJsonToken);
+        ltJsonObject2 := ltJsonToken.AsObject();
+        InsertToDetailTable(Database::"TPP Shopify Options", ltJsonObject2, 'options', '');
+    end;
+
+    /// <summary>
+    /// GetProductVariant.
+    /// </summary>
+    /// <param name="pProductID">code[50].</param>
+    procedure GetProductVariant(pProductID: code[50])
+    var
+        ltShopifyvariant: Record "TPP Shopify Variants";
+        ltJsonObject, ltJsonObject2 : JsonObject;
+        ltJsonToken: JsonToken;
+    begin
+        if pProductID = '' then
+            exit;
+        ConnectTOShopify('GET', 'products/' + pProductID + '.json', ltJsonObject);
+        ltShopifyvariant.reset();
+        ltShopifyvariant.SetRange(product_id, pProductID);
+        ltShopifyvariant.DeleteAll();
+        ltJsonObject.SelectToken('$.product', ltJsonToken);
+        ltJsonObject2 := ltJsonToken.AsObject();
+        InsertToDetailTable(Database::"TPP Shopify Variants", ltJsonObject2, 'variants', '');
+        InsertToDetailTable(Database::"TPP Shopify Options", ltJsonObject2, 'options', '');
+    end;
+
+    /// <summary>
+    /// InsertNewVariantbyProduct.
+    /// </summary>
+    /// <param name="pVariantTemp">Temporary Record "TPP Shopify Variants".</param>
+    /// <param name="pProductID">code[50].</param>
+    procedure InsertNewVariantbyProduct(pVariantTemp: Record "TPP Shopify Variants" temporary; pProductID: code[50])
+    var
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltJsonObject, ltJsonObjectBuild : JsonObject;
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        JsonBody, ltUrlAddress, ltResponseText : Text;
+    begin
+        ltShopifyConfiguration.GET();
+        ltJsonObject.Add('option1', pVariantTemp.option1);
+        ltJsonObject.Add('sku', pVariantTemp.sku);
+        ltJsonObject.Add('position', pVariantTemp.position);
+        ltJsonObject.Add('barcode', pVariantTemp.barcode);
+        ltJsonObject.Add('price', pVariantTemp.price);
+        ltJsonObject.Add('grams', pVariantTemp.grams);
+        ltJsonObject.Add('weight', pVariantTemp.weight);
+        ltJsonObject.Add('weight_unit', pVariantTemp.weight_unit);
+        ltJsonObjectBuild.Add('variant', ltJsonObject);
+        ltJsonObjectBuild.WriteTo(JsonBody);
+        ltHttpContent.WriteFrom(JsonBody);
+        ltHttpContent.GetHeaders(ltHttpHeadersContent);
+        ltHttpHeadersContent.Clear();
+        ltHttpHeadersContent.Add('Content-Type', 'application/json');
+        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", 'products/' + pProductID + '/variants.json');
+        ltHttpRequestMessage.Content := ltHttpContent;
+        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+        ltHttpRequestMessage.Method := 'POST';
+        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+    end;
+    /// <summary>
     /// UpdateStatusProduct.
     /// </summary>
     /// <param name="pProductID">code[50].</param>
     procedure updateProduct(pProductID: code[50])
     var
         ltshopifyProduct: Record "TPP Shopify Product";
-        ltshopifyOptions: Record "TPP Shopify Options";
         ltShopifyConfiguration: Record "TPP Shopify Configuration";
         ltJsonObject, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
         ltJsonToken, ltJsonTokenFileName : JsonToken;
-        // ltJsonArray: JsonArray;
         ltHttpContent: HttpContent;
         ltHttpHeadersContent: HttpHeaders;
         ltHttpRequestMessage: HttpRequestMessage;
@@ -127,20 +207,6 @@ codeunit 70000 "TPP Shopify Function"
         ltShopifyConfiguration.GET();
         ltshopifyProduct.GET(pProductID);
         ltHaveOptions := false;
-
-        // ltshopifyOptions.reset();
-        // ltshopifyOptions.SetRange(product_id, ltshopifyProduct.id);
-        // ltshopifyOptions.SetFilter(id, '<>%1', '');
-        // if ltshopifyOptions.FindSet() then
-        //     repeat
-        //         ltJsonObject.Add('id', ltshopifyOptions.id);
-        //         ltJsonObject.Add('product_id', ltshopifyOptions.product_id);
-        //         ltJsonObject.Add('position', ltshopifyOptions.position);
-        //         ltJsonArray.Add(ltJsonObject);
-        //         ltHaveOptions := true;
-        //     until ltshopifyOptions.Next() = 0;
-
-
         CLEAR(ltJsonObject);
         ltJsonObject.Add('id', ltshopifyProduct.id);
         ltJsonObject.Add('title', ltshopifyProduct.title);
@@ -214,7 +280,6 @@ codeunit 70000 "TPP Shopify Function"
                 CLEAR(ltJsonToken);
                 CLEAR(ltResponseText);
                 ltJsonObject.Add('id', ltshopifyVariant.id);
-                ltJsonObject.Add('title', ltshopifyVariant.title);
                 ltJsonObject.Add('price', ltshopifyVariant.price);
                 ltJsonObject.Add('sku', ltshopifyVariant.sku);
                 ltJsonObject.Add('position', ltshopifyVariant.position);
@@ -472,9 +537,9 @@ codeunit 70000 "TPP Shopify Function"
         if ltJsonObject.SelectToken('$.order', ltJsonToken) then begin
             ltJsonObjectValue := ltJsonToken.AsObject();
             ltShopifyOrder.GET(pOrderID);
-            ltShopifyOrder."Clased Order" := true;
+            ltShopifyOrder."Closed Order" := true;
             Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectValue, '$.closed_at'));
-            ltShopifyOrder."Cloase Order at" := ltDateTime;
+            ltShopifyOrder.closed_at := ltDateTime;
             ltShopifyOrder.modify();
         end;
     end;
@@ -498,26 +563,6 @@ codeunit 70000 "TPP Shopify Function"
         end;
     end;
 
-    /// <summary>
-    /// CancelOrder.
-    /// </summary>
-    /// <param name="pOrderID">code[50].</param>
-    procedure CancelOrder(pOrderID: code[50])
-    var
-        ltShopifyOrder: Record "TPP Shopify Order";
-        ltJsonObject, ltJsonObjectValue : JsonObject;
-        ltJsonToken: JsonToken;
-    begin
-        ConnectTOShopify('POST', 'orders/' + pOrderID + '/cancel.json', ltJsonObject);
-        if ltJsonObject.SelectToken('$.order', ltJsonToken) then begin
-            ltJsonObjectValue := ltJsonToken.AsObject();
-            ltShopifyOrder.GET(pOrderID);
-            ltShopifyOrder."Cancelled Order" := true;
-            ltShopifyOrder."Cancelled at" := CurrentDateTime();
-            ltShopifyOrder.modify();
-        end;
-    end;
-
     [EventSubscriber(ObjectType::Table, Database::"Item Journal Line", 'OnAfterCopyItemJnlLineFromSalesLine', '', false, false)]
     local procedure OnAfterCopyItemJnlLineFromSalesLine(SalesLine: Record "Sales Line"; var ItemJnlLine: Record "Item Journal Line")
     var
@@ -534,6 +579,28 @@ codeunit 70000 "TPP Shopify Function"
     begin
         NewItemLedgEntry."Ref. Shopify Order No." := ItemJournalLine."Ref. Shopify Order No.";
         NewItemLedgEntry."Shopify Tracking No." := ItemJournalLine."Shopify Tracking No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Batch", 'OnProcessLinesOnAfterPostGenJnlLines', '', false, false)]
+    local procedure OnProcessLinesOnAfterPostGenJnlLines(var GenJournalLine: Record "Gen. Journal Line"; PreviewMode: Boolean)
+    var
+
+        GenJnlLine3: record "Gen. Journal Line";
+        RefOrderNo: code[50];
+    begin
+        if not PreviewMode then begin
+            GenJnlLine3.Reset();
+            GenJnlLine3.copy(GenJournalLine);
+            GenJnlLine3.SetCurrentKey("Journal Template Name", "Journal Batch Name", "Ref. Shopify Order No.");
+            GenJnlLine3.setfilter("Ref. Shopify Order No.", '<>%1', '');
+            if GenJnlLine3.FindSet() then
+                repeat
+                    if GenJnlLine3."Ref. Shopify Order No." <> RefOrderNo then
+                        CloseOrder(GenJnlLine3."Ref. Shopify Order No.");
+                    RefOrderNo := GenJnlLine3."Ref. Shopify Order No.";
+                until GenJnlLine3.Next() = 0;
+
+        end;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromSalesHeader', '', false, false)]
@@ -726,8 +793,17 @@ codeunit 70000 "TPP Shopify Function"
                         InsertToDetailTable(Database::"TPP Shopify Fulfillment Line", ltJsonObjectValue, 'line_items', COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.id'), 1, 50));
                     if pSelectToken = 'orders' then begin
                         ltsinceID := COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.id'), 1, 50);
-                        InsertToDetailTable(Database::"TPP Shopify Order line", ltJsonObjectValue, 'line_items', COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.order_number'), 1, 50));
                         ShopifyOrder.GET(ltsinceID);
+                        ShopifyOrder.status := 'open';
+                        if COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.cancelled_at'), 1, 50) <> '' then begin
+                            ShopifyOrder.status := 'cancelled';
+                            ShopifyOrder."Cancelled Order" := true;
+                        end;
+                        if COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.closed_at'), 1, 50) <> '' then begin
+                            ShopifyOrder.status := 'closed';
+                            ShopifyOrder."Closed Order" := true;
+                        end;
+                        InsertToDetailTable(Database::"TPP Shopify Order line", ltJsonObjectValue, 'line_items', COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.order_number'), 1, 50));
                         ShopifyOrder."Tracking No." := GetTrackingNo(ShopifyOrder.id);
                         ShopifyOrder.Modify();
                     end;

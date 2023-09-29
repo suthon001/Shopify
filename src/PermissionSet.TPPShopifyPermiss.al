@@ -62,5 +62,8 @@ permissionset 70000 "TPP Shopify Permiss"
         page "TPP Shopify Show Product Img 2" = X,
         page "TPP Shopify Show Product Img 3" = X,
         page "TPP Shopify Get Payment Dialog" = X,
+        page "TPP Shopify Add Variant" = X,
+        page "TPP Shopify Reason" = X,
+        page "TPP Shopify Get Order Payment" = X,
         page "TPP Shopify Update Status Item" = X;
 }

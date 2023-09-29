@@ -17,20 +17,17 @@ page 70023 "TPP Shopify Get Payment Dialog"
                 ToolTip = 'Specifies the value of the Order ID field.';
                 trigger OnLookup(var Text: Text): Boolean
                 var
-                    ltShopifyOrder: Record "TPP Shopify Order";
-                    ltShopifyOrderLists: Page "TPP Shopify Order Lists";
+                    SalesInvoice: Record "Sales Invoice Header";
+                    ltShopifyOrderLists: Page "TPP Shopify Get Order Payment";
                 begin
                     CLEAR(ltShopifyOrderLists);
-                    ltShopifyOrder.reset();
-                    ltShopifyOrder.SetRange("Create to Sales Order", true);
-                    ltShopifyOrder.SetRange("Create to RV No.", '');
-                    ltShopifyOrder.SetFilter("Posted Sales Invoice No.", '<>%1', '');
-                    ltShopifyOrderLists.SetTableView(ltShopifyOrder);
+                    SalesInvoice.reset();
+                    ltShopifyOrderLists.SetTableView(SalesInvoice);
                     ltShopifyOrderLists.Editable := false;
                     ltShopifyOrderLists.LookupMode := true;
                     if ltShopifyOrderLists.RunModal() = Action::LookupOK then begin
-                        ltShopifyOrderLists.GetRecord(ltShopifyOrder);
-                        OrderID := ltShopifyOrder.id;
+                        ltShopifyOrderLists.GetRecord(SalesInvoice);
+                        OrderID := SalesInvoice."Ref. Shopify Order No.";
                     end;
                     CLEAR(ltShopifyOrderLists);
                 end;

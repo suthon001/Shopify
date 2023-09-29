@@ -100,6 +100,11 @@ page 70007 "TPP Shopify Order Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the updated_at field.';
                 }
+                field(status; rec.status)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the status field.';
+                }
 
             }
             part(ShopifySubform; "TPP Shopify Order Subform")
@@ -282,7 +287,6 @@ page 70007 "TPP Shopify Order Card"
                     CLEAR(ShopifyOrderTransaction);
                 end;
             }
-
             action(CreateToSalesOrderFunc)
             {
                 Caption = 'Create To Sales Order';
@@ -327,54 +331,32 @@ page 70007 "TPP Shopify Order Card"
                 end;
             }
 
-            //     action(CloseSalesOrderFunc)
-            //     {
-            //         Caption = 'Close Order';
-            //         Promoted = true;
-            //         PromotedCategory = Process;
-            //         PromotedIsBig = true;
-            //         PromotedOnly = true;
-            //         ApplicationArea = Basic, Suite;
-            //         Image = Payment;
-            //         ToolTip = 'Executes the Close Order action.';
-            //         trigger OnAction()
-            //         var
 
-            //             ShopifyFunction: Codeunit "TPP Shopify Function";
-            //         begin
-            //             rec.TestField(financial_status, 'paid');
-            //             if not Confirm('Do you want Close to Order?') then
-            //                 exit;
-            //             ShopifyFunction.CloseOrder(rec.id);
-            //             Message('Closed Order is successfully');
-            //         end;
-            //     }
-
-            //     action(CancelOrder)
-            //     {
-            //         Caption = 'Cancel Order';
-            //         Promoted = true;
-            //         PromotedCategory = Process;
-            //         PromotedIsBig = true;
-            //         PromotedOnly = true;
-            //         ApplicationArea = Basic, Suite;
-            //         Image = Payment;
-            //         ToolTip = 'Executes the Cancel action.';
-            //         trigger OnAction()
-            //         var
-
-            //             ShopifyFunction: Codeunit "TPP Shopify Function";
-            //         begin
-            //             if not (rec.financial_status in ['pending', 'unpaid']) then begin
-            //                 Message('Status must be pending or unpaid only');
-            //                 exit;
-            //             end;
-            //             if not Confirm('Do you want Cancel to Order?') then
-            //                 exit;
-            //             ShopifyFunction.CloseOrder(rec.id);
-            //             Message('Calcen Order is successfully');
-            //         end;
-            //     }
+            action(CancelOrder)
+            {
+                Caption = 'Cancel Order';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = Basic, Suite;
+                Image = Cancel;
+                ToolTip = 'Executes the Cancel action.';
+                trigger OnAction()
+                var
+                    ShopifyCancel: Page "TPP Shopify Reason";
+                begin
+                    if not (rec.financial_status in ['pending', 'unpaid', 'paid']) then begin
+                        Message('Status must be pending or unpaid or paid only');
+                        exit;
+                    end;
+                    rec.TestField("Cancelled Order", false);
+                    Clear(ShopifyCancel);
+                    ShopifyCancel.SetProductID(rec.id);
+                    ShopifyCancel.RunModal();
+                    CLEAR(ShopifyCancel);
+                end;
+            }
         }
     }
 }

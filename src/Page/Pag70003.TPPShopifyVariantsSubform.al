@@ -21,10 +21,20 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the id field.';
                 }
-                field(title; Rec.title)
+                field(option1; Rec.option1)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the title field.';
+                    ToolTip = 'Specifies the value of the option1 field.';
+                }
+                field(option2; Rec.option2)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the option2 field.';
+                }
+                field(option3; Rec.option3)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the option3 field.';
                 }
                 field(price; Rec.price)
                 {
@@ -51,21 +61,7 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the fulfillment_service field.';
                 }
-                field(option1; Rec.option1)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the option1 field.';
-                }
-                field(option2; Rec.option2)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the option2 field.';
-                }
-                field(option3; Rec.option3)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the option3 field.';
-                }
+
                 field(created_at; Rec.created_at)
                 {
                     ApplicationArea = All;
@@ -128,15 +124,40 @@ page 70003 "TPP Shopify Variants Subform"
                 ToolTip = 'Executes the Delete Variant action.';
                 trigger OnAction()
                 var
+                    ShopifyVariants: Record "TPP Shopify Variants";
                     ShopifyFunction: Codeunit "TPP Shopify Function";
                     DeleteImageQst: Label 'Are you sure you want to delete Variant id %1 , %2 ?', Locked = true;
                 begin
+                    ShopifyVariants.reset();
+                    ShopifyVariants.SetRange(product_id, rec.product_id);
+                    if ShopifyVariants.Count = 1 then begin
+                        Message('Cannot delete becaese not less 1 record.');
+                        exit;
+                    end;
                     if not Confirm(StrSubstNo(DeleteImageQst, rec.id, rec.title)) then
                         exit;
                     ShopifyFunction.DeleteVariant(rec.product_id, rec.id);
+                    ShopifyFunction.GetProductOptions(rec.product_id);
                     rec.Delete(true);
+                    CurrPage.Update();
                 end;
 
+            }
+            action(AddVariant)
+            {
+                Caption = 'Add Variant';
+                Image = Add;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Add Variant action.';
+                trigger OnAction()
+                var
+                    ShopifyAddVariant: Page "TPP Shopify Add Variant";
+                begin
+                    CLEAR(ShopifyAddVariant);
+                    ShopifyAddVariant.SetProductID(rec.product_id);
+                    ShopifyAddVariant.RunModal();
+                    CLEAR(ShopifyAddVariant);
+                end;
             }
         }
     }
