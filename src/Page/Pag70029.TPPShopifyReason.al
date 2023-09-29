@@ -36,11 +36,13 @@ page 70029 "TPP Shopify Reason"
     begin
         if CloseAction In [Action::OK, Action::Yes] then begin
             ShopifyFunction.ConnectTOShopify('POST', 'orders/' + OrderID + '/cancel.json?reason=' + Format(ReasonCode), ltJsonObject);
-            ShopifyOrder.GET(OrderID);
-            ShopifyOrder."Cancelled Order" := true;
-            ShopifyOrder.cancelled_at := CurrentDateTime();
-            ShopifyOrder.cancel_reason := Format(ReasonCode);
-            ShopifyOrder.Modify();
+            if ShopifyOrder.GET(OrderID) then begin
+                ShopifyOrder."Cancelled Order" := true;
+                ShopifyOrder.cancelled_at := CurrentDateTime();
+                ShopifyOrder.cancel_reason := Format(ReasonCode);
+                ShopifyOrder.status := 'cancelled';
+                ShopifyOrder.Modify();
+            end;
         end;
 
     end;

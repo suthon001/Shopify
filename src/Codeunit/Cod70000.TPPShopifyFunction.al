@@ -146,6 +146,97 @@ codeunit 70000 "TPP Shopify Function"
         InsertToDetailTable(Database::"TPP Shopify Options", ltJsonObject2, 'options', '');
     end;
 
+
+    /// <summary>
+    /// CreateRefunds.
+    /// </summary>
+    /// <param name="pOderID">code[50].</param>
+    // /// <param name="pReason">text.</param>
+    // procedure CreateRefunds(pOderID: code[50]; pReason: text)
+    // var
+    //     ltShopifyConfiguration: Record "TPP Shopify Configuration";
+    //     ltShopifyOrder: Record "TPP Shopify Order";
+    //     ltShopifyOrderLine: Record "TPP Shopify Order Line";
+    //     ltJsonObject, ltJsonObject2, ltJsonObjectBuild : JsonObject;
+    //     ltJsonArray: JsonArray;
+    //     ltHttpContent: HttpContent;
+    //     ltHttpHeadersContent: HttpHeaders;
+    //     ltHttpRequestMessage: HttpRequestMessage;
+    //     ltHttpResponseMessage: HttpResponseMessage;
+    //     ltHttpClient: HttpClient;
+    //     JsonBody, ltUrlAddress, ltResponseText : Text;
+    // begin
+    // ltShopifyConfiguration.GET();
+    // ltShopifyOrder.GET(pOderID);
+    // ltJsonObject.Add('currency', ltShopifyOrder.currency);
+    // ltJsonObject.Add('notify', true);
+    // ltJsonObject.Add('note', pReason);
+    // ltJsonObject2.Add('full_refund', true);
+    // ltJsonObject.Add('shipping', ltJsonObject2);
+    // ltShopifyOrderLine.reset();
+    // ltShopifyOrderLine.SetRange(order_number, ltShopifyOrder.order_number);
+    // ltShopifyOrderLine.SetFilter(product_id, '<>%1', '');
+    // CLEAR(ltJsonObject2);
+    // ltJsonObject2.Add('line_item_id', ltShopifyOrderLine.product_id);
+    // ltJsonObject2.Add('quantity', ltShopifyOrderLine.quantity);
+    // ltJsonObject2.Add('restock_type', 'return');
+    // ltJsonObject2.Add('location_id',ltShopifyOrderLine.);
+    // ltJsonArray.Add('refund_line_items', ltJsonObject2);
+
+    // ltJsonObjectBuild.WriteTo(JsonBody);
+
+    // ltHttpContent.WriteFrom(JsonBody);
+    // ltHttpContent.GetHeaders(ltHttpHeadersContent);
+    // ltHttpHeadersContent.Clear();
+    // ltHttpHeadersContent.Add('Content-Type', 'application/json');
+    // ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+    // ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", 'products/' + pProductID + '/variants.json');
+    // ltHttpRequestMessage.Content := ltHttpContent;
+    // ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+    // ltHttpRequestMessage.Method := 'POST';
+    // ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+    // ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+    //end;
+
+    /// <summary>
+    /// InsertNewFulfillmentService.
+    /// </summary>
+    /// <param name="pCarrierFulfillmentTemp">Temporary Record "TPP Shopify fulfillment Ser".</param>
+    procedure InsertNewFulfillmentService(pCarrierFulfillmentTemp: Record "TPP Shopify fulfillment Ser." temporary)
+    var
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltJsonObject, ltJsonObjectBuild : JsonObject;
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        JsonBody, ltUrlAddress, ltResponseText : Text;
+    begin
+        ltShopifyConfiguration.GET();
+        ltJsonObject.Add('name', pCarrierFulfillmentTemp.name);
+        ltJsonObject.Add('callback_url', pCarrierFulfillmentTemp.callback_url);
+        ltJsonObject.Add('inventory_management', pCarrierFulfillmentTemp.inventory_management);
+        ltJsonObject.Add('tracking_support', pCarrierFulfillmentTemp.tracking_support);
+        ltJsonObject.Add('requires_shipping_method', true);
+        ltJsonObject.Add('format', 'json');
+        ltJsonObject.Add('permits_sku_sharing', true);
+        ltJsonObject.Add('fulfillment_orders_opt_in', pCarrierFulfillmentTemp.fulfillment_orders_opt_in);
+        ltJsonObjectBuild.Add('fulfillment_service', ltJsonObject);
+        ltJsonObjectBuild.WriteTo(JsonBody);
+        ltHttpContent.WriteFrom(JsonBody);
+        ltHttpContent.GetHeaders(ltHttpHeadersContent);
+        ltHttpHeadersContent.Clear();
+        ltHttpHeadersContent.Add('Content-Type', 'application/json');
+        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", '/fulfillment_services.json');
+        ltHttpRequestMessage.Content := ltHttpContent;
+        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+        ltHttpRequestMessage.Method := 'POST';
+        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+    end;
+
     /// <summary>
     /// InsertNewVariantbyProduct.
     /// </summary>
@@ -544,24 +635,7 @@ codeunit 70000 "TPP Shopify Function"
         end;
     end;
 
-    /// <summary>
-    /// RefundOrder.
-    /// </summary>
-    /// <param name="pOrderID">code[50].</param>
-    procedure RefundOrder(pOrderID: code[50])
-    var
-        ltShopifyOrder: Record "TPP Shopify Order";
-        ltJsonObject, ltJsonObjectValue : JsonObject;
-        ltJsonToken: JsonToken;
-    begin
-        ConnectTOShopify('POST', 'orders/' + pOrderID + '/refunds.json', ltJsonObject);
-        if ltJsonObject.SelectToken('$.refund', ltJsonToken) then begin
-            ltJsonObjectValue := ltJsonToken.AsObject();
-            ltShopifyOrder.GET(pOrderID);
-            ltShopifyOrder.financial_status := 'refunded';
-            ltShopifyOrder.modify();
-        end;
-    end;
+
 
     [EventSubscriber(ObjectType::Table, Database::"Item Journal Line", 'OnAfterCopyItemJnlLineFromSalesLine', '', false, false)]
     local procedure OnAfterCopyItemJnlLineFromSalesLine(SalesLine: Record "Sales Line"; var ItemJnlLine: Record "Item Journal Line")
@@ -588,6 +662,7 @@ codeunit 70000 "TPP Shopify Function"
         GenJnlLine3: record "Gen. Journal Line";
         RefOrderNo: code[50];
     begin
+        RefOrderNo := '';
         if not PreviewMode then begin
             GenJnlLine3.Reset();
             GenJnlLine3.copy(GenJournalLine);

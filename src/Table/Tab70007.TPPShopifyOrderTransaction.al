@@ -65,6 +65,12 @@ table 70007 "TPP Shopify Order Transaction"
             Caption = 'parent_id';
             DataClassification = CustomerContent;
         }
+        field(12; gateway; Text[100])
+        {
+            Caption = 'gateway';
+            DataClassification = CustomerContent;
+
+        }
     }
     keys
     {

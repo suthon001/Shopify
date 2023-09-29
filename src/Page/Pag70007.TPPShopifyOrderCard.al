@@ -346,11 +346,7 @@ page 70007 "TPP Shopify Order Card"
                 var
                     ShopifyCancel: Page "TPP Shopify Reason";
                 begin
-                    if not (rec.financial_status in ['pending', 'unpaid', 'paid']) then begin
-                        Message('Status must be pending or unpaid or paid only');
-                        exit;
-                    end;
-                    rec.TestField("Cancelled Order", false);
+                    rec.TestField(status, 'open');
                     Clear(ShopifyCancel);
                     ShopifyCancel.SetProductID(rec.id);
                     ShopifyCancel.RunModal();

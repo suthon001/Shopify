@@ -143,12 +143,12 @@ page 70003 "TPP Shopify Variants Subform"
                 end;
 
             }
-            action(AddVariant)
+            action(CreateVariant)
             {
-                Caption = 'Add Variant';
+                Caption = 'Create Variant';
                 Image = Add;
                 ApplicationArea = all;
-                ToolTip = 'Executes the Add Variant action.';
+                ToolTip = 'Executes the Create Variant action.';
                 trigger OnAction()
                 var
                     ShopifyAddVariant: Page "TPP Shopify Add Variant";

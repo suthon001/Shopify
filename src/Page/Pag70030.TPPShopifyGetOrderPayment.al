@@ -22,7 +22,7 @@ page 70030 "TPP Shopify Get Order Payment"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the number of the record.';
-                    Caption = 'Invoice. No.';
+                    Caption = 'Invoice No.';
                 }
                 field("Ref. Shopify Order No."; Rec."Ref. Shopify Order No.")
                 {

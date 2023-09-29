@@ -3,7 +3,7 @@
 /// </summary>
 page 70028 "TPP Shopify Add Variant"
 {
-    Caption = 'Shopify Add Variant';
+    Caption = 'Shopify Create Variant';
     PageType = List;
     SourceTable = "TPP Shopify Variants";
     UsageCategory = None;
