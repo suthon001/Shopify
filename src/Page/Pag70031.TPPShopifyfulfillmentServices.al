@@ -10,6 +10,7 @@ page 70031 "TPP Shopify fulfill. Services"
     UsageCategory = Lists;
     DeleteAllowed = false;
     InsertAllowed = false;
+    Editable = false;
     layout
     {
         area(content)
@@ -83,6 +84,25 @@ page 70031 "TPP Shopify fulfill. Services"
     {
         area(Processing)
         {
+            action(CreateCarrierService)
+            {
+                Caption = 'Create fulfillment Service';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = Basic, Suite;
+                Image = Add;
+                ToolTip = 'Executes the Create fulfillment Service action.';
+                trigger OnAction()
+                var
+                    ShopifyAddCerrierSer: Page "TPP Shopify Add fulfill. Ser.";
+                begin
+                    CLEAR(ShopifyAddCerrierSer);
+                    ShopifyAddCerrierSer.RunModal();
+                    CLEAR(ShopifyAddCerrierSer);
+                end;
+            }
             action(GetfulfillmentService)
             {
                 Caption = 'Get fulfillment Service';
@@ -104,21 +124,6 @@ page 70031 "TPP Shopify fulfill. Services"
                     Commit();
                     ShopifyFunction.InsertToTable('GET', Database::"TPP Shopify fulfillment Ser.", 'fulfillment_services.json?scope=all', 'fulfillment_services', 0);
                     CurrPage.Update();
-                end;
-            }
-            action(CreateCarrierService)
-            {
-                Caption = 'Create fulfillment Service';
-                Image = Add;
-                ApplicationArea = all;
-                ToolTip = 'Executes the Create fulfillment Service action.';
-                trigger OnAction()
-                var
-                    ShopifyAddCerrierSer: Page "TPP Shopify Add fulfill. Ser.";
-                begin
-                    CLEAR(ShopifyAddCerrierSer);
-                    ShopifyAddCerrierSer.RunModal();
-                    CLEAR(ShopifyAddCerrierSer);
                 end;
             }
             action(DeleteCarrierService)

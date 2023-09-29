@@ -283,6 +283,76 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Fulfillment Line - Field vendor - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3995463522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TPP Shopify fulfillment Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 1877412328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>admin_graphql_api_id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field admin_graphql_api_id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 4280429063 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>callback_url</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field callback_url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 3163706192 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 1892393112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>fulfillment_orders_opt_in</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field fulfillment_orders_opt_in - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 4043459614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>handle</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field handle - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 2686962215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 2876491317 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>include_pending_stock</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field include_pending_stock - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 406275698 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>inventory_management</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field inventory_management - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 3279589977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>location_id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field location_id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 3558812865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 4290411341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>provider_id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field provider_id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 757470823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>service_name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field service_name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3995463522 - Field 945132721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>tracking_support</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify fulfillment Ser. - Field tracking_support - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 532124851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Image</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -953,6 +1023,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order Transaction - Field currency - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 307542440 - Field 1167665420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>gateway</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order Transaction - Field gateway - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 307542440 - Field 2686962215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>id</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1388,8 +1463,53 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Variants - Field weight_unit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3996048613 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Create fulfillment Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Control 4280429063 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the callback_url field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Control callback_url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Control 3163706192 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the email field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Control email - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Control 1892393112 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the fulfillment_orders_opt_in field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Control fulfillment_orders_opt_in - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Control 406275698 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the inventory_management field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Control inventory_management - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Control 3558812865 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the name field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Control name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Control 945132721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the tracking_support field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Control tracking_support - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Action 3065599329 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Post Fulfillment Service action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Action PostFulfillmentService - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3996048613 - Action 3065599329 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Fulfillment Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Action PostFulfillmentService - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1045628364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shopify Add Variant</source>
+          <source>Shopify Create Variant</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Variant - Property Caption</note>
         </trans-unit>
@@ -1597,6 +1717,106 @@
           <source>Page Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Control Field - Control gvPageMetadata_Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify fulfillment Services</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 4280429063 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the callback_url field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control callback_url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 3163706192 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the email field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control email - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 1892393112 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the fulfillment_orders_opt_in field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control fulfillment_orders_opt_in - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 4043459614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the handle field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control handle - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 2686962215 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the id field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 2876491317 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the include_pending_stock field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control include_pending_stock - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 406275698 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the inventory_management field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control inventory_management - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 3279589977 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the location_id field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control location_id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 3558812865 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the name field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 4290411341 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the callback_url field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control provider_id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 757470823 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the service_name field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control service_name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Control 945132721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the tracking_support field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Control tracking_support - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 3087722535 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Create fulfillment Service action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action CreateCarrierService - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 3087722535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create fulfillment Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action CreateCarrierService - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 2409259932 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Delete action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action DeleteCarrierService - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 2409259932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action DeleteCarrierService - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 2409259932 - Method 1377591017 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the fulfillment Service?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action DeleteCarrierService - Method OnAction - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 681703939 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Get fulfillment Service action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action GetfulfillmentService - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 990588138 - Action 681703939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get fulfillment Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify fulfill. Services - Action GetfulfillmentService - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4228016124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Card</source>
@@ -1899,7 +2119,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 598285752 - Control 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice. No.</source>
+          <source>Invoice No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control No. - Property Caption</note>
         </trans-unit>
@@ -3453,6 +3673,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action ShopifyProduct - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4290105451 - Action 2450917853 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping &amp; Fulfillment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action ShippingandFulfillment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4290105451 - Action 4107335633 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Shopify Fulfillment Service action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action FulfillmentService - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4290105451 - Action 4107335633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fulfillment Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action FulfillmentService - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4290105451 - Action 4237583534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Configuration</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3723,15 +3958,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Control weight_unit - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3465675748 - Action 574688138 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Executes the Add Variant action.</source>
+        <trans-unit id="Page 3465675748 - Action 355292373 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Create Variant action.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action AddVariant - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action CreateVariant - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3465675748 - Action 574688138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Add Variant</source>
+        <trans-unit id="Page 3465675748 - Action 355292373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Variant</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action AddVariant - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action CreateVariant - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3465675748 - Action 3672820106 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executes the Delete Variant action.</source>
