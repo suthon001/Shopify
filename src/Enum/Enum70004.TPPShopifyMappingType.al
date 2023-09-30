@@ -7,5 +7,4 @@ enum 70004 "TPP Shopify Mapping Type"
     value(0; " ") { Caption = ' '; }
     value(1; "Item") { Caption = 'Item'; }
     value(2; "Variant") { Caption = 'Variant'; }
-    value(3; "Options") { Caption = 'Options'; }
 }

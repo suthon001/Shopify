@@ -1508,6 +1508,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add fulfill. Ser. - Action PostFulfillmentService - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2329869823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Add Fulfillment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 3341719881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Company field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control company - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 3341719881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control company - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 2757394829 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the trackinginfo field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control number - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 2757394829 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tracking Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 847715957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Order ID field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control OrderID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 847715957 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control OrderID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 4170335149 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the url field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2329869823 - Control 4170335149 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Url</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Add Fulfillment - Control url - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1045628364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Create Variant</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1987,6 +2032,16 @@
           <source>Specifies the value of the updated_at field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Fulfillment Lists - Control updated_at - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4283410663 - Action 193034314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Create Fulfillment action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Fulfillment Lists - Action CreateFulfillment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4283410663 - Action 193034314 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Fulfillment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Fulfillment Lists - Action CreateFulfillment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3379928738 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Sub.</source>
@@ -4243,11 +4298,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Mapping Type - EnumValue Item - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 58909070 - EnumValue 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Options</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Mapping Type - EnumValue Options - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 58909070 - EnumValue 112710097 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Variant</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4317,6 +4367,561 @@
           <source>other</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Reason - EnumValue other - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 18652612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue  - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2700425232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>4PX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue 4PX - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1459002119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue AGS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 68590813 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amazon Logistics UK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Amazon Logistics UK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 875196453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amazon Logistics US</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Amazon Logistics US - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3291879401 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>An Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue An Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2068461175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Anjun Logistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Anjun Logistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3994898478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APC</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue APC - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2731079766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Asendia USA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Asendia USA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1716238904 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Australia Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Australia Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 158195322 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bonshaw</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Bonshaw - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2733075550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BPost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue BPost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1354365740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BPost International</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue BPost International - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3016620636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Canada Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Canada Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2489350945 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Canpar</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Canpar - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 74338000 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CDL Last Mile</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue CDL Last Mile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1909340279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>China Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue China Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 706008929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Chronopost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Chronopost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4232898546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Chukou1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Chukou1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4051064574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Colissimo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Colissimo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4020010300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comingle</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Comingle - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3508924277 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coordinadora</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Coordinadora - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2999628160 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Correios</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Correios - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 445854927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Correos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Correos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1326348437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CTT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue CTT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 21017331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CTT Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue CTT Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1214414466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cyprus Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Cyprus Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1971481166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delnext</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Delnext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1872179871 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deutsche Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Deutsche Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3218384532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DHL eCommerce</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DHL eCommerce - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3476382678 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DHL eCommerce Asia</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DHL eCommerce Asia - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2133422158 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DHL Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DHL Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2110416780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DoorDash</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DoorDash - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 130098604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DPD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DPD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 549808551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DPD Local</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DPD Local - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2918350146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DPD UK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DPD UK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1524520618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DTD Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DTD Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 793406872 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue DX - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3756565054 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Eagle</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Eagle - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1873528568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Estes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Estes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2826731940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Evri</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Evri - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4125883078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FedEx</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue FedEx - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3043761286 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First Global Logistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue First Global Logistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 957931360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue First Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4223318242 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FSC</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue FSC - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 570266259 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fulfilla</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Fulfilla - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1702978532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GLS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue GLS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3452078385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Guangdong Weisuyi Information Technology (WSE)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Guangdong Weisuyi Information Technology (WSE) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2487808916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Heppner Internationale Spedition GmbH &amp; Co.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Heppner Internationale Spedition GmbH &amp; Co. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1757368116 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Iceland Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Iceland Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 527986292 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IDEX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue IDEX - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2985040716 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Israel Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Israel Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3224699474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Japan Post (EN)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Japan Post (EN) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3914595930 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Japan Post (JA)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Japan Post (JA) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3051523884 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La Poste</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue La Poste - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3746958077 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lasership</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Lasership - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2131128497 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Latvia Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Latvia Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 927642974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lietuvos Paštas</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Lietuvos Paštas - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1074043058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logisters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Logisters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 577112874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lone Star Overnight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Lone Star Overnight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3904151311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>M3 Logistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue M3 Logistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 391819260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Meteor Space</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Meteor Space - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3036555641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mondial Relay</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Mondial Relay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2227277295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Zealand Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue New Zealand Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1550602341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NinjaVan</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue NinjaVan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 400824984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>North Russia Supply Chain (Shenzhen) Co.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue North Russia Supply Chain (Shenzhen) Co. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 810199863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OnTrac</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue OnTrac - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3455400731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packeta</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Packeta - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2266928014 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pago Logistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Pago Logistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3185875110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ping An Da Tengfei Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Ping An Da Tengfei Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3010122197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pitney Bowes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Pitney Bowes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2661428093 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Portal PostNord</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Portal PostNord - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2153168082 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Poste Italiane</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Poste Italiane - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3914336982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PostNL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue PostNL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4153336332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PostNord DK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue PostNord DK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 926500466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PostNord NO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue PostNord NO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 759736083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PostNord SE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue PostNord SE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1856165472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purolator</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Purolator - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1609296714 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qxpress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Qxpress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1430524875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qyun Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Qyun Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3441303212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Royal Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Royal Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 300809182 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Royal Shipments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Royal Shipments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1738732300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sagawa (EN)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Sagawa (EN) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 764775316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sagawa (JA)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Sagawa (JA) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3036372239 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sendle</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Sendle - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2076607841 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SF Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue SF Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1706464680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SFC Fulfillment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue SFC Fulfillment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3030688922 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SHREE NANDAN COURIER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue SHREE NANDAN COURIER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4170528286 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Singapore Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Singapore Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1522461134 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Southwest Air Cargo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Southwest Air Cargo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3538938709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>StarTrack</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue StarTrack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3090718342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Step Forward Freight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Step Forward Freight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 495751687 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Swiss Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Swiss Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1726199252 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TForce Final Mile</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue TForce Final Mile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3288047334 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tinghao</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Tinghao - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1532313042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TNT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue TNT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 4214929840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Toll IPEC</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Toll IPEC - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2875201610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>United Delivery Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue United Delivery Service - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 461864906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UPS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue UPS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1824801391 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>USPS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue USPS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2498344906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Venipak</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Venipak - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2736320742 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>We Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue We Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 1722210975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Whistl</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Whistl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2456895226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Wizmo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Wizmo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3198413012 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WMYC</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue WMYC - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2436758828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Xpedigo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Xpedigo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 332690864 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XPO Logistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue XPO Logistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 779846119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yamato (EN)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Yamato (EN) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 2667482159 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yamato (JA)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Yamato (JA) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3760013853 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>YiFan Express</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue YiFan Express - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3212636860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>YunExpress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue YunExpress - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2041985031 - Property 2879900210" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Permiss</source>

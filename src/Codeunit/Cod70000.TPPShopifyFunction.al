@@ -199,6 +199,37 @@ codeunit 70000 "TPP Shopify Function"
     //end;
 
     /// <summary>
+    /// CreateRefunds.
+    /// </summary>
+    /// <param name="JsonBody">Text.</param>
+    /// <param name="pOderID">code[50].</param>
+    procedure CreateFulfillment(JsonBody: Text; pOderID: code[50])
+    var
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        ltUrlAddress, ltResponseText : Text;
+    begin
+        ltShopifyConfiguration.GET();
+        ltHttpContent.WriteFrom(JsonBody);
+        ltHttpContent.GetHeaders(ltHttpHeadersContent);
+        ltHttpHeadersContent.Clear();
+        ltHttpHeadersContent.Add('Content-Type', 'application/json');
+        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
+        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", '/fulfillments.json');
+        ltHttpRequestMessage.Content := ltHttpContent;
+        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+        ltHttpRequestMessage.Method := 'POST';
+        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+        if (ltHttpResponseMessage.IsSuccessStatusCode()) then
+            FulfillmentOrder(pOderID);
+    end;
+
+    /// <summary>
     /// InsertNewFulfillmentService.
     /// </summary>
     /// <param name="pCarrierFulfillmentTemp">Temporary Record "TPP Shopify fulfillment Ser".</param>

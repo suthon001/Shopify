@@ -95,18 +95,4 @@ page 70032 "TPP Shopify Add fulfill. Ser."
         rec.id := format(Random(10000));
     end;
 
-
-
-
-    /// <summary>
-    /// SetProductID.
-    /// </summary>
-    /// <param name="pProductID">code[50].</param>
-    procedure SetProductID(pProductID: code[50])
-    begin
-        ProductID := pProductID;
-    end;
-
-    var
-        ProductID: code[50];
 }

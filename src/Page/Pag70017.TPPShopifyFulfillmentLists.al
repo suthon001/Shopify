@@ -94,4 +94,32 @@ page 70017 "TPP Shopify Fulfillment Lists"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(CreateFulfillment)
+            {
+                Caption = 'Create Fulfillment';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Image = Post;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Create Fulfillment action.';
+                trigger OnAction()
+                var
+                    Shopifyaddfulfillment: Page "TPP Shopify Add Fulfillment";
+                begin
+                    rec.TestField(Rec.order_id);
+                    rec.TestField(rec.id);
+                    CLEAR(Shopifyaddfulfillment);
+                    Shopifyaddfulfillment.SetOrderID(rec.order_id);
+                    Shopifyaddfulfillment.RunModal();
+                    CLEAR(Shopifyaddfulfillment);
+                end;
+            }
+        }
+    }
 }
