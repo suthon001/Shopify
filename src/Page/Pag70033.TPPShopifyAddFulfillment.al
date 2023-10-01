@@ -11,36 +11,33 @@ page 70033 "TPP Shopify Add Fulfillment"
     {
         area(content)
         {
-            group(General)
+
+            field(OrderID; OrderID)
             {
-                ShowCaption = false;
-                field(OrderID; OrderID)
-                {
-                    ApplicationArea = all;
-                    Caption = 'Order ID';
-                    Editable = false;
-                    ToolTip = 'Specifies the value of the Order ID field.';
-                }
-                field(company; company)
-                {
-                    Caption = 'Company';
-                    ToolTip = 'Specifies the value of the Company field.';
-                    ApplicationArea = all;
-                }
-                field(number; number)
-                {
-                    Caption = 'Tracking Number';
-                    ToolTip = 'Specifies the value of the trackinginfo field.';
-                    ApplicationArea = all;
+                ApplicationArea = all;
+                Caption = 'Order ID';
+                Editable = false;
+                ToolTip = 'Specifies the value of the Order ID field.';
+            }
+            field(company; company)
+            {
+                Caption = 'Company';
+                ToolTip = 'Specifies the value of the Company field.';
+                ApplicationArea = all;
+            }
+            field(number; number)
+            {
+                Caption = 'Tracking Number';
+                ToolTip = 'Specifies the value of the trackinginfo field.';
+                ApplicationArea = all;
 
-                }
-                field(url; url)
-                {
-                    Caption = 'Url';
-                    ToolTip = 'Specifies the value of the url field.';
-                    ApplicationArea = all;
+            }
+            field(url; url)
+            {
+                Caption = 'Url';
+                ToolTip = 'Specifies the value of the url field.';
+                ApplicationArea = all;
 
-                }
             }
         }
     }

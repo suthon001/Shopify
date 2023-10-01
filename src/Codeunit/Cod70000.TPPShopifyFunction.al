@@ -226,7 +226,9 @@ codeunit 70000 "TPP Shopify Function"
         ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
         ltHttpResponseMessage.Content.ReadAs(ltResponseText);
         if (ltHttpResponseMessage.IsSuccessStatusCode()) then
-            FulfillmentOrder(pOderID);
+            FulfillmentOrder(pOderID)
+        else
+            Message(ltResponseText);
     end;
 
     /// <summary>

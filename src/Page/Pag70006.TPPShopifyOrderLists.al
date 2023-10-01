@@ -214,6 +214,7 @@ page 70006 "TPP Shopify Order Lists"
                     Commit();
                     FulfillmentOrderRec.reset();
                     FulfillmentOrderRec.SetRange(order_id, rec.id);
+                    FulfillmentOrder.SetOrderID(rec.id);
                     FulfillmentOrder.SetTableView(FulfillmentOrderRec);
                     FulfillmentOrder.RunModal();
                     CurrPage.Update();

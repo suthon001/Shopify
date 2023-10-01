@@ -112,14 +112,23 @@ page 70017 "TPP Shopify Fulfillment Lists"
                 var
                     Shopifyaddfulfillment: Page "TPP Shopify Add Fulfillment";
                 begin
-                    rec.TestField(Rec.order_id);
-                    rec.TestField(rec.id);
                     CLEAR(Shopifyaddfulfillment);
-                    Shopifyaddfulfillment.SetOrderID(rec.order_id);
+                    Shopifyaddfulfillment.SetOrderID(OrderID);
                     Shopifyaddfulfillment.RunModal();
                     CLEAR(Shopifyaddfulfillment);
                 end;
             }
         }
     }
+    /// <summary>
+    /// SetOrderID
+    /// /// </summary>
+    /// <param name="pOrderID"></param>
+    procedure SetOrderID(pOrderID: code[50])
+    begin
+        OrderID := pOrderID;
+    end;
+
+    var
+        OrderID: Code[50];
 }
