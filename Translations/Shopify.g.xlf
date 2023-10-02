@@ -783,6 +783,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field order_number - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3244026332 - Field 2408509843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>payment_status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Order - Field payment_status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3244026332 - Field 2524668112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>phone</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4702,6 +4707,11 @@
           <source>OnTrac</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue OnTrac - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 967121660 - EnumValue 3448339824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TPP Shopify Tracking Companies - EnumValue Other - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 967121660 - EnumValue 3455400731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Packeta</source>

@@ -115,6 +115,7 @@ enum 70006 "TPP Shopify Tracking Companies"
     Value(108; "Yamato (JA)") { Caption = 'Yamato (JA)'; }
     Value(109; "YiFan Express") { Caption = 'YiFan Express'; }
     Value(110; "YunExpress") { Caption = 'YunExpress'; }
+    Value(111; "Other") { Caption = 'Other'; }
 
 
 }

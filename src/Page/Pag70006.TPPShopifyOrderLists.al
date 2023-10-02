@@ -6,7 +6,7 @@ page 70006 "TPP Shopify Order Lists"
     Caption = 'Shopify Order Lists';
     PageType = List;
     SourceTable = "TPP Shopify Order";
-    SourceTableView = sorting(id) where("Closed Order" = const(false), "Create to Sales Order" = const(false));
+    SourceTableView = sorting(id);
     ApplicationArea = all;
     UsageCategory = Lists;
     Editable = false;

@@ -405,6 +405,12 @@ table 70005 "TPP Shopify Order"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(80; payment_status; text[50])
+        {
+            Caption = 'payment_status';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
 
     }
     keys
@@ -419,6 +425,7 @@ table 70005 "TPP Shopify Order"
         ShopifyOrderLine: Record "TPP Shopify Order Line";
         ShopifyTransaction: Record "TPP Shopify Order Transaction";
         ShopifyRefurnDetail: Record "TPP Shopify Refund Detail";
+
     begin
         rec.TestField("Create to Sales Order", false);
         rec.TestField("Closed Order", false);

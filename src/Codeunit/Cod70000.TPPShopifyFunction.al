@@ -911,6 +911,7 @@ codeunit 70000 "TPP Shopify Function"
                             ShopifyOrder.status := 'closed';
                             ShopifyOrder."Closed Order" := true;
                         end;
+
                         InsertToDetailTable(Database::"TPP Shopify Order line", ltJsonObjectValue, 'line_items', COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.order_number'), 1, 50));
                         ShopifyOrder."Tracking No." := GetTrackingNo(ShopifyOrder.id);
                         ShopifyOrder.Modify();

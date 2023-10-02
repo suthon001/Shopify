@@ -24,6 +24,17 @@ page 70033 "TPP Shopify Add Fulfillment"
                 Caption = 'Company';
                 ToolTip = 'Specifies the value of the Company field.';
                 ApplicationArea = all;
+                trigger OnValidate()
+                begin
+                    if company = company::Other then
+                        ShowUrl := true
+                    else begin
+                        ShowUrl := false;
+                        url := '';
+                    end;
+                    CurrPage.Update();
+
+                end;
             }
             field(number; number)
             {
@@ -37,10 +48,16 @@ page 70033 "TPP Shopify Add Fulfillment"
                 Caption = 'Url';
                 ToolTip = 'Specifies the value of the url field.';
                 ApplicationArea = all;
+                Visible = ShowUrl;
 
             }
         }
     }
+    trigger OnOpenPage()
+    begin
+        ShowUrl := false;
+    end;
+
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
         ShopifyFunction: Codeunit "TPP Shopify Function";
@@ -73,7 +90,8 @@ page 70033 "TPP Shopify Add Fulfillment"
         CLEAR(ltJsonObject);
         ltJsonObject.Add('company', format(company));
         ltJsonObject.Add('number', number);
-        ltJsonObject.Add('url', url);
+        if ShowUrl then
+            ltJsonObject.Add('url', url);
         ltJsonObjectBuild.Add('line_items_by_fulfillment_order', ltJsonArray);
         ltJsonObjectBuild.Add('tracking_info', ltJsonObject);
         ltJsonObjectBuild2.Add('fulfillment', ltJsonObjectBuild);
@@ -86,4 +104,5 @@ page 70033 "TPP Shopify Add Fulfillment"
         OrderID: code[50];
         number, url : Text;
         company: Enum "TPP Shopify Tracking Companies";
+        ShowUrl: Boolean;
 }
