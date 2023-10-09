@@ -2698,6 +2698,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action CancelOrder - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 351171788 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Close Order action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action CloseOrder - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 351171788 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Close Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action CloseOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 351171788 - Method 1377591017 - NamedType 466886538" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to Close Order?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action CloseOrder - Method OnAction - NamedType CloseOrderQst</note>
+        </trans-unit>
         <trans-unit id="Page 3896740712 - Action 885171985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executes the Create To Sales Order action.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2727,6 +2742,21 @@
           <source>Payment &amp; Refund Detail</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action PaymentStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 1243321629 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Re-open a closed order action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action Re-open a closed order - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 1243321629 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re-open a closed order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action Re-open a closed order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3896740712 - Action 1243321629 - Method 1377591017 - NamedType 466886538" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to Re-open a closed order?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Order Card - Action Re-open a closed order - Method OnAction - NamedType CloseOrderQst</note>
         </trans-unit>
         <trans-unit id="Page 3762703355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Order Lists</source>
