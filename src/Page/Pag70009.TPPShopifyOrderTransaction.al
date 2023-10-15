@@ -56,38 +56,38 @@ page 70009 "TPP Shopify Order Transaction"
             }
         }
     }
-    actions
-    {
-        area(Processing)
-        {
-            action(RefundInformation)
-            {
-                Caption = 'Refund Information';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                ApplicationArea = Basic, Suite;
-                Image = RefreshDiscount;
-                ToolTip = 'Executes the Refund Information action.';
-                trigger OnAction()
-                var
-                    ShopifyOrderRefund: Record "TPP Shopify Refund Detail";
-                    ShopifyOrderRefundDetail: Page "TPP Shopify Refund Detail List";
-                    ShopifyFunction: Codeunit "TPP Shopify Function";
-                begin
-                    rec.TestField("Transaction Type", rec."Transaction Type"::Refund);
-                    ShopifyFunction.InsertToRefundTable(Database::"TPP Shopify Refund Detail", 'orders/' + rec.order_id + '/refunds.json', 'refunds');
-                    Commit();
-                    CLEAR(ShopifyOrderRefundDetail);
-                    ShopifyOrderRefund.reset();
-                    ShopifyOrderRefund.SetRange(order_id, rec.id);
-                    ShopifyOrderRefundDetail.Editable := false;
-                    ShopifyOrderRefundDetail.SetTableView(ShopifyOrderRefund);
-                    ShopifyOrderRefundDetail.RunModal();
-                    CLEAR(ShopifyOrderRefundDetail);
-                end;
-            }
-        }
-    }
+    // actions
+    // {
+    //     area(Processing)
+    //     {
+    //         action(RefundInformation)
+    //         {
+    //             Caption = 'Refund Information';
+    //             Promoted = true;
+    //             PromotedCategory = Process;
+    //             PromotedIsBig = true;
+    //             PromotedOnly = true;
+    //             ApplicationArea = Basic, Suite;
+    //             Image = RefreshDiscount;
+    //             ToolTip = 'Executes the Refund Information action.';
+    //             trigger OnAction()
+    //             var
+    //                 ShopifyOrderRefund: Record "TPP Shopify Refund Detail";
+    //                 ShopifyOrderRefundDetail: Page "TPP Shopify Refund Detail List";
+    //                 ShopifyFunction: Codeunit "TPP Shopify Function";
+    //             begin
+    //                 rec.TestField("Transaction Type", rec."Transaction Type"::Refund);
+    //                 ShopifyFunction.InsertToRefundTable(Database::"TPP Shopify Refund Detail", 'orders/' + rec.order_id + '/refunds.json', 'refunds');
+    //                 Commit();
+    //                 CLEAR(ShopifyOrderRefundDetail);
+    //                 ShopifyOrderRefund.reset();
+    //                 ShopifyOrderRefund.SetRange(order_id, rec.id);
+    //                 ShopifyOrderRefundDetail.Editable := false;
+    //                 ShopifyOrderRefundDetail.SetTableView(ShopifyOrderRefund);
+    //                 ShopifyOrderRefundDetail.RunModal();
+    //                 CLEAR(ShopifyOrderRefundDetail);
+    //             end;
+    //         }
+    //     }
+    // }
 }

@@ -129,15 +129,15 @@ page 70020 "TPP Shopify Role Center"
                     ToolTip = 'Executes the Sales Order action.';
                 }
             }
-            Group(ShippingandFulfillment)
+            Group(Transaction)
             {
-                Caption = 'Shipping & Fulfillment';
+                Caption = 'Transaction';
                 action(FulfillmentService)
                 {
                     ApplicationArea = all;
-                    Caption = 'Fulfillment Service';
-                    RunObject = page "TPP Shopify fulfill. Services";
-                    ToolTip = 'Executes the Shopify Fulfillment Service action.';
+                    Caption = 'Transaction';
+                    RunObject = page "TPP Shopify Order Transaction";
+                    ToolTip = 'Executes the Shopify Transaction action.';
                 }
 
             }

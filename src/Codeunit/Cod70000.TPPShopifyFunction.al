@@ -231,44 +231,7 @@ codeunit 70000 "TPP Shopify Function"
             Message(ltResponseText);
     end;
 
-    /// <summary>
-    /// InsertNewFulfillmentService.
-    /// </summary>
-    /// <param name="pCarrierFulfillmentTemp">Temporary Record "TPP Shopify fulfillment Ser".</param>
-    procedure InsertNewFulfillmentService(pCarrierFulfillmentTemp: Record "TPP Shopify fulfillment Ser." temporary)
-    var
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
-        ltJsonObject, ltJsonObjectBuild : JsonObject;
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        JsonBody, ltUrlAddress, ltResponseText : Text;
-    begin
-        ltShopifyConfiguration.GET();
-        ltJsonObject.Add('name', pCarrierFulfillmentTemp.name);
-        ltJsonObject.Add('callback_url', pCarrierFulfillmentTemp.callback_url);
-        ltJsonObject.Add('inventory_management', pCarrierFulfillmentTemp.inventory_management);
-        ltJsonObject.Add('tracking_support', pCarrierFulfillmentTemp.tracking_support);
-        ltJsonObject.Add('requires_shipping_method', true);
-        ltJsonObject.Add('format', 'json');
-        ltJsonObject.Add('permits_sku_sharing', true);
-        ltJsonObject.Add('fulfillment_orders_opt_in', pCarrierFulfillmentTemp.fulfillment_orders_opt_in);
-        ltJsonObjectBuild.Add('fulfillment_service', ltJsonObject);
-        ltJsonObjectBuild.WriteTo(JsonBody);
-        ltHttpContent.WriteFrom(JsonBody);
-        ltHttpContent.GetHeaders(ltHttpHeadersContent);
-        ltHttpHeadersContent.Clear();
-        ltHttpHeadersContent.Add('Content-Type', 'application/json');
-        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration."API Key");
-        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shop ID", ltShopifyConfiguration."URL Address", ltShopifyConfiguration."API Version", '/fulfillment_services.json');
-        ltHttpRequestMessage.Content := ltHttpContent;
-        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-        ltHttpRequestMessage.Method := 'POST';
-        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-    end;
+
 
     /// <summary>
     /// InsertNewVariantbyProduct.

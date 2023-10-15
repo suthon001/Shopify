@@ -30,8 +30,6 @@ permissionset 70000 "TPP Shopify Permiss"
         tabledata "TPP Shopify Options" = RMID,
         table "TPP Shopify Order" = X,
         tabledata "TPP Shopify Order" = RMID,
-        table "TPP Shopify fulfillment Ser." = X,
-        tabledata "TPP Shopify fulfillment Ser." = RMID,
         table "TPP Shopify Configuration" = X,
         tabledata "TPP Shopify Configuration" = RMID,
         table "TPP Shopify Product" = X,
@@ -66,9 +64,6 @@ permissionset 70000 "TPP Shopify Permiss"
         page "TPP Shopify Add Variant" = X,
         page "TPP Shopify Reason" = X,
         page "TPP Shopify Get Order Payment" = X,
-        page "TPP Shopify fulfill. Services" = X,
-        page "TPP Shopify Add fulfill. Ser." = X,
-        page "TPP Shopify Add Fulfillment" = X,
         page "TPP Shopify Product Lists" = X,
         page "TPP Shopify Order Lists" = X;
 }
