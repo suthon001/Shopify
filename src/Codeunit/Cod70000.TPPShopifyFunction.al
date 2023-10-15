@@ -492,6 +492,8 @@ codeunit 70000 "TPP Shopify Function"
         ConnectTOShopify('DELETE', 'products/' + pProductID + '.json', ltJsonObject);
     end;
 
+
+
     /// <summary>
     /// UpdateProductImg.
     /// </summary>
@@ -624,6 +626,7 @@ codeunit 70000 "TPP Shopify Function"
         if ltJsonObject.SelectToken('$.order', ltJsonToken) then begin
             ltJsonObjectValue := ltJsonToken.AsObject();
             ltShopifyOrder.GET(pOrderID);
+            ltShopifyOrder.status := 'closed';
             ltShopifyOrder."Closed Order" := true;
             Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectValue, '$.closed_at'));
             ltShopifyOrder.closed_at := ltDateTime;
@@ -631,6 +634,22 @@ codeunit 70000 "TPP Shopify Function"
         end;
     end;
 
+    /// <summary>
+    /// Reopenclosedorder.
+    /// </summary>
+    /// <param name="pOrderID">code[50].</param>
+    procedure Reopenclosedorder(pOrderID: code[50])
+    var
+        ltShopifyOrder: Record "TPP Shopify Order";
+        ltJsonObject: JsonObject;
+    begin
+        ConnectTOShopify('POST', 'orders/' + pOrderID + '/open.json', ltJsonObject);
+        ltShopifyOrder.GET(pOrderID);
+        ltShopifyOrder.status := 'open';
+        ltShopifyOrder."Closed Order" := false;
+        ltShopifyOrder.closed_at := 0DT;
+        ltShopifyOrder.modify();
+    end;
 
 
     [EventSubscriber(ObjectType::Table, Database::"Item Journal Line", 'OnAfterCopyItemJnlLineFromSalesLine', '', false, false)]

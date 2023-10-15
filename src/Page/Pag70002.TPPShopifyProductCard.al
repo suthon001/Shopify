@@ -187,7 +187,6 @@ page 70002 "TPP Shopify Product Card"
                     ShopifyFunction.DeleteProduct(rec.id);
                     rec.Delete(true);
                 end;
-
             }
             action(UpdateStatus)
             {

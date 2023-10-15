@@ -11,10 +11,22 @@ controladdin Wysiwyg
     StartupScript = 'src/Scripts/startupScript.js';
     RecreateScript = 'src/Scripts/recreateScript.js';
     RefreshScript = 'src/Scripts/refreshScript.js';
-
+    /// <summary>
+    /// ControlReady.
+    /// </summary>
     event ControlReady();
+    /// <summary>
+    /// SaveRequested.
+    /// </summary>
+    /// <param name="data">Text.</param>
     event SaveRequested(data: Text);
+    /// <summary>
+    /// OnAfterInit.
+    /// </summary>
     event ContentChanged();
+    /// <summary>
+    /// OnAfterInit.
+    /// </summary>
     event OnAfterInit();
 
     procedure Init();

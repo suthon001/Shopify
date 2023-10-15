@@ -259,6 +259,50 @@ page 70007 "TPP Shopify Order Card"
     {
         area(Processing)
         {
+            action(CloseOrder)
+            {
+                Caption = 'Close Order';
+                Image = Closed;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Close Order action.';
+                trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    CloseOrderQst: Label 'Are you sure you want to Close Order?';
+                begin
+                    rec.TestField(status, 'open');
+                    if not Confirm(CloseOrderQst) then
+                        exit;
+                    ShopifyFunction.CloseOrder(rec.id);
+                    CurrPage.Update();
+                end;
+            }
+            action("Re-open a closed order")
+            {
+                Caption = 'Re-open a closed order';
+                Image = ReOpen;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = 'Executes the Re-open a closed order action.';
+                trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    CloseOrderQst: Label 'Are you sure you want to Re-open a closed order?';
+                begin
+                    rec.TestField(status, 'closed');
+                    if not Confirm(CloseOrderQst) then
+                        exit;
+                    ShopifyFunction.Reopenclosedorder(rec.id);
+                    CurrPage.Update();
+                end;
+            }
             action(PaymentStatus)
             {
                 Caption = 'Payment & Refund Detail';
