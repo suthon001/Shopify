@@ -23,6 +23,7 @@ page 70010 "TPP Shopify Get Orders Dialog"
                 ApplicationArea = all;
                 ToolTip = 'Specifies the value of the StatusFilter field.';
                 Caption = 'Order Status Filter';
+
             }
             field(financialStatusFilter; financialStatusFilter)
             {

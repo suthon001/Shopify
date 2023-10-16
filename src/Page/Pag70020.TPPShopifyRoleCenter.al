@@ -95,7 +95,7 @@ page 70020 "TPP Shopify Role Center"
             action(ShopifyConfigCreation)
             {
                 ApplicationArea = all;
-                Caption = ' Shopify Config. Setup';
+                Caption = 'Shop';
                 RunObject = page "TPP Shopify Config. Setup";
                 ToolTip = 'Executes the Shopify Config. Setup action.';
             }
@@ -132,12 +132,24 @@ page 70020 "TPP Shopify Role Center"
             Group(Transaction)
             {
                 Caption = 'Transaction';
-                action(FulfillmentService)
+                action(TransactionLists)
                 {
                     ApplicationArea = all;
                     Caption = 'Transaction';
                     RunObject = page "TPP Shopify Order Transaction";
                     ToolTip = 'Executes the Shopify Transaction action.';
+                }
+
+            }
+            Group(Refund)
+            {
+                Caption = 'Refund';
+                action(RefundLists)
+                {
+                    ApplicationArea = all;
+                    Caption = 'Refund';
+                    RunObject = page "TPP Shopify Refund Lists";
+                    ToolTip = 'Executes the Shopify Refund action.';
                 }
 
             }
@@ -176,9 +188,9 @@ page 70020 "TPP Shopify Role Center"
                 action(ShopifyConfig)
                 {
                     ApplicationArea = all;
-                    Caption = ' Shopify Config. Setup';
+                    Caption = 'Shop';
                     RunObject = page "TPP Shopify Config. Setup";
-                    ToolTip = 'Executes the Shopify Config. Setup action.';
+                    ToolTip = 'Executes the Shop action.';
                 }
                 action(ShopifyMapping)
                 {

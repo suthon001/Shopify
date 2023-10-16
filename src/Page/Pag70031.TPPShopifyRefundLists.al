@@ -1,13 +1,13 @@
 /// <summary>
-/// Page TPP Shopify Order Transaction (ID 70009).
+/// Page TPP Shopify Refund Lists(ID 70031).
 /// </summary>
-page 70009 "TPP Shopify Order Transaction"
+page 70031 "TPP Shopify Refund Lists"
 {
-    Caption = 'Shopify Order Transaction';
-    PageType = List;
+    Caption = 'Shopify Refund Lists';
     ApplicationArea = all;
+    PageType = List;
     SourceTable = "TPP Shopify Order Transaction";
-    SourceTableView = sorting("Transaction Type", order_id, id) where("Transaction Type" = filter(Payment));
+    SourceTableView = sorting("Transaction Type", order_id, id) where("Transaction Type" = filter(Refund));
     UsageCategory = Lists;
     Editable = false;
     InsertAllowed = false;
@@ -55,6 +55,39 @@ page 70009 "TPP Shopify Order Transaction"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the created_at field.';
                 }
+            }
+        }
+    }
+    actions
+    {
+        area(Processing)
+        {
+            action(RefundInformation)
+            {
+                Caption = 'Refund Information';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = Basic, Suite;
+                Image = RefreshDiscount;
+                ToolTip = 'Executes the Refund Information action.';
+                trigger OnAction()
+                var
+                    ShopifyOrderRefund: Record "TPP Shopify Refund Detail";
+                    ShopifyOrderRefundDetail: Page "TPP Shopify Refund Detail List";
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                begin
+                    ShopifyFunction.InsertToRefundTable(Database::"TPP Shopify Refund Detail", 'orders/' + rec.order_id + '/refunds.json', 'refunds');
+                    Commit();
+                    CLEAR(ShopifyOrderRefundDetail);
+                    ShopifyOrderRefund.reset();
+                    ShopifyOrderRefund.SetRange(order_id, rec.id);
+                    ShopifyOrderRefundDetail.Editable := false;
+                    ShopifyOrderRefundDetail.SetTableView(ShopifyOrderRefund);
+                    ShopifyOrderRefundDetail.RunModal();
+                    CLEAR(ShopifyOrderRefundDetail);
+                end;
             }
         }
     }

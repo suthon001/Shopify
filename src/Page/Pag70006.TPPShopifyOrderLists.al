@@ -148,7 +148,7 @@ page 70006 "TPP Shopify Order Lists"
         {
             action(GetOrders)
             {
-                Caption = 'Get Orders';
+                Caption = 'Sync Orders';
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
@@ -178,19 +178,15 @@ page 70006 "TPP Shopify Order Lists"
                 trigger OnAction()
                 var
                     ShopifyOrderTransactions: Record "TPP Shopify Order Transaction";
-                    ShopifyOrderTransaction: Page "TPP Shopify Order Transaction";
-                    ShopifyFunction: Codeunit "TPP Shopify Function";
+                    ShopifyOrderTransactionALL: Page "TPP Shopify Transaction ALL";
                 begin
-                    ShopifyFunction.InsertToTable('GET', Database::"TPP Shopify Order Transaction", 'orders/' + rec.id + '/transactions.json', 'transactions', 1);
-                    ShopifyFunction.InsertToTable('GET', Database::"TPP Shopify Order Transaction", 'orders/' + rec.id + '/refunds.json', 'transactions', 2);
-                    Commit();
-                    CLEAR(ShopifyOrderTransaction);
+                    CLEAR(ShopifyOrderTransactionALL);
                     ShopifyOrderTransactions.reset();
                     ShopifyOrderTransactions.SetRange(order_id, rec.id);
-                    ShopifyOrderTransaction.Editable := false;
-                    ShopifyOrderTransaction.SetTableView(ShopifyOrderTransactions);
-                    ShopifyOrderTransaction.RunModal();
-                    CLEAR(ShopifyOrderTransaction);
+                    ShopifyOrderTransactionALL.Editable := false;
+                    ShopifyOrderTransactionALL.SetTableView(ShopifyOrderTransactions);
+                    ShopifyOrderTransactionALL.RunModal();
+                    CLEAR(ShopifyOrderTransactionALL);
                 end;
             }
 
@@ -252,7 +248,7 @@ page 70006 "TPP Shopify Order Lists"
 
             action(CreateToSalesOrderFunc)
             {
-                Caption = 'Create To Sales Order';
+                Caption = 'Create Sales Order';
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;

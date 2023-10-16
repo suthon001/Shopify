@@ -895,8 +895,11 @@ codeunit 70000 "TPP Shopify Function"
                         end;
 
                         InsertToDetailTable(Database::"TPP Shopify Order line", ltJsonObjectValue, 'line_items', COPYSTR(SelectJsonTokenText(ltJsonObjectValue, '$.order_number'), 1, 50));
+                        InsertToTable('GET', Database::"TPP Shopify Order Transaction", 'orders/' + ltsinceID + '/transactions.json', 'transactions', 1);
+                        InsertToTable('GET', Database::"TPP Shopify Order Transaction", 'orders/' + ltsinceID + '/refunds.json', 'transactions', 2);
                         ShopifyOrder."Tracking No." := GetTrackingNo(ShopifyOrder.id);
                         ShopifyOrder.Modify();
+
                     end;
                 end;
             end;
