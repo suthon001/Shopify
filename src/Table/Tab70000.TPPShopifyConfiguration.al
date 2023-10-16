@@ -15,17 +15,12 @@ table 70000 "TPP Shopify Configuration"
         }
         field(2; "API Key"; Text[1047])
         {
-            Caption = 'API Key';
-            DataClassification = CustomerContent;
-        }
-        field(3; "Shop ID"; Text[100])
-        {
-            Caption = 'Shop ID';
+            Caption = 'Code';
             DataClassification = CustomerContent;
         }
         field(4; "URL Address"; Text[1024])
         {
-            Caption = 'URL Address';
+            Caption = 'Shopify URL';
             DataClassification = CustomerContent;
         }
         field(5; "API Version"; Text[50])
@@ -98,6 +93,11 @@ table 70000 "TPP Shopify Configuration"
         {
             Caption = 'Journal No. Series';
             TableRelation = "No. Series".Code;
+            DataClassification = CustomerContent;
+        }
+        field(17; "Enabled"; Boolean)
+        {
+            Caption = 'Enabled';
             DataClassification = CustomerContent;
         }
     }

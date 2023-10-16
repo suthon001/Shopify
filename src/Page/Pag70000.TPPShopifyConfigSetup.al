@@ -22,22 +22,26 @@ page 70000 "TPP Shopify Config. Setup"
                 field("API Key"; Rec."API Key")
                 {
                     ApplicationArea = All;
+                    Caption = 'Code';
                     ToolTip = 'Specifies the value of the API Key field.';
-                }
-                field("Shop ID"; Rec."Shop ID")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the Shop ID field.';
+                    ShowMandatory = true;
                 }
                 field("URL Address"; Rec."URL Address")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the URL Address field.';
+                    ShowMandatory = true;
                 }
                 field("API Version"; Rec."API Version")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the API Version field.';
+                    ShowMandatory = true;
+                }
+                field(Enabled; Rec.Enabled)
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the value of theEnabled field.';
                 }
                 field("Limit Page"; Rec."Limit Page")
                 {

@@ -9,7 +9,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 712975474 - Field 4253087169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>API Key</source>
+          <source>Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Field API Key - Property Caption</note>
         </trans-unit>
@@ -32,6 +32,11 @@
           <source>ส่วนลด</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Field Discount Account No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 712975474 - Field 2891538263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enabled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Field Enabled - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 712975474 - Field 874662548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ค่าธรรมเนียม</source>
@@ -78,13 +83,8 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Field Shipping Account No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 712975474 - Field 3785523955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shop ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Field Shop ID - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 712975474 - Field 3489244495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>URL Address</source>
+          <source>Shopify URL</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table TPP Shopify Configuration - Field URL Address - Property Caption</note>
         </trans-unit>
@@ -1508,20 +1508,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Config. Setup - Control API Key - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4105443103 - Control 4253087169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Config. Setup - Control API Key - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4105443103 - Control 3687300662 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the API Version field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Config. Setup - Control API Version - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4105443103 - Control 2891538263 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of theEnabled field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Config. Setup - Control Enabled - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4105443103 - Control 1474251874 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the API Limit Page field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Config. Setup - Control Limit Page - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4105443103 - Control 3785523955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the Shop ID field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Config. Setup - Control Shop ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4105443103 - Control 3489244495 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the URL Address field.</source>
