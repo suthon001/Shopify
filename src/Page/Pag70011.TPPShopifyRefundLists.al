@@ -1,7 +1,7 @@
 /// <summary>
-/// Page TPP Shopify Refund Lists(ID 70031).
+/// Page TPP Shopify Refund Lists(ID 70011).
 /// </summary>
-page 70031 "TPP Shopify Refund Lists"
+page 70011 "TPP Shopify Refund Lists"
 {
     Caption = 'Shopify Refund Lists';
     ApplicationArea = all;

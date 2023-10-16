@@ -158,7 +158,7 @@ page 70006 "TPP Shopify Order Lists"
                 ToolTip = 'Executes the Orders action.';
                 trigger OnAction()
                 var
-                    GetOrderDialog: Page "TPP Shopify Get Orders Dialog";
+                    GetOrderDialog: Report "TPP Shopify Get Orders";
                 begin
                     CLEAR(GetOrderDialog);
                     GetOrderDialog.RunModal();

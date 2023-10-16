@@ -103,7 +103,7 @@ page 70001 "TPP Shopify Product Lists"
 
                 trigger OnAction()
                 var
-                    GetProductDialog: Page "TPP Shopify Product Dialog";
+                    GetProductDialog: Report "TPP Shopify Get Product";
                 begin
                     CLEAR(GetProductDialog);
                     GetProductDialog.RunModal();

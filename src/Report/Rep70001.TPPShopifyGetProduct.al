@@ -1,61 +1,65 @@
 /// <summary>
-/// Page TPP Shopify Product Dialog (ID 70011).
+/// Report TPP Shopify Get Product (ID 70001).
 /// </summary>
-page 70011 "TPP Shopify Product Dialog"
+report 70001 "TPP Shopify Get Product"
 {
-    Caption = 'Shopify Product Dialog';
-    PageType = StandardDialog;
+    Caption = 'Shopify Get Product';
+    ProcessingOnly = true;
     UsageCategory = None;
-    Extensible = false;
-    layout
+    requestpage
     {
-        area(content)
+        layout
         {
-            field(ProductIdFilter; ProductIdFilter)
+            area(content)
             {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the ProductIdFilter field.';
-                Caption = 'Product ID Filter';
-            }
-            field(ProductStatus; ProductStatus)
-            {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the StatusFilter field.';
-                Caption = 'Product Status Filter';
-            }
+                group(GroupName)
+                {
+                    Caption = 'Options';
+                    field(gvProductIdFilter; ProductIdFilter)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = 'Specifies the value of the ProductIdFilter field.';
+                        Caption = 'Product ID Filter';
+                    }
+                    field(gvProductStatus; ProductStatus)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = 'Specifies the value of the StatusFilter field.';
+                        Caption = 'Product Status Filter';
+                    }
 
-            field(DateTimeMethod; DateTimeMethod)
-            {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the DateTimeMethod field.';
-                Caption = 'Date Time Type';
-                OptionCaption = 'More,Less';
+                    field(gvateTimeMethod; DateTimeMethod)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = 'Specifies the value of the DateTimeMethod field.';
+                        Caption = 'Date Time Type';
+                        OptionCaption = 'More,Less';
+                    }
+                    field(gvProductDateFilter; ProductDateFilter)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = 'Specifies the value of the OrderAfterDate field.';
+                        Caption = 'Product Date Filter';
+                    }
+                    field(gvProductTimeFilter; ProductTimeFilter)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = 'Specifies the value of the OrderAfterTime field.';
+                        Caption = 'Product Time Filter';
+                        trigger OnValidate()
+                        begin
+                            if ProductDateFilter = 0D then
+                                ERROR('Product Date must specifies');
+                        end;
+                    }
+                }
             }
-            field(ProductDateFilter; ProductDateFilter)
-            {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the OrderAfterDate field.';
-                Caption = 'Product Date Filter';
-            }
-            field(ProductTimeFilter; ProductTimeFilter)
-            {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the OrderAfterTime field.';
-                Caption = 'Product Time Filter';
-                trigger OnValidate()
-                begin
-                    if ProductDateFilter = 0D then
-                        ERROR('Product Date must specifies');
-                end;
-            }
-
         }
-    }
-    trigger OnQueryClosePage(CloseAction: Action): Boolean
-    begin
 
-        if CloseAction In [Action::OK, Action::Yes] then
-            GetProduct();
+    }
+    trigger OnPreReport()
+    begin
+        GetProduct();
     end;
 
     local procedure GetProduct()

@@ -1933,86 +1933,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Order Payment - Control Sell-to Customer No. - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1669677783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shopify Get Orders Dialog</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 1789283250 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the DateTimeMethod field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control DateTimeMethod - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 1789283250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date Time Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control DateTimeMethod - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 1789283250 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>More,Less</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control DateTimeMethod - Property OptionCaption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2435265463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the financialStatusFilter field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control financialStatusFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2435265463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order Fianacial Status Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control financialStatusFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2670564426 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the FulfillmentStatusFilter field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control FulfillmentStatusFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2670564426 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order Fulfillment Status Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control FulfillmentStatusFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 486876902 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the OrderAfterDate field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control OrderDateFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 486876902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order Date Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control OrderDateFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2763232397 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the OrderIDFilter field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control OrderIDFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2763232397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order ID Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control OrderIDFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2584734293 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the OrderAfterTime field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control OrderTimeFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2584734293 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order Time Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control OrderTimeFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2433456032 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the StatusFilter field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control StatusFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1669677783 - Control 2433456032 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order Status Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Get Orders Dialog - Control StatusFilter - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1210386558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Get Payment Dialog</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3008,66 +2928,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Card - Action UpdateStatus - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3539354807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shopify Product Dialog</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 1789283250 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the DateTimeMethod field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control DateTimeMethod - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 1789283250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date Time Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control DateTimeMethod - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 1789283250 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>More,Less</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control DateTimeMethod - Property OptionCaption</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 2581660617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the OrderAfterDate field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductDateFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 2581660617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product Date Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductDateFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 4196449778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the ProductIdFilter field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductIdFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 4196449778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product ID Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductIdFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 897050281 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the StatusFilter field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductStatus - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 897050281 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product Status Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductStatus - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 2351832298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the OrderAfterTime field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductTimeFilter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3539354807 - Control 2351832298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product Time Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Product Dialog - Control ProductTimeFilter - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3358880080 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Product Lists</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3902,6 +3762,156 @@
           <source>Delete Variant</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Variants Subform - Action DeleteVariant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Get Orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 4105281732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control GroupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 2137287601 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the DateTimeMethod field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvDateTimeMethod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 2137287601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Time Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvDateTimeMethod - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 2137287601 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>More,Less</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvDateTimeMethod - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 4216771296 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the financialStatusFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvfinancialStatusFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 4216771296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Fianacial Status Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvfinancialStatusFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 71730737 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FulfillmentStatusFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvFulfillmentStatusFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 71730737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Fulfillment Status Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvFulfillmentStatusFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 3009397693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the OrderAfterDate field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvOrderDateFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 3009397693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvOrderDateFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 506014886 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the OrderIDFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvOrderIDFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 506014886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order ID Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvOrderIDFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 896217246 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the OrderAfterTime field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvOrderTimeFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 896217246 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Time Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvOrderTimeFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 1608793711 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the StatusFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvStatusFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 1608793711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Status Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvStatusFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Get Product</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 4105281732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control GroupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 1056466837 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the DateTimeMethod field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvateTimeMethod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 1056466837 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Time Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvateTimeMethod - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 1056466837 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>More,Less</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvateTimeMethod - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 2026392482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the OrderAfterDate field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductDateFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 2026392482 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductDateFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 2302748329 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the ProductIdFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductIdFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 2302748329 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product ID Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductIdFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 3878203442 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the StatusFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductStatus - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 3878203442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product Status Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 2681752849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the OrderAfterTime field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductTimeFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1144962141 - Control 2681752849 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product Time Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Product - Control gvProductTimeFilter - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2238237249 - Control 50086088 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Specifies the value of the Shopify Ref. ID field.</source>
