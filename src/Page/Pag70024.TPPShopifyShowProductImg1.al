@@ -6,6 +6,7 @@ page 70024 "TPP Shopify Show Product Img 1"
     Caption = 'Shopify Show Product Img';
     PageType = CardPart;
     SourceTable = "TPP Shopify Image";
+    Extensible = false;
     layout
     {
         area(content)
@@ -44,6 +45,7 @@ page 70024 "TPP Shopify Show Product Img 1"
                 Caption = 'Delete Picture';
                 Image = Import;
                 ToolTip = 'Delete a picture file.';
+                Enabled = rec.id <> '';
                 trigger OnAction()
                 begin
                     DeletePicture();

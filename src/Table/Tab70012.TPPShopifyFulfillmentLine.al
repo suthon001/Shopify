@@ -5,7 +5,7 @@ table 70012 "TPP Shopify Fulfillment Line"
 {
     Caption = 'Shopify Fulfillment Line';
     DataClassification = CustomerContent;
-
+    Extensible = false;
     fields
     {
         field(1; id; Code[50])

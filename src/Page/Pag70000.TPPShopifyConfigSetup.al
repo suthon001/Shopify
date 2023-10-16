@@ -3,7 +3,7 @@
 /// </summary>
 page 70000 "TPP Shopify Config. Setup"
 {
-    Caption = 'Shopify Config. Setup';
+    Caption = 'Shop';
     PageType = Card;
     SourceTable = "TPP Shopify Configuration";
     UsageCategory = Administration;
@@ -19,17 +19,17 @@ page 70000 "TPP Shopify Config. Setup"
             {
                 Caption = 'General';
 
-                field("API Key"; Rec."API Key")
+                field(code; Rec.code)
                 {
                     ApplicationArea = All;
                     Caption = 'Code';
-                    ToolTip = 'Specifies the value of the API Key field.';
+                    ToolTip = 'Specifies the value of the Code field.';
                     ShowMandatory = true;
                 }
-                field("URL Address"; Rec."URL Address")
+                field("Shopify URL"; Rec."Shopify URL")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the URL Address field.';
+                    ToolTip = 'Specifies the value of the Shopify URL field.';
                     ShowMandatory = true;
                 }
                 field("API Version"; Rec."API Version")

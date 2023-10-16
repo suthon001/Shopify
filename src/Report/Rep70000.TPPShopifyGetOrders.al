@@ -3,10 +3,10 @@
 /// </summary>
 report 70000 "TPP Shopify Get Orders"
 {
-    Caption = 'Shopify Get Orders';
+    Caption = 'Shopify Sync Orders';
     ProcessingOnly = true;
     UsageCategory = None;
-
+    Extensible = false;
     requestpage
     {
         layout

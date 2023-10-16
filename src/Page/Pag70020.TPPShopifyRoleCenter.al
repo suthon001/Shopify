@@ -141,6 +141,18 @@ page 70020 "TPP Shopify Role Center"
                 }
 
             }
+            Group(Inventory)
+            {
+                Caption = 'Inventory';
+                action(InventoryLists)
+                {
+                    ApplicationArea = all;
+                    Caption = 'Inventory';
+                    RunObject = page "TPP Shopify Inventory";
+                    ToolTip = 'Executes the Shopify Inventory action.';
+                }
+
+            }
             Group(Refund)
             {
                 Caption = 'Refund';

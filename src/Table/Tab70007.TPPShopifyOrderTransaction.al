@@ -71,6 +71,13 @@ table 70007 "TPP Shopify Order Transaction"
             DataClassification = CustomerContent;
 
         }
+        field(13; order_number; Code[50])
+        {
+            Caption = 'order_number';
+            FieldClass = FlowField;
+            CalcFormula = lookup("TPP Shopify Order".order_number where(id = field(order_id)));
+            Editable = false;
+        }
     }
     keys
     {

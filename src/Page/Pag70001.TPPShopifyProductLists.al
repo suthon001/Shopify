@@ -92,14 +92,14 @@ page 70001 "TPP Shopify Product Lists"
         {
             action(GetProduct)
             {
-                Caption = 'Get Product';
+                Caption = 'Sync Product';
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
                 ApplicationArea = Basic, Suite;
                 Image = GetOrder;
-                ToolTip = 'Executes the Get Product action.';
+                ToolTip = 'Executes the Sync Product action.';
 
                 trigger OnAction()
                 var
@@ -108,6 +108,27 @@ page 70001 "TPP Shopify Product Lists"
                     CLEAR(GetProductDialog);
                     GetProductDialog.RunModal();
                     CLEAR(GetProductDialog);
+                end;
+            }
+            action(GetLastInventory)
+            {
+                Caption = 'Inventory';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = Basic, Suite;
+                Image = GetActionMessages;
+                Enabled = rec.id <> '';
+                ToolTip = 'Executes the Sync Inventory action.';
+                trigger OnAction()
+                var
+                    ShopifyInventory: Page "TPP Shopify Inventory";
+                begin
+                    CLEAR(ShopifyInventory);
+                    ShopifyInventory.SetProductID(rec.id);
+                    ShopifyInventory.RunModal();
+                    CLEAR(ShopifyInventory);
                 end;
             }
         }

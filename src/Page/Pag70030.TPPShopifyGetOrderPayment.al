@@ -12,6 +12,7 @@ page 70030 "TPP Shopify Get Order Payment"
     InsertAllowed = false;
     DeleteAllowed = false;
     ModifyAllowed = false;
+    Extensible = false;
     layout
     {
         area(content)

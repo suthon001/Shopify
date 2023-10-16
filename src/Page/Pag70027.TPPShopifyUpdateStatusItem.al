@@ -5,6 +5,7 @@ page 70027 "TPP Shopify Update Status Item"
 {
     Caption = 'Shopify Update Status Item';
     PageType = StandardDialog;
+    Extensible = false;
     layout
     {
         area(content)

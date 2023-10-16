@@ -167,12 +167,13 @@ page 70006 "TPP Shopify Order Lists"
             }
             action(PaymentStatus)
             {
-                Caption = 'Transaction';
+                Caption = 'Transactions';
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
                 ApplicationArea = Basic, Suite;
+                Enabled = rec.id <> '';
                 Image = Payment;
                 ToolTip = 'Executes the Get Payment & Refund Detail action.';
                 trigger OnAction()
@@ -199,6 +200,7 @@ page 70006 "TPP Shopify Order Lists"
                 PromotedOnly = true;
                 ApplicationArea = Basic, Suite;
                 Image = ItemLines;
+                Enabled = rec.id <> '';
                 ToolTip = 'Executes the Order Fulfillment action.';
                 trigger OnAction()
                 var
@@ -256,6 +258,7 @@ page 70006 "TPP Shopify Order Lists"
                 ApplicationArea = Basic, Suite;
                 Image = Payment;
                 ToolTip = 'Executes the Create To SalesOrder action.';
+                Enabled = rec.id <> '';
                 trigger OnAction()
                 var
                     ShopifyOrder: Record "TPP Shopify Order";

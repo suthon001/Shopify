@@ -25,6 +25,11 @@ page 70009 "TPP Shopify Order Transaction"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Transaction Type field.';
                 }
+                field(order_number; Rec.order_number)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the order_number field.';
+                }
                 field(status; Rec.status)
                 {
                     ApplicationArea = All;

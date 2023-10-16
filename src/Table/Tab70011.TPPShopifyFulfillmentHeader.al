@@ -5,7 +5,7 @@ table 70011 "TPP Shopify Fulfillment Header"
 {
     Caption = 'Shopify Fulfillment Header';
     DataClassification = CustomerContent;
-
+    Extensible = false;
     fields
     {
         field(1; id; Code[50])

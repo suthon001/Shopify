@@ -5,6 +5,7 @@ page 70029 "TPP Shopify Reason"
 {
     Caption = 'Shopify Reason';
     PageType = StandardDialog;
+    Extensible = false;
     layout
     {
         area(content)

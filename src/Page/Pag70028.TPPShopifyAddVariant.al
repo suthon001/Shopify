@@ -8,6 +8,7 @@ page 70028 "TPP Shopify Add Variant"
     SourceTable = "TPP Shopify Variants";
     UsageCategory = None;
     SourceTableTemporary = true;
+    Extensible = false;
     layout
     {
         area(content)

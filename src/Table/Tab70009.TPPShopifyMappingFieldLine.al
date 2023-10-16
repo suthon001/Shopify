@@ -5,7 +5,7 @@ table 70009 "TPP Shopify Mapping Field Line"
 {
     Caption = 'Shopify Mapping Field Line';
     DataClassification = CustomerContent;
-
+    Extensible = false;
     fields
     {
         field(1; "Type"; Enum "TPP Shopify Mapping Type")

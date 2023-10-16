@@ -3,9 +3,10 @@
 /// </summary>
 report 70001 "TPP Shopify Get Product"
 {
-    Caption = 'Shopify Get Product';
+    Caption = 'Shopify Sync Product';
     ProcessingOnly = true;
     UsageCategory = None;
+    Extensible = false;
     requestpage
     {
         layout

@@ -25,6 +25,12 @@ page 70011 "TPP Shopify Refund Lists"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Transaction Type field.';
                 }
+                field(order_number; Rec.order_number)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the order_number field.';
+                }
+
                 field(status; Rec.status)
                 {
                     ApplicationArea = All;
@@ -72,6 +78,7 @@ page 70011 "TPP Shopify Refund Lists"
                 ApplicationArea = Basic, Suite;
                 Image = RefreshDiscount;
                 ToolTip = 'Executes the Refund Information action.';
+                Enabled = rec.id <> '';
                 trigger OnAction()
                 var
                     ShopifyOrderRefund: Record "TPP Shopify Refund Detail";

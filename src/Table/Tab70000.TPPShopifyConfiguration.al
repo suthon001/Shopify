@@ -13,12 +13,12 @@ table 70000 "TPP Shopify Configuration"
             Caption = 'Primary Key';
             DataClassification = CustomerContent;
         }
-        field(2; "API Key"; Text[1047])
+        field(2; "Code"; Text[1047])
         {
             Caption = 'Code';
             DataClassification = CustomerContent;
         }
-        field(4; "URL Address"; Text[1024])
+        field(4; "Shopify URL"; Text[1024])
         {
             Caption = 'Shopify URL';
             DataClassification = CustomerContent;

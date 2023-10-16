@@ -121,6 +121,7 @@ page 70003 "TPP Shopify Variants Subform"
                 Caption = 'Delete Variant';
                 Image = Delete;
                 ApplicationArea = all;
+                Enabled = rec.id <> '';
                 ToolTip = 'Executes the Delete Variant action.';
                 trigger OnAction()
                 var

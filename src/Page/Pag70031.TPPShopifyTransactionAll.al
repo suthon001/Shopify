@@ -1,7 +1,7 @@
 /// <summary>
-/// Page TPP Shopify Transaction ALL(ID 70032).
+/// Page TPP Shopify Transaction ALL(ID 70031).
 /// </summary>
-page 70032 "TPP Shopify Transaction ALL"
+page 70031 "TPP Shopify Transaction ALL"
 {
     Caption = 'Shopify Transaction';
     PageType = List;
@@ -71,6 +71,7 @@ page 70032 "TPP Shopify Transaction ALL"
                 ApplicationArea = Basic, Suite;
                 Image = RefreshDiscount;
                 ToolTip = 'Executes the Refund Information action.';
+                Enabled = rec."Transaction Type" = rec."Transaction Type"::Refund;
                 trigger OnAction()
                 var
                     ShopifyOrderRefund: Record "TPP Shopify Refund Detail";
