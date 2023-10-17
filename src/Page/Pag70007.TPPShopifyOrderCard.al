@@ -342,11 +342,13 @@ page 70007 "TPP Shopify Order Card"
                 Image = Payment;
                 ToolTip = 'Executes the Create To Sales Order action.';
                 trigger OnAction()
+                var
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
                 begin
                     if not Confirm('Do you want create to Sales Order?') then
                         exit;
                     rec.TestField("Create to Sales Order", false);
-                    rec.CreateToSalesOrder(rec.id);
+                    ShopifyFunction.CreateToSalesOrder(rec.id);
                 end;
             }
             action(GetFulfillment)

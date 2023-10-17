@@ -3318,6 +3318,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Refund Lists - Control Transaction Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3837535835 - Action 3291501768 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Create To Sales Credit Memo action.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Refund Lists - Action CreateToSalesCreditFunc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3837535835 - Action 3291501768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Sales Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Refund Lists - Action CreateToSalesCreditFunc - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3837535835 - Action 3792671494 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executes the Refund Information action.</source>
           <note from="Developer" annotates="general" priority="2"></note>

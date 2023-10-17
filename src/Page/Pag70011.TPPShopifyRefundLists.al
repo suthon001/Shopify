@@ -68,6 +68,36 @@ page 70011 "TPP Shopify Refund Lists"
     {
         area(Processing)
         {
+            action(CreateToSalesCreditFunc)
+            {
+                Caption = 'Create Sales Credit Memo';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = Basic, Suite;
+                Image = Payment;
+                ToolTip = 'Executes the Create To Sales Credit Memo action.';
+                Enabled = rec.id <> '';
+                trigger OnAction()
+                //  var
+                //   ShopifyOrder: Record "TPP Shopify Order";
+
+                begin
+                    if not Confirm('Do you want create to Sales Credit Memo?') then
+                        exit;
+                    Message('Waiting Dev.');
+                    // ShopifyOrder.Copy(rec);
+                    // CurrPage.SetSelectionFilter(ShopifyOrder);
+                    // ShopifyOrder.SetRange("Create to Sales Order", false);
+                    // if ShopifyOrder.FindSet() then
+                    //     repeat
+                    //         rec.CreateToSalesOrder(ShopifyOrder.id);
+                    //     until ShopifyOrder.Next() = 0;
+
+
+                end;
+            }
             action(RefundInformation)
             {
                 Caption = 'Refund Information';

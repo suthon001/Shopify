@@ -262,17 +262,19 @@ page 70006 "TPP Shopify Order Lists"
                 trigger OnAction()
                 var
                     ShopifyOrder: Record "TPP Shopify Order";
-
+                    ShopifyFunction: Codeunit "TPP Shopify Function";
                 begin
                     if not Confirm('Do you want create to Sales Order?') then
                         exit;
                     ShopifyOrder.Copy(rec);
                     CurrPage.SetSelectionFilter(ShopifyOrder);
                     ShopifyOrder.SetRange("Create to Sales Order", false);
-                    if ShopifyOrder.FindSet() then
+                    if ShopifyOrder.FindSet() then begin
                         repeat
-                            rec.CreateToSalesOrder(ShopifyOrder.id);
+                            if ShopifyFunction.CreateMultiSalesOrder(ShopifyOrder.id) then;
                         until ShopifyOrder.Next() = 0;
+                        CurrPage.Update();
+                    end;
 
 
                 end;

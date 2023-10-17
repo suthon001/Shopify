@@ -5,6 +5,207 @@ codeunit 70000 "TPP Shopify Function"
 {
 
     /// <summary>
+    /// CreateMultiSalesOrder.
+    /// </summary>
+    /// <param name="pOrderID">code[50].</param>
+    /// <returns>False if an runtime error occurred. Otherwise true.</returns>
+    [TryFunction]
+    procedure CreateMultiSalesOrder(pOrderID: code[50])
+    var
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        ShopifyOrder: Record "TPP Shopify Order";
+        ShopifyOrderLine: Record "TPP Shopify Order Line";
+        ShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltRecordRefShopify, ltRecordRefBC : RecordRef;
+        ltFieldRefShopify, ltFieldRefBC : FieldRef;
+        ltMappingLine: Record "TPP Shopify Mapping Field Line";
+        ltShopifyProduct: Record "TPP Shopify Product";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        ShopifyFunc: Codeunit "TPP Shopify Function";
+        ltLineNO: Integer;
+        ltItemNo: code[20];
+        ltTrackingNo: Text[100];
+    begin
+        ltLineNO := 0;
+        ltTrackingNo := '';
+        ShopifyConfiguration.GET();
+        ShopifyConfiguration.TestField("Customer No.");
+        ShopifyConfiguration.TestField("Order Nos.");
+        ShopifyConfiguration.TestField("Location Code");
+        ShopifyOrder.GET(pOrderID);
+        ltMappingLine.reset();
+        ltMappingLine.SetRange(Type, ltMappingLine.Type::Item);
+        ltMappingLine.SetFilter("BC Field", '<>%1', 0);
+        ltMappingLine.SetFilter("Shopify Field", '<>%1', 0);
+        if ltMappingLine.IsEmpty() then
+            ERROR('Nothing to Mapping');
+
+        ltTrackingNo := ShopifyFunc.GetTrackingNo(pOrderID);
+
+        SalesHeader.Init();
+        SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
+        SalesHeader."No." := NoSeriesMgt.GetNextNo(ShopifyConfiguration."Order Nos.", WorkDate(), true);
+        SalesHeader."No. Series" := ShopifyConfiguration."Order Nos.";
+        SalesHeader."Posting Date" := today();
+        SalesHeader."Document Date" := Today();
+        if SalesHeader.Insert(true) then begin
+            SalesHeader.Validate("Sell-to Customer No.", ShopifyConfiguration."Customer No.");
+            SalesHeader."Ref. Shopify Order No." := ShopifyOrder.id;
+            SalesHeader."Shopify Tracking No." := ltTrackingNo;
+            SalesHeader.Modify();
+            ShopifyOrderLine.reset();
+            ShopifyOrderLine.SetRange(order_number, ShopifyOrder.order_number);
+            ShopifyOrderLine.SetFilter(product_id, '<>%1', '');
+            ShopifyOrderLine.setfilter(quantity, '<>%1', 0);
+            if ShopifyOrderLine.FindSet() then
+                repeat
+                    ltItemNo := '';
+                    ltShopifyProduct.GET(ShopifyOrderLine.product_id);
+                    ltRecordRefShopify.GetTable(ltShopifyProduct);
+                    ltLineNO := ltLineNO + 10000;
+                    SalesLine.init();
+                    SalesLine."Document Type" := SalesHeader."Document Type";
+                    SalesLine."Document No." := SalesHeader."No.";
+                    SalesLine."Line No." := ltLineNO;
+                    SalesLine.Type := SalesLine.Type::Item;
+                    ltMappingLine.reset();
+                    ltMappingLine.SetRange(Type, ltMappingLine.Type::Item);
+                    ltMappingLine.SetFilter("BC Field", '<>%1', 0);
+                    ltMappingLine.SetFilter("Shopify Field", '<>%1', 0);
+                    if ltMappingLine.FindSet() then begin
+                        ltRecordRefBC.Open(Database::Item);
+                        repeat
+                            ltFieldRefShopify := ltRecordRefShopify.Field(ltMappingLine."Shopify Field");
+                            ltFieldRefBC := ltRecordRefBC.Field(ltMappingLine."BC Field");
+                            ltFieldRefBC.SetRange(ltFieldRefShopify.Value);
+                        until ltMappingLine.Next() = 0;
+                        if ltRecordRefBC.FindFirst() then begin
+                            ltFieldRefBC := ltRecordRefBC.FieldIndex(1);
+                            ltItemNo := ltFieldRefBC.Value;
+                        end;
+                        ltRecordRefBC.Close();
+                    end;
+                    ltRecordRefShopify.Close();
+
+                    SalesLine.Validate("No.", ltItemNo);
+                    SalesLine.Insert();
+                    SalesLine.Validate(Quantity, ShopifyOrderLine.quantity);
+                    SalesLine.Validate("Location Code", ShopifyConfiguration."Location Code");
+                    SalesLine.Validate("Unit Price", ShopifyOrderLine.price);
+                    SalesLine."Ref. Shopify Order No." := SalesHeader."Ref. Shopify Order No.";
+                    SalesLine."Shopify Tracking No." := SalesHeader."Shopify Tracking No.";
+                    SalesLine.Modify();
+
+                until ShopifyOrderLine.Next() = 0;
+            ShopifyOrder."Create to Sales Order" := true;
+            ShopifyOrder."Create to Sales Order No." := SalesHeader."No.";
+            ShopifyOrder."Create to Sales Order Date" := Today();
+            ShopifyOrder.Modify();
+        end;
+    end;
+
+    /// <summary>
+    /// CreateToSalesOrder.
+    /// </summary>
+    /// <param name="pOrderID">code[50].</param>
+    procedure CreateToSalesOrder(pOrderID: code[50])
+    var
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        ShopifyOrder: Record "TPP Shopify Order";
+        ShopifyOrderLine: Record "TPP Shopify Order Line";
+        ShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltRecordRefShopify, ltRecordRefBC : RecordRef;
+        ltFieldRefShopify, ltFieldRefBC : FieldRef;
+        ltMappingLine: Record "TPP Shopify Mapping Field Line";
+        ltShopifyProduct: Record "TPP Shopify Product";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        ShopifyFunc: Codeunit "TPP Shopify Function";
+        ltLineNO: Integer;
+        ltItemNo: code[20];
+        ltTrackingNo: Text[100];
+    begin
+        ltLineNO := 0;
+        ltTrackingNo := '';
+        ShopifyConfiguration.GET();
+        ShopifyConfiguration.TestField("Customer No.");
+        ShopifyConfiguration.TestField("Order Nos.");
+        ShopifyConfiguration.TestField("Location Code");
+        ShopifyOrder.GET(pOrderID);
+        ltMappingLine.reset();
+        ltMappingLine.SetRange(Type, ltMappingLine.Type::Item);
+        ltMappingLine.SetFilter("BC Field", '<>%1', 0);
+        ltMappingLine.SetFilter("Shopify Field", '<>%1', 0);
+        if ltMappingLine.IsEmpty() then
+            ERROR('Nothing to Mapping');
+
+        ltTrackingNo := ShopifyFunc.GetTrackingNo(pOrderID);
+
+        SalesHeader.Init();
+        SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
+        SalesHeader."No." := NoSeriesMgt.GetNextNo(ShopifyConfiguration."Order Nos.", WorkDate(), true);
+        SalesHeader."No. Series" := ShopifyConfiguration."Order Nos.";
+        SalesHeader."Posting Date" := today();
+        SalesHeader."Document Date" := Today();
+        if SalesHeader.Insert(true) then begin
+            SalesHeader.Validate("Sell-to Customer No.", ShopifyConfiguration."Customer No.");
+            SalesHeader."Ref. Shopify Order No." := ShopifyOrder.id;
+            SalesHeader."Shopify Tracking No." := ltTrackingNo;
+            SalesHeader.Modify();
+            ShopifyOrderLine.reset();
+            ShopifyOrderLine.SetRange(order_number, ShopifyOrder.order_number);
+            ShopifyOrderLine.SetFilter(product_id, '<>%1', '');
+            ShopifyOrderLine.setfilter(quantity, '<>%1', 0);
+            if ShopifyOrderLine.FindSet() then
+                repeat
+                    ltItemNo := '';
+                    ltShopifyProduct.GET(ShopifyOrderLine.product_id);
+                    ltRecordRefShopify.GetTable(ltShopifyProduct);
+                    ltLineNO := ltLineNO + 10000;
+                    SalesLine.init();
+                    SalesLine."Document Type" := SalesHeader."Document Type";
+                    SalesLine."Document No." := SalesHeader."No.";
+                    SalesLine."Line No." := ltLineNO;
+                    SalesLine.Type := SalesLine.Type::Item;
+                    ltMappingLine.reset();
+                    ltMappingLine.SetRange(Type, ltMappingLine.Type::Item);
+                    ltMappingLine.SetFilter("BC Field", '<>%1', 0);
+                    ltMappingLine.SetFilter("Shopify Field", '<>%1', 0);
+                    if ltMappingLine.FindSet() then begin
+                        ltRecordRefBC.Open(Database::Item);
+                        repeat
+                            ltFieldRefShopify := ltRecordRefShopify.Field(ltMappingLine."Shopify Field");
+                            ltFieldRefBC := ltRecordRefBC.Field(ltMappingLine."BC Field");
+                            ltFieldRefBC.SetRange(ltFieldRefShopify.Value);
+                        until ltMappingLine.Next() = 0;
+                        if ltRecordRefBC.FindFirst() then begin
+                            ltFieldRefBC := ltRecordRefBC.FieldIndex(1);
+                            ltItemNo := ltFieldRefBC.Value;
+                        end;
+                        ltRecordRefBC.Close();
+                    end;
+                    ltRecordRefShopify.Close();
+
+                    SalesLine.Validate("No.", ltItemNo);
+                    SalesLine.Insert();
+                    SalesLine.Validate(Quantity, ShopifyOrderLine.quantity);
+                    SalesLine.Validate("Location Code", ShopifyConfiguration."Location Code");
+                    SalesLine.Validate("Unit Price", ShopifyOrderLine.price);
+                    SalesLine."Ref. Shopify Order No." := SalesHeader."Ref. Shopify Order No.";
+                    SalesLine."Shopify Tracking No." := SalesHeader."Shopify Tracking No.";
+                    SalesLine.Modify();
+
+                until ShopifyOrderLine.Next() = 0;
+            ShopifyOrder."Create to Sales Order" := true;
+            ShopifyOrder."Create to Sales Order No." := SalesHeader."No.";
+            ShopifyOrder."Create to Sales Order Date" := Today();
+            ShopifyOrder.Modify();
+            Message('Has been create to Order No. %1', SalesHeader."No.");
+        end;
+    end;
+
+    /// <summary>
     /// CreateToCashReceipt.
     /// </summary>
     /// <param name="pOderID">code[50].</param>
