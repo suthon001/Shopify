@@ -136,8 +136,12 @@ page 70000 "TPP Shopify Config. Setup"
                 trigger OnAction()
                 var
                     ShopifyFunction: Codeunit "TPP Shopify Function";
+                    ltRespones: Text;
                 begin
-                    ShopifyFunction.TESTConnect('shop.json');
+                    if ShopifyFunction.TESTConnect('shop.json', ltRespones) then
+                        Message('%1', ltRespones)
+                    else
+                        Message('%1', ltRespones);
                 end;
             }
         }

@@ -906,14 +906,17 @@ codeunit 70000 "TPP Shopify Function"
     /// TESTConnect.
     /// </summary>
     /// <param name="pFind">Text.</param>
-    procedure TESTConnect(pFind: Text)
+    /// <param name="ltResult">VAR Text.</param>
+
+    [TryFunction]
+    procedure TESTConnect(pFind: Text; var ltResult: Text)
     var
         ShopifyConfiguration: Record "TPP Shopify Configuration";
         ltUrl, gvResponseText : Text;
         ltJsonToken: JsonToken;
         ltJsonObject: JsonObject;
-        ltResult: Text;
     begin
+        ltResult := '';
         ShopifyConfiguration.GET();
         ShopifyConfiguration.TestField(Code);
         ShopifyConfiguration.TestField("Shopify URL");
@@ -942,11 +945,11 @@ codeunit 70000 "TPP Shopify Function"
             ltResult := ltResult + '\Country : ' + SelectJsonTokenText(ltJsonObject, '$.shop.country');
             ltResult := ltResult + '\Phone : ' + SelectJsonTokenText(ltJsonObject, '$.shop.phone');
             ltResult := ltResult + '\E-Mail : ' + SelectJsonTokenText(ltJsonObject, '$.shop.email');
-            Message(ltResult);
         end else begin
             ltResult := 'Error : ' + SelectJsonTokenText(ltJsonObject, '$.errors');
-            Message(ltResult);
+            Error('');
         end;
+
     end;
 
     /// <summary>
