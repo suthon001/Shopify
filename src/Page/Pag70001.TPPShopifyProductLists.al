@@ -12,6 +12,7 @@ page 70001 "TPP Shopify Product Lists"
     Editable = false;
     RefreshOnActivate = true;
     Extensible = false;
+    InsertAllowed = false;
     layout
     {
         area(content)
@@ -129,6 +130,25 @@ page 70001 "TPP Shopify Product Lists"
                     ShopifyInventory.SetProductID(rec.id);
                     ShopifyInventory.RunModal();
                     CLEAR(ShopifyInventory);
+                end;
+            }
+            action(CreateNewProduct)
+            {
+                Caption = 'Create New Product';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = Basic, Suite;
+                Image = CreateSKU;
+                ToolTip = 'Executes the Create New Product action.';
+                trigger OnAction()
+                var
+                    ShopifyNewProduct: Page "TPP Shopify New Product";
+                begin
+                    CLEAR(ShopifyNewProduct);
+                    ShopifyNewProduct.RunModal();
+                    CLEAR(ShopifyNewProduct);
                 end;
             }
         }

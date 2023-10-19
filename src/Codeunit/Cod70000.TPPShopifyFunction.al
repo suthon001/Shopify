@@ -3,7 +3,14 @@
 /// </summary>
 codeunit 70000 "TPP Shopify Function"
 {
+    /// <summary>
+    /// CreateNewProduct.
+    /// </summary>
+    /// <param name="pJsonBody">Text.</param>
+    procedure CreateNewProduct(pJsonBody: Text)
+    begin
 
+    end;
     /// <summary>
     /// CreateMultiSalesOrder.
     /// </summary>

@@ -1,15 +1,16 @@
 /// <summary>
-/// Page TPP Shopify Product Card (ID 70002).
+/// Page TPP Shopify New Product(ID 70032).
 /// </summary>
-page 70002 "TPP Shopify Product Card"
+page 70032 "TPP Shopify New Product"
 {
-    Caption = 'Shopify Product Card';
+    Caption = 'Shopify New Product';
     PageType = Card;
     SourceTable = "TPP Shopify Product";
     UsageCategory = None;
     RefreshOnActivate = true;
     Extensible = false;
     InsertAllowed = false;
+    SourceTableTemporary = true;
     layout
     {
         area(content)
@@ -110,7 +111,7 @@ page 70002 "TPP Shopify Product Card"
                 }
             }
 
-            part(Shopifyvariant; "TPP Shopify Variants Subform")
+            part(Shopifyvariant; "TPP Shopify New Variants")
             {
                 Caption = 'Variants';
                 SubPageLink = product_id = field(id);
@@ -118,24 +119,6 @@ page 70002 "TPP Shopify Product Card"
                 UpdatePropagation = Both;
                 ApplicationArea = Basic, Suite;
             }
-            part(ShopifyOptions; "TPP Shopify Options Sub.")
-            {
-                Caption = 'Option';
-                SubPageLink = product_id = field(id);
-                SubPageView = sorting(product_id, id);
-                UpdatePropagation = Both;
-                ApplicationArea = Basic, Suite;
-            }
-            part(ShopifyImage; "TPP Shopify Image Subform")
-            {
-                Caption = 'Image';
-                SubPageLink = product_id = field(id);
-                SubPageView = sorting(product_id, id);
-                UpdatePropagation = Both;
-                ApplicationArea = Basic, Suite;
-            }
-
-
         }
         area(FactBoxes)
         {
@@ -145,6 +128,7 @@ page 70002 "TPP Shopify Product Card"
                 ApplicationArea = all;
                 SubPageLink = product_id = field(id);
                 SubPageView = where(position = filter(1));
+                Enabled = rec.id <> '';
                 Caption = 'Position 1';
             }
             part(ShopifyPic_2; "TPP Shopify Show Product Img 2")
@@ -152,6 +136,7 @@ page 70002 "TPP Shopify Product Card"
                 ApplicationArea = all;
                 SubPageLink = product_id = field(id);
                 SubPageView = where(position = filter(2));
+                Enabled = rec.id <> '';
                 Caption = 'Position 2';
             }
             part(ShopifyPic_3; "TPP Shopify Show Product Img 3")
@@ -159,102 +144,9 @@ page 70002 "TPP Shopify Product Card"
                 ApplicationArea = all;
                 SubPageLink = product_id = field(id);
                 SubPageView = where(position = filter(3));
+                Enabled = rec.id <> '';
                 Caption = 'Position 3';
             }
-
-        }
-    }
-    actions
-    {
-        area(Processing)
-        {
-            action(DeleteProduct)
-            {
-                Caption = 'Delete Product';
-                Image = DeleteQtyToHandle;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                ApplicationArea = all;
-                ToolTip = 'Executes the Delete Product action.';
-                trigger OnAction()
-                var
-                    ShopifyFunction: Codeunit "TPP Shopify Function";
-                    DeleteImageQst: Label 'Are you sure you want to delete the product?';
-                begin
-                    if not Confirm(DeleteImageQst) then
-                        exit;
-                    ShopifyFunction.DeleteProduct(rec.id);
-                    rec.Delete(true);
-                end;
-            }
-            action(SyncProduct)
-            {
-                Caption = 'Sync from shopify';
-                Image = Refresh;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                ApplicationArea = all;
-                ToolTip = 'Executes the Update Status action.';
-                trigger OnAction()
-                var
-                    ShopifyFunction: Codeunit "TPP Shopify Function";
-                    UpdateQst: Label 'Are you sure you want to Sync from shopify?';
-                    ltTextFilter: Text;
-                begin
-                    if not Confirm(UpdateQst) then
-                        exit;
-                    ltTextFilter := '?ids=' + rec.id;
-                    ShopifyFunction.InsertToTable('GET', Database::"TPP Shopify Product", 'products.json' + ltTextFilter, 'products', 0);
-                    CurrPage.Update();
-                end;
-            }
-            action(UpdateStatus)
-            {
-                Caption = 'Update Status';
-                Image = UpdateDescription;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                ApplicationArea = all;
-                ToolTip = 'Executes the Update Status action.';
-                trigger OnAction()
-                var
-                    ShopifyUpdateStat: Page "TPP Shopify Update Status Item";
-                begin
-                    CLEAR(ShopifyUpdateStat);
-                    ShopifyUpdateStat.SetFromStatus(rec.status, rec.id);
-                    ShopifyUpdateStat.RunModal();
-                    CLEAR(ShopifyUpdateStat);
-                end;
-            }
-            action(UpdateProduct)
-            {
-                Caption = 'Update detail To Shopify';
-                Image = UpdateDescription;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                ApplicationArea = all;
-                ToolTip = 'Executes the Update Status action.';
-                trigger OnAction()
-                var
-                    ShopifyFunction: Codeunit "TPP Shopify Function";
-                    UpdateQst: Label 'Are you sure you want to Update product detail to shopify?';
-                begin
-                    if not Confirm(UpdateQst) then
-                        exit;
-                    ShopifyFunction.updateProduct(rec.id);
-                    CurrPage.Update();
-                end;
-            }
-
-
 
         }
     }
@@ -264,6 +156,23 @@ page 70002 "TPP Shopify Product Card"
             EditorReady := false;
             CurrPage.EditCtl.Init();
         end;
+    end;
+
+    trigger OnQueryClosePage(CloseAction: Action): Boolean
+    begin
+        if CloseAction in [CloseAction::OK, CloseAction::Yes] then
+            CreateProduct();
+    end;
+
+    local procedure CreateProduct()
+    var
+        ShopifyFunc: Codeunit "TPP Shopify Function";
+        ltJsonBody: Text;
+        ltJsonObject, ltJsonObjectBuild : JsonObject;
+        ltJsonArray: JsonArray;
+    begin
+        if Confirm('Do you want create new product to shopify ?') then
+            ShopifyFunc.CreateNewProduct(ltJsonBody);
     end;
 
     var
