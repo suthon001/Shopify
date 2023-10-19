@@ -18,17 +18,11 @@ page 70032 "TPP Shopify New Product"
             group(General)
             {
                 Caption = 'General';
-                field(id; Rec.id)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the id field.';
-                }
                 field(title; Rec.title)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the title field.';
                 }
-
                 field(vendor; Rec.vendor)
                 {
                     ApplicationArea = All;
@@ -39,46 +33,12 @@ page 70032 "TPP Shopify New Product"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the product_type field.';
                 }
-                field(created_at; Rec.created_at)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the created_at field.';
-                }
-                field(handle; Rec.handle)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the handle field.';
-                }
-                field(updated_at; Rec.updated_at)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the updated_at field.';
-                }
-                field(published_at; Rec.published_at)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the published_at field.';
-                }
-                field(published_scope; Rec.published_scope)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the published_scope field.';
-                }
-                field("Create Date"; Rec."Create Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the Create Date field.';
-                }
                 field(tags; Rec.tags)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the tags field.';
                 }
-                field(status; Rec.status)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the id field.';
-                }
+
                 group(bodyHtml)
                 {
                     Caption = 'Body HTML';
@@ -114,7 +74,6 @@ page 70032 "TPP Shopify New Product"
             part(Shopifyvariant; "TPP Shopify New Variants")
             {
                 Caption = 'Variants';
-                SubPageLink = product_id = field(id);
                 SubPageView = sorting(product_id, id);
                 UpdatePropagation = Both;
                 ApplicationArea = Basic, Suite;
@@ -166,13 +125,40 @@ page 70032 "TPP Shopify New Product"
 
     local procedure CreateProduct()
     var
+        Shopifyvariant: Record "TPP Shopify Variants" temporary;
         ShopifyFunc: Codeunit "TPP Shopify Function";
         ltJsonBody: Text;
-        ltJsonObject, ltJsonObjectBuild : JsonObject;
+        ltJsonObject, ltJsonObjectBuild, ALLJsonObjectBuild : JsonObject;
         ltJsonArray: JsonArray;
     begin
-        if Confirm('Do you want create new product to shopify ?') then
+        if Confirm('Do you want create new product to shopify ?') then begin
+            rec.TestField(title);
+            rec.TestField(body_html);
+            rec.TestField(product_type);
+
+            CurrPage.Shopifyvariant.Page.GetLines(Shopifyvariant);
+            if Shopifyvariant.FindSet() then
+                repeat
+                    Shopifyvariant.TestField(option1);
+                    Shopifyvariant.TestField(price);
+                    CLEAR(ltJsonObject);
+                    ltJsonObject.Add('option1', Shopifyvariant.option1);
+                    ltJsonObject.Add('price', Shopifyvariant.price);
+                    ltJsonObject.Add('sku', Shopifyvariant.sku);
+                    ltJsonArray.Add(ltJsonObject);
+                until Shopifyvariant.Next() = 0
+            else
+                error('variant must specifies');
+            ltJsonObjectBuild.Add('title', rec.title);
+            ltJsonObjectBuild.Add('body_html', rec.body_html);
+            ltJsonObjectBuild.Add('product_type', rec.product_type);
+            ltJsonObjectBuild.Add('vendor', rec.vendor);
+            ltJsonObjectBuild.Add('tags', rec.tags);
+            ltJsonObjectBuild.Add('variants', ltJsonArray);
+            ALLJsonObjectBuild.Add('product', ltJsonObjectBuild);
+            ALLJsonObjectBuild.WriteTo(ltJsonBody);
             ShopifyFunc.CreateNewProduct(ltJsonBody);
+        end;
     end;
 
     var

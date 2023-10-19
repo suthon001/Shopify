@@ -26,16 +26,6 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the option1 field.';
                 }
-                field(option2; Rec.option2)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the option2 field.';
-                }
-                field(option3; Rec.option3)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the option3 field.';
-                }
                 field(price; Rec.price)
                 {
                     ApplicationArea = All;
@@ -51,28 +41,6 @@ page 70003 "TPP Shopify Variants Subform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the position field.';
                 }
-                field(inventory_policy; Rec.inventory_policy)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the inventory_policy field.';
-                }
-                field(fulfillment_service; Rec.fulfillment_service)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the fulfillment_service field.';
-                }
-
-                field(created_at; Rec.created_at)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the created_at field.';
-                }
-                field(updated_at; Rec.updated_at)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the updated_at field.';
-                }
-
                 field(barcode; Rec.barcode)
                 {
                     ApplicationArea = All;
@@ -103,11 +71,6 @@ page 70003 "TPP Shopify Variants Subform"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the inventory_quantity field.';
-                }
-                field(old_inventory_quantity; Rec.old_inventory_quantity)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the old_inventory_quantity field.';
                 }
             }
         }
