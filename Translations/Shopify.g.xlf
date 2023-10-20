@@ -4128,6 +4128,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control GroupName - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 2779393159 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the StatusFilter field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvConfirmOrder - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 2779393159 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvConfirmOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4013035759 - Control 2779393159 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>any,true,false</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TPP Shopify Get Orders - Control gvConfirmOrder - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Report 4013035759 - Control 2137287601 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the DateTimeMethod field.</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -29,6 +29,13 @@ report 70000 "TPP Shopify Get Orders"
                         Caption = 'Order Status Filter';
 
                     }
+                    field(gvConfirmOrder; ConfirmOrder)
+                    {
+                        ApplicationArea = all;
+                        OptionCaption = 'any,true,false';
+                        ToolTip = 'Specifies the value of the StatusFilter field.';
+                        Caption = 'Confirm Order';
+                    }
                     field(gvfinancialStatusFilter; financialStatusFilter)
                     {
                         ApplicationArea = all;
@@ -90,7 +97,8 @@ report 70000 "TPP Shopify Get Orders"
         ltTextFilter := ltTextFilter + '&status=' + format(StatusFilter);
         ltTextFilter := ltTextFilter + '&financial_status=' + format(financialStatusFilter);
         ltTextFilter := ltTextFilter + '&fulfillment_status=' + format(FulfillmentStatusFilter);
-
+        if ConfirmOrder <> ConfirmOrder::any then
+            ltTextFilter := ltTextFilter + '&confirmed=' + format(ConfirmOrder);
         if OrderDateFilter <> 0D then
             if DateTimeMethod = DateTimeMethod::More then begin
                 if OrderTimeFilter <> 0T then
@@ -125,4 +133,5 @@ report 70000 "TPP Shopify Get Orders"
         OrderDateFilter: Date;
         OrderTimeFilter: Time;
         DateTimeMethod: Option "More","Less";
+        ConfirmOrder: Option "any","true","false";
 }
