@@ -8,8 +8,35 @@ codeunit 70000 "TPP Shopify Function"
     /// </summary>
     /// <param name="pJsonBody">Text.</param>
     procedure CreateNewProduct(pJsonBody: Text)
-    begin
+    VAR
+        ltShopifyConfiguration: Record "TPP Shopify Configuration";
+        ltHttpContent: HttpContent;
+        ltHttpHeadersContent: HttpHeaders;
+        ltHttpRequestMessage: HttpRequestMessage;
+        ltHttpResponseMessage: HttpResponseMessage;
+        ltHttpClient: HttpClient;
+        ltUrlAddress, ltResponseText : Text;
 
+    begin
+        ltShopifyConfiguration.get();
+        ltShopifyConfiguration.TestField("Shopify URL");
+        ltShopifyConfiguration.TestField("API Version");
+        ltShopifyConfiguration.TestField(Enabled, TRUE);
+        ltHttpContent.WriteFrom(pJsonBody);
+        ltHttpContent.GetHeaders(ltHttpHeadersContent);
+        ltHttpHeadersContent.Clear();
+        ltHttpHeadersContent.Add('Content-Type', 'application/json');
+        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
+        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'products.json');
+        ltHttpRequestMessage.Content := ltHttpContent;
+        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
+        ltHttpRequestMessage.Method := 'POST';
+        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
+        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+        if (ltHttpResponseMessage.IsSuccessStatusCode()) then
+            Message('Create Product is successfully')
+        else
+            Message('%1', ltResponseText);
     end;
     /// <summary>
     /// CreateMultiSalesOrder.
@@ -667,6 +694,8 @@ codeunit 70000 "TPP Shopify Function"
 
 
 
+
+
     /// <summary>
     /// UpdateProductImg.
     /// </summary>
@@ -928,7 +957,6 @@ codeunit 70000 "TPP Shopify Function"
         ShopifyConfiguration.TestField(Code);
         ShopifyConfiguration.TestField("Shopify URL");
         ShopifyConfiguration.TestField("API Version");
-        ShopifyConfiguration.TestField(Enabled, true);
         ltUrl := StrSubstNo(gvUrlAddress, ShopifyConfiguration."Shopify URL", ShopifyConfiguration."API Version", pFind);
         CLEAR(gvHttpRequestMessage);
         CLEAR(gvHttpClient);

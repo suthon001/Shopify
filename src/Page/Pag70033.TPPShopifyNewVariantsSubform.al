@@ -9,8 +9,6 @@ page 70033 "TPP Shopify New Variants"
     SourceTableTemporary = true;
     UsageCategory = None;
     Extensible = false;
-    DeleteAllowed = false;
-    InsertAllowed = false;
     layout
     {
         area(content)

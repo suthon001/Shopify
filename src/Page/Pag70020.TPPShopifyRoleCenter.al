@@ -112,7 +112,7 @@ page 70020 "TPP Shopify Role Center"
         {
             Group(Order)
             {
-                Caption = 'Order';
+                Caption = 'Orders';
                 action(ShopifyOrder)
                 {
                     ApplicationArea = all;
@@ -131,7 +131,7 @@ page 70020 "TPP Shopify Role Center"
             }
             Group(Transaction)
             {
-                Caption = 'Transaction';
+                Caption = 'Transactions';
                 action(TransactionLists)
                 {
                     ApplicationArea = all;
@@ -155,7 +155,7 @@ page 70020 "TPP Shopify Role Center"
             }
             Group(Refund)
             {
-                Caption = 'Refund';
+                Caption = 'Refunds';
                 action(RefundLists)
                 {
                     ApplicationArea = all;
@@ -178,7 +178,7 @@ page 70020 "TPP Shopify Role Center"
             }
             group(Product)
             {
-                Caption = 'Product';
+                Caption = 'Products';
                 action(ShopifyProduct)
                 {
                     ApplicationArea = all;

@@ -61,6 +61,11 @@ table 70004 "TPP Shopify Image"
             DataClassification = CustomerContent;
 
         }
+        field(11; "Base64 Text"; Text[2047])
+        {
+            Caption = 'Base64 Text';
+            DataClassification = CustomerContent;
+        }
 
 
     }

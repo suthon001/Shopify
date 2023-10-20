@@ -5,12 +5,9 @@ page 70032 "TPP Shopify New Product"
 {
     Caption = 'Shopify New Product';
     PageType = Card;
-    SourceTable = "TPP Shopify Product";
     UsageCategory = None;
     RefreshOnActivate = true;
     Extensible = false;
-    InsertAllowed = false;
-    SourceTableTemporary = true;
     layout
     {
         area(content)
@@ -18,25 +15,38 @@ page 70032 "TPP Shopify New Product"
             group(General)
             {
                 Caption = 'General';
-                field(title; Rec.title)
+                field(gvtitle; gvtitle)
                 {
                     ApplicationArea = All;
+
+                    Caption = 'Title';
                     ToolTip = 'Specifies the value of the title field.';
                 }
-                field(vendor; Rec.vendor)
+                field(gvvendor; gvvendor)
                 {
+                    Caption = 'Vendor';
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the vendor field.';
                 }
-                field(product_type; Rec.product_type)
+                field(gvproduct_type; gvproduct_type)
                 {
                     ApplicationArea = All;
+                    Caption = 'Product Type';
                     ToolTip = 'Specifies the value of the product_type field.';
                 }
-                field(tags; Rec.tags)
+                field(gvtags; gvtags)
                 {
                     ApplicationArea = All;
+                    Caption = 'Tags';
                     ToolTip = 'Specifies the value of the tags field.';
+                }
+                field(gvStats; gvStats)
+                {
+                    ApplicationArea = all;
+                    OptionCaption = 'draft,active';
+                    Caption = 'Status';
+                    ToolTip = 'Specifies the value of the tags field.';
+
                 }
 
                 group(bodyHtml)
@@ -53,8 +63,6 @@ page 70032 "TPP Shopify New Product"
                         trigger OnAfterInit()
                         begin
                             EditorReady := true;
-                            if rec.body_html <> '' then
-                                CurrPage.EditCtl.Load(rec.body_html);
                             CurrPage.EditCtl.SetReadOnly(not CurrPage.Editable);
                         end;
 
@@ -65,7 +73,7 @@ page 70032 "TPP Shopify New Product"
 
                         trigger SaveRequested(data: Text[2047])
                         begin
-                            rec.body_html := Data;
+                            HtmlBody := Data;
                         end;
                     }
                 }
@@ -82,28 +90,19 @@ page 70032 "TPP Shopify New Product"
         area(FactBoxes)
         {
 
-            part(ShopifyPic; "TPP Shopify Show Product Img 1")
+            part(ShopifyPic; "TPP Shopify New Product Img")
             {
                 ApplicationArea = all;
-                SubPageLink = product_id = field(id);
-                SubPageView = where(position = filter(1));
-                Enabled = rec.id <> '';
                 Caption = 'Position 1';
             }
-            part(ShopifyPic_2; "TPP Shopify Show Product Img 2")
+            part(ShopifyPic_2; "TPP Shopify New Product Img2")
             {
                 ApplicationArea = all;
-                SubPageLink = product_id = field(id);
-                SubPageView = where(position = filter(2));
-                Enabled = rec.id <> '';
                 Caption = 'Position 2';
             }
-            part(ShopifyPic_3; "TPP Shopify Show Product Img 3")
+            part(ShopifyPic_3; "TPP Shopify New Product Img3")
             {
                 ApplicationArea = all;
-                SubPageLink = product_id = field(id);
-                SubPageView = where(position = filter(3));
-                Enabled = rec.id <> '';
                 Caption = 'Position 3';
             }
 
@@ -129,12 +128,19 @@ page 70032 "TPP Shopify New Product"
         ShopifyFunc: Codeunit "TPP Shopify Function";
         ltJsonBody: Text;
         ltJsonObject, ltJsonObjectBuild, ALLJsonObjectBuild : JsonObject;
-        ltJsonArray: JsonArray;
+        ltJsonArray, ltJsonArrayImg : JsonArray;
+        CheckImg: Boolean;
     begin
         if Confirm('Do you want create new product to shopify ?') then begin
-            rec.TestField(title);
-            rec.TestField(body_html);
-            rec.TestField(product_type);
+
+            if gvTitle = '' then
+                ERROR('title must have a value in Shopify : It cannot be zero or empty.');
+            if gvVendor = '' then
+                ERROR('Vendor must have a value in Shopify : It cannot be zero or empty.');
+            if gvproduct_type = '' then
+                ERROR('Product Type must have a value in Shopify : It cannot be zero or empty.');
+            if HtmlBody = '' then
+                ERROR('Body HTML must have a value in Shopify : It cannot be zero or empty.');
 
             CurrPage.Shopifyvariant.Page.GetLines(Shopifyvariant);
             if Shopifyvariant.FindSet() then
@@ -149,12 +155,41 @@ page 70032 "TPP Shopify New Product"
                 until Shopifyvariant.Next() = 0
             else
                 error('variant must specifies');
-            ltJsonObjectBuild.Add('title', rec.title);
-            ltJsonObjectBuild.Add('body_html', rec.body_html);
-            ltJsonObjectBuild.Add('product_type', rec.product_type);
-            ltJsonObjectBuild.Add('vendor', rec.vendor);
-            ltJsonObjectBuild.Add('tags', rec.tags);
+
+            CurrPage.ShopifyPic.Page.GetLines(Base64Text1);
+            CurrPage.ShopifyPic_2.Page.GetLines(Base64Text2);
+            CurrPage.ShopifyPic_3.Page.GetLines(Base64Text3);
+
+            CheckImg := false;
+
+            if Base64Text1 <> '' then begin
+                CLEAR(ltJsonObject);
+                ltJsonObject.Add('attachment', Base64Text1);
+                ltJsonArrayImg.add(ltJsonObject);
+                CheckImg := true;
+            end;
+            if Base64Text2 <> '' then begin
+                CLEAR(ltJsonObject);
+                ltJsonObject.Add('attachment', Base64Text2);
+                ltJsonArrayImg.add(ltJsonObject);
+                CheckImg := true;
+            end;
+            if Base64Text3 <> '' then begin
+                CLEAR(ltJsonObject);
+                ltJsonObject.Add('attachment', Base64Text3);
+                ltJsonArrayImg.add(ltJsonObject);
+                CheckImg := true;
+            end;
+
+            ltJsonObjectBuild.Add('title', gvTitle);
+            ltJsonObjectBuild.Add('body_html', HtmlBody);
+            ltJsonObjectBuild.Add('product_type', gvproduct_type);
+            ltJsonObjectBuild.Add('vendor', gvVendor);
+            ltJsonObjectBuild.Add('tags', gvtags);
             ltJsonObjectBuild.Add('variants', ltJsonArray);
+            ltJsonObjectBuild.Add('status', Format(gvStats));
+            if CheckImg then
+                ltJsonObjectBuild.Add('images', ltJsonArrayImg);
             ALLJsonObjectBuild.Add('product', ltJsonObjectBuild);
             ALLJsonObjectBuild.WriteTo(ltJsonBody);
             ShopifyFunc.CreateNewProduct(ltJsonBody);
@@ -163,4 +198,6 @@ page 70032 "TPP Shopify New Product"
 
     var
         EditorReady: Boolean;
+        HtmlBody, gvTitle, gvVendor, gvproduct_type, gvtags, Base64Text1, Base64Text2, Base64Text3 : Text;
+        gvStats: Option "draft","active";
 }

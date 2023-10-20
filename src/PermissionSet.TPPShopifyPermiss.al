@@ -72,5 +72,8 @@ permissionset 70000 "TPP Shopify Permiss"
         page "TPP Shopify Refund Lists" = X,
         page "TPP Shopify New Product" = X,
         page "TPP Shopify New Variants" = X,
+        page "TPP Shopify New Product Img" = X,
+        page "TPP Shopify New Product Img2" = X,
+        page "TPP Shopify New Product Img3" = X,
         page "TPP Shopify Order Lists" = X;
 }

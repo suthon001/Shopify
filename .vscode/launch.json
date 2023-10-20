@@ -10,7 +10,7 @@
             "serverInstance": "Boyy_LS195",
             "port": 23504,
             "authentication": "UserPassword",
-            "startupObjectId": 70006,
+            "startupObjectId": 70001,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,
