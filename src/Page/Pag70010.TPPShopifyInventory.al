@@ -132,7 +132,7 @@ page 70010 "TPP Shopify Inventory"
                     ltTextFilter := ltTextFilter + ',';
                 ltTextFilter := ltTextFilter + ProductVariant.inventory_item_id;
             until ProductVariant.Next() = 0;
-        ShopifyFunction.ConnectTOShopify('GET', 'inventory_levels.json?inventory_item_ids=' + ltTextFilter, ltJsonObject);
+        ShopifyFunction.ConnectTOShopify('GET', 'inventory_levels.json?inventory_item_ids=' + ltTextFilter, ltJsonObject, '');
         if ltJsonObject.SelectToken('$.inventory_levels', ltJsonToken) then begin
             ltJsonArray := ltJsonToken.AsArray();
             for ltmyLoop := 0 to ltJsonArray.Count - 1 do begin

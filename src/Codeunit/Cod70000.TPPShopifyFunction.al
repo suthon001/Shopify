@@ -9,34 +9,12 @@ codeunit 70000 "TPP Shopify Function"
     /// <param name="pJsonBody">Text.</param>
     procedure CreateNewProduct(pJsonBody: Text)
     VAR
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        ltUrlAddress, ltResponseText : Text;
+        ltJsonObject: JsonObject;
 
     begin
-        ltShopifyConfiguration.get();
-        ltShopifyConfiguration.TestField("Shopify URL");
-        ltShopifyConfiguration.TestField("API Version");
-        ltShopifyConfiguration.TestField(Enabled, TRUE);
-        ltHttpContent.WriteFrom(pJsonBody);
-        ltHttpContent.GetHeaders(ltHttpHeadersContent);
-        ltHttpHeadersContent.Clear();
-        ltHttpHeadersContent.Add('Content-Type', 'application/json');
-        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
-        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'products.json');
-        ltHttpRequestMessage.Content := ltHttpContent;
-        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-        ltHttpRequestMessage.Method := 'POST';
-        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-        if (ltHttpResponseMessage.IsSuccessStatusCode()) then
-            Message('Create Product is successfully')
-        else
-            Message('%1', ltResponseText);
+        ConnectTOShopify('POST', 'products.json', ltJsonObject, pJsonBody);
+        Message('Create Product is successfully');
+
     end;
     /// <summary>
     /// CreateMultiSalesOrder.
@@ -350,7 +328,7 @@ codeunit 70000 "TPP Shopify Function"
     begin
         if pProductID = '' then
             exit;
-        ConnectTOShopify('GET', 'products/' + pProductID + '.json', ltJsonObject);
+        ConnectTOShopify('GET', 'products/' + pProductID + '.json', ltJsonObject, '');
         ltShopifyOptions.reset();
         ltShopifyOptions.SetRange(product_id, pProductID);
         ltShopifyOptions.DeleteAll();
@@ -371,7 +349,7 @@ codeunit 70000 "TPP Shopify Function"
     begin
         if pProductID = '' then
             exit;
-        ConnectTOShopify('GET', 'products/' + pProductID + '.json', ltJsonObject);
+        ConnectTOShopify('GET', 'products/' + pProductID + '.json', ltJsonObject, '');
         ltShopifyvariant.reset();
         ltShopifyvariant.SetRange(product_id, pProductID);
         ltShopifyvariant.DeleteAll();
@@ -389,33 +367,10 @@ codeunit 70000 "TPP Shopify Function"
     /// <param name="pProductID">code[50].</param>
     procedure SetInventory(pJsonBody: text; pProductID: code[50])
     var
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        ltUrlAddress, ltResponseText : Text;
+        ltJsonObject: JsonObject;
     begin
-        ltShopifyConfiguration.GET();
-        ltShopifyConfiguration.TestField(Code);
-        ltShopifyConfiguration.TestField("Shopify URL");
-        ltShopifyConfiguration.TestField("API Version");
-        ltShopifyConfiguration.TestField(Enabled, true);
-        ltHttpContent.WriteFrom(pJsonBody);
-        ltHttpContent.GetHeaders(ltHttpHeadersContent);
-        ltHttpHeadersContent.Clear();
-        ltHttpHeadersContent.Add('Content-Type', 'application/json');
-        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
-        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'inventory_levels/set.json');
-        ltHttpRequestMessage.Content := ltHttpContent;
-        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-        ltHttpRequestMessage.Method := 'POST';
-        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-        if (ltHttpResponseMessage.IsSuccessStatusCode()) then
-            GetProductVariant(pProductID);
-
+        ConnectTOShopify('POST', 'inventory_levels/set.json', ltJsonObject, pJsonBody);
+        GetProductVariant(pProductID);
     end;
 
     /// <summary>
@@ -425,20 +380,9 @@ codeunit 70000 "TPP Shopify Function"
     /// <param name="pProductID">code[50].</param>
     procedure InsertNewVariantbyProduct(pVariantTemp: Record "TPP Shopify Variants" temporary; pProductID: code[50])
     var
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
         ltJsonObject, ltJsonObjectBuild : JsonObject;
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        JsonBody, ltUrlAddress, ltResponseText : Text;
+        JsonBody: Text;
     begin
-        ltShopifyConfiguration.GET();
-        ltShopifyConfiguration.TestField(Code);
-        ltShopifyConfiguration.TestField("Shopify URL");
-        ltShopifyConfiguration.TestField("API Version");
-        ltShopifyConfiguration.TestField(Enabled, true);
         ltJsonObject.Add('option1', pVariantTemp.option1);
         ltJsonObject.Add('sku', pVariantTemp.sku);
         ltJsonObject.Add('position', pVariantTemp.position);
@@ -449,17 +393,8 @@ codeunit 70000 "TPP Shopify Function"
         ltJsonObject.Add('weight_unit', pVariantTemp.weight_unit);
         ltJsonObjectBuild.Add('variant', ltJsonObject);
         ltJsonObjectBuild.WriteTo(JsonBody);
-        ltHttpContent.WriteFrom(JsonBody);
-        ltHttpContent.GetHeaders(ltHttpHeadersContent);
-        ltHttpHeadersContent.Clear();
-        ltHttpHeadersContent.Add('Content-Type', 'application/json');
-        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
-        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'products/' + pProductID + '/variants.json');
-        ltHttpRequestMessage.Content := ltHttpContent;
-        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-        ltHttpRequestMessage.Method := 'POST';
-        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
+        CLEAR(ltJsonObject);
+        ConnectTOShopify('POST', 'products/' + pProductID + '/variants.json', ltJsonObject, JsonBody);
 
     end;
     /// <summary>
@@ -469,23 +404,12 @@ codeunit 70000 "TPP Shopify Function"
     procedure updateProduct(pProductID: code[50])
     var
         ltshopifyProduct: Record "TPP Shopify Product";
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
         ltJsonObject, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
-        ltJsonToken, ltJsonTokenFileName : JsonToken;
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        JsonBody, ltUrlAddress, ltResponseText : Text;
+        ltJsonToken: JsonToken;
+        JsonBody: text;
         ltDateTime: DateTime;
         ltHaveOptions: Boolean;
     begin
-        ltShopifyConfiguration.GET();
-        ltShopifyConfiguration.TestField(Code);
-        ltShopifyConfiguration.TestField("Shopify URL");
-        ltShopifyConfiguration.TestField("API Version");
-        ltShopifyConfiguration.TestField(Enabled, true);
         ltshopifyProduct.GET(pProductID);
         ltHaveOptions := false;
         CLEAR(ltJsonObject);
@@ -499,28 +423,15 @@ codeunit 70000 "TPP Shopify Function"
         ltJsonObject.Add('tags', ltshopifyProduct.tags);
         ltJsonObjectBuild.Add('product', ltJsonObject);
         ltJsonObjectBuild.WriteTo(JsonBody);
-        ltHttpContent.WriteFrom(JsonBody);
-        ltHttpContent.GetHeaders(ltHttpHeadersContent);
-        ltHttpHeadersContent.Clear();
-        ltHttpHeadersContent.Add('Content-Type', 'application/json');
-        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
-        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'products/' + pProductID + '.json');
-        ltHttpRequestMessage.Content := ltHttpContent;
-        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-        ltHttpRequestMessage.Method := 'PUT';
-        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-        if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
-            ltJsonTokenFileName.ReadFrom(ltResponseText);
-            ltJsonTokenFileName.SelectToken('$.product', ltJsonToken);
-            ltJsonObjectFileName := ltJsonToken.AsObject();
-            Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.updated_at'));
-            ltshopifyProduct.updated_at := ltDateTime;
-            ltshopifyProduct.Modify();
-            UpdateVariant(ltshopifyProduct.id);
-            Message('Update Detail is successfully');
-        end else
-            Message('%1', ltResponseText);
+        CLEAR(ltJsonObject);
+        ConnectTOShopify('PUT', 'products/' + pProductID + '.json', ltJsonObject, JsonBody);
+        ltJsonObject.SelectToken('$.product', ltJsonToken);
+        ltJsonObjectFileName := ltJsonToken.AsObject();
+        Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.updated_at'));
+        ltshopifyProduct.updated_at := ltDateTime;
+        ltshopifyProduct.Modify();
+        UpdateVariant(ltshopifyProduct.id);
+        Message('Update Detail is successfully');
     end;
     /// <summary>
     /// UpdateVariant.
@@ -529,39 +440,22 @@ codeunit 70000 "TPP Shopify Function"
     procedure UpdateVariant(pProductID: code[50])
     var
         ltshopifyVariant: Record "TPP Shopify Variants";
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
         ltJsonObject, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
-        ltJsonTokenFileName, ltJsonToken : JsonToken;
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        JsonBody, ltUrlAddress, ltResponseText : Text;
+        ltJsonToken: JsonToken;
+        JsonBody: Text;
         ltDateTime: DateTime;
     begin
         if (pProductID = '') then
             exit;
-        ltShopifyConfiguration.GET();
-        ltShopifyConfiguration.TestField(Code);
-        ltShopifyConfiguration.TestField("Shopify URL");
-        ltShopifyConfiguration.TestField("API Version");
-        ltShopifyConfiguration.TestField(Enabled, true);
         ltshopifyVariant.reset();
         ltshopifyVariant.SetRange(product_id, pProductID);
         ltshopifyVariant.SetFilter(id, '<>%1', '');
         if ltshopifyVariant.FindSet() then
             repeat
-                CLEAR(ltHttpContent);
-                CLEAR(ltHttpHeadersContent);
-                CLEAR(ltHttpRequestMessage);
-                CLEAR(ltHttpResponseMessage);
                 CLEAR(ltJsonObjectBuild);
                 CLEAR(ltJsonObject);
                 CLEAR(ltJsonObjectFileName);
-                CLEAR(ltJsonTokenFileName);
                 CLEAR(ltJsonToken);
-                CLEAR(ltResponseText);
                 ltJsonObject.Add('id', ltshopifyVariant.id);
                 ltJsonObject.Add('price', ltshopifyVariant.price);
                 ltJsonObject.Add('sku', ltshopifyVariant.sku);
@@ -575,25 +469,13 @@ codeunit 70000 "TPP Shopify Function"
                 ltJsonObject.Add('weight_unit', ltshopifyVariant.weight_unit);
                 ltJsonObjectBuild.Add('variant', ltJsonObject);
                 ltJsonObjectBuild.WriteTo(JsonBody);
-                ltHttpContent.WriteFrom(JsonBody);
-                ltHttpContent.GetHeaders(ltHttpHeadersContent);
-                ltHttpHeadersContent.Clear();
-                ltHttpHeadersContent.Add('Content-Type', 'application/json');
-                ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
-                ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'variants/' + ltshopifyVariant.id + '.json');
-                ltHttpRequestMessage.Content := ltHttpContent;
-                ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-                ltHttpRequestMessage.Method := 'PUT';
-                ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-                ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-                if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
-                    ltJsonTokenFileName.ReadFrom(ltResponseText);
-                    ltJsonTokenFileName.SelectToken('$.variant', ltJsonToken);
-                    ltJsonObjectFileName := ltJsonToken.AsObject();
-                    Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.updated_at'));
-                    ltshopifyVariant.updated_at := ltDateTime;
-                    ltshopifyVariant.Modify();
-                end;
+                CLEAR(ltJsonObject);
+                ConnectTOShopify('PUT', 'variants/' + ltshopifyVariant.id + '.json', ltJsonObject, JsonBody);
+                ltJsonObject.SelectToken('$.variant', ltJsonToken);
+                ltJsonObjectFileName := ltJsonToken.AsObject();
+                Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.updated_at'));
+                ltshopifyVariant.updated_at := ltDateTime;
+                ltshopifyVariant.Modify();
             until ltshopifyVariant.Next() = 0;
     end;
 
@@ -606,44 +488,21 @@ codeunit 70000 "TPP Shopify Function"
     procedure UpdateStatusProduct(pProductID: code[50]; pStatus: Text)
     var
         ltshopifyProduct: Record "TPP Shopify Product";
-        ltShopifyConfiguration: Record "TPP Shopify Configuration";
         ltJsonObject, ltJsonObjectBuild : JsonObject;
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
-        JsonBody, ltUrlAddress, ltResponseText : Text;
+        JsonBody: Text;
     begin
         if (pProductID = '') or (pStatus = '') then
             exit;
-        ltShopifyConfiguration.GET();
-        ltShopifyConfiguration.TestField(Code);
-        ltShopifyConfiguration.TestField("Shopify URL");
-        ltShopifyConfiguration.TestField("API Version");
-        ltShopifyConfiguration.TestField(Enabled, true);
         ltJsonObject.Add('id', pProductID);
         ltJsonObject.Add('status', pStatus);
         ltJsonObjectBuild.Add('product', ltJsonObject);
         ltJsonObjectBuild.WriteTo(JsonBody);
-        ltHttpContent.WriteFrom(JsonBody);
-        ltHttpContent.GetHeaders(ltHttpHeadersContent);
-        ltHttpHeadersContent.Clear();
-        ltHttpHeadersContent.Add('Content-Type', 'application/json');
-        ltHttpHeadersContent.Add('X-Shopify-Access-Token', ltShopifyConfiguration.Code);
-        ltUrlAddress := StrSubstNo(gvUrlAddress, ltShopifyConfiguration."Shopify URL", ltShopifyConfiguration."API Version", 'products/' + pProductID + '.json');
-        ltHttpRequestMessage.Content := ltHttpContent;
-        ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-        ltHttpRequestMessage.Method := 'PUT';
-        ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-        ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-        if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
-            ltshopifyProduct.GET(pProductID);
-            ltshopifyProduct.status := COPYSTR(pStatus, 1, 50);
-            ltshopifyProduct.Modify();
-            Message('Update status is successfully');
-        end else
-            Message('%1', ltResponseText);
+        CLEAR(ltJsonObject);
+        ConnectTOShopify('PUT', 'products/' + pProductID + '.json', ltJsonObject, JsonBody);
+        ltshopifyProduct.GET(pProductID);
+        ltshopifyProduct.status := COPYSTR(pStatus, 1, 50);
+        ltshopifyProduct.Modify();
+        Message('Update status is successfully');
     end;
 
 
@@ -659,7 +518,7 @@ codeunit 70000 "TPP Shopify Function"
         if (pProductID = '') or (pid = '') then
             exit;
 
-        ConnectTOShopify('DELETE', 'products/' + pProductID + '/variants/' + pid + '.json', ltJsonObject);
+        ConnectTOShopify('DELETE', 'products/' + pProductID + '/variants/' + pid + '.json', ltJsonObject, '');
 
     end;
 
@@ -676,7 +535,7 @@ codeunit 70000 "TPP Shopify Function"
         if (pSrc = '') or (pProductID = '') or (pid = '') then
             exit;
 
-        ConnectTOShopify('DELETE', 'products/' + pProductID + '/images/' + pid + '.json', ltJsonObject);
+        ConnectTOShopify('DELETE', 'products/' + pProductID + '/images/' + pid + '.json', ltJsonObject, '');
     end;
     /// <summary>
     /// DeleteProduct.
@@ -689,7 +548,7 @@ codeunit 70000 "TPP Shopify Function"
         if (pProductID = '') then
             exit;
 
-        ConnectTOShopify('DELETE', 'products/' + pProductID + '.json', ltJsonObject);
+        ConnectTOShopify('DELETE', 'products/' + pProductID + '.json', ltJsonObject, '');
     end;
 
 
@@ -705,18 +564,12 @@ codeunit 70000 "TPP Shopify Function"
     procedure UpdateProductImg(pProductID: code[50]; pid: Code[50]; pPosition: Integer)
     var
         ltProductImg: Record "TPP Shopify Image";
-        ShopifyConfiguration: Record "TPP Shopify Configuration";
         Base64Convert: codeunit "Base64 Convert";
         ltJsonObject, ltJsonObject2, ltJsonObjectBuild, ltJsonObjectFileName : JsonObject;
-        ltJsonToken, ltJsonTokenFileName : JsonToken;
+        ltJsonToken: JsonToken;
         ltJsonArray: JsonArray;
-        Base64Text, ltFileName, JsonBody, ltUrlAddress, ltResponseText : Text;
+        Base64Text, ltFileName, JsonBody : Text;
         ltInstream: InStream;
-        ltHttpContent: HttpContent;
-        ltHttpHeadersContent: HttpHeaders;
-        ltHttpRequestMessage: HttpRequestMessage;
-        ltHttpResponseMessage: HttpResponseMessage;
-        ltHttpClient: HttpClient;
         ltDateTime: DateTime;
     begin
         CLEAR(ltInstream);
@@ -728,11 +581,6 @@ codeunit 70000 "TPP Shopify Function"
         ltFileName := '';
         UploadIntoStream('Select Picture', '', '', ltFileName, ltInstream);
         if ltFileName <> '' then begin
-            ShopifyConfiguration.GET();
-            ShopifyConfiguration.TestField(Code);
-            ShopifyConfiguration.TestField("Shopify URL");
-            ShopifyConfiguration.TestField("API Version");
-            ShopifyConfiguration.TestField(Enabled, true);
             Base64Text := Base64Convert.ToBase64(ltInstream);
             ltJsonObject.Add('key', 'new');
             ltJsonObject.Add('value', 'newvalue');
@@ -745,47 +593,31 @@ codeunit 70000 "TPP Shopify Function"
             ltJsonObject2.Add('filename ', ltFileName);
             ltJsonObjectBuild.Add('image', ltJsonObject2);
             ltJsonObjectBuild.WriteTo(JsonBody);
-            ltHttpContent.WriteFrom(JsonBody);
-            ltHttpContent.GetHeaders(ltHttpHeadersContent);
-            ltHttpHeadersContent.Clear();
-            ltHttpHeadersContent.Add('Content-Type', 'application/json');
-            ltHttpHeadersContent.Add('X-Shopify-Access-Token', ShopifyConfiguration.Code);
-            ltUrlAddress := StrSubstNo(gvUrlAddress, ShopifyConfiguration."Shopify URL", ShopifyConfiguration."API Version", 'products/' + pProductID + '/images.json');
-            ltHttpRequestMessage.Content := ltHttpContent;
-            ltHttpRequestMessage.SetRequestUri(ltUrlAddress);
-            ltHttpRequestMessage.Method := 'POST';
-            ltHttpClient.Send(ltHttpRequestMessage, ltHttpResponseMessage);
-            ltHttpResponseMessage.Content.ReadAs(ltResponseText);
-            if (ltHttpResponseMessage.IsSuccessStatusCode()) then begin
-                ltJsonTokenFileName.ReadFrom(ltResponseText);
-                ltJsonTokenFileName.SelectToken('$.image', ltJsonToken);
-                ltJsonObjectFileName := ltJsonToken.AsObject();
-
-                ltProductImg.reset();
-                ltProductImg.SetRange(product_id, pProductID);
-                ltProductImg.SetRange(id, pid);
-                if ltProductImg.FindFirst() then
-                    ltProductImg.Delete();
-                ltProductImg.Init();
-                ltProductImg.product_id := pProductID;
-                ltProductImg.id := format(SelectJsonTokenText(ltJsonObjectFileName, '$.id'));
-                ltProductImg.width := SelectJsonTokenInteger(ltJsonObjectFileName, '$.width');
-                ltProductImg.height := SelectJsonTokenInteger(ltJsonObjectFileName, '$.height');
-                ltProductImg.position := SelectJsonTokenInteger(ltJsonObjectFileName, '$.position');
-                ltProductImg.Insert();
-                ltProductImg.Validate(src, SelectJsonTokenText(ltJsonObjectFileName, '$.src'));
-                ltProductImg.admin_graphql_api_id := COPYSTR(SelectJsonTokenText(ltJsonObjectFileName, '$.admin_graphql_api_id'), 1, 2047);
-                Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.created_at'));
-                ltProductImg.created_at := ltDateTime;
-                ltProductImg.Modify();
-            end;
-
+            CLEAR(ltJsonObject);
+            ConnectTOShopify('POST', 'products/' + pProductID + '/images.json', ltJsonObject, JsonBody);
+            ltJsonObject.SelectToken('$.image', ltJsonToken);
+            ltJsonObjectFileName := ltJsonToken.AsObject();
+            ltProductImg.reset();
+            ltProductImg.SetRange(product_id, pProductID);
+            ltProductImg.SetRange(id, pid);
+            if ltProductImg.FindFirst() then
+                ltProductImg.Delete();
+            ltProductImg.Init();
+            ltProductImg.product_id := pProductID;
+            ltProductImg.id := format(SelectJsonTokenText(ltJsonObjectFileName, '$.id'));
+            ltProductImg.width := SelectJsonTokenInteger(ltJsonObjectFileName, '$.width');
+            ltProductImg.height := SelectJsonTokenInteger(ltJsonObjectFileName, '$.height');
+            ltProductImg.position := SelectJsonTokenInteger(ltJsonObjectFileName, '$.position');
+            ltProductImg.Insert();
+            ltProductImg.Validate(src, SelectJsonTokenText(ltJsonObjectFileName, '$.src'));
+            ltProductImg.admin_graphql_api_id := COPYSTR(SelectJsonTokenText(ltJsonObjectFileName, '$.admin_graphql_api_id'), 1, 2047);
+            Evaluate(ltDateTime, SelectJsonTokenText(ltJsonObjectFileName, '$.created_at'));
+            ltProductImg.created_at := ltDateTime;
+            ltProductImg.Modify();
 
         end;
 
-        // if ltJsonObject.SelectToken('$.image', ltJsonToken) then begin
 
-        // end;
     end;
 
     /// <summary>
@@ -801,7 +633,7 @@ codeunit 70000 "TPP Shopify Function"
         ltLineNo: Integer;
         ltTrackinNo: Text;
     begin
-        ConnectTOShopify('GET', 'orders/' + pOderID + '/fulfillments.json', ltJsonObject);
+        ConnectTOShopify('GET', 'orders/' + pOderID + '/fulfillments.json', ltJsonObject, '');
         ltTrackinNo := '';
         if ltJsonObject.SelectToken('$.fulfillments', ltJsonToken) then begin
             ltObjectArr := ltJsonToken.AsArray();
@@ -828,7 +660,7 @@ codeunit 70000 "TPP Shopify Function"
         ltJsonToken: JsonToken;
         ltDateTime: DateTime;
     begin
-        ConnectTOShopify('POST', 'orders/' + pOrderID + '/close.json', ltJsonObject);
+        ConnectTOShopify('POST', 'orders/' + pOrderID + '/close.json', ltJsonObject, '');
         if ltJsonObject.SelectToken('$.order', ltJsonToken) then begin
             ltJsonObjectValue := ltJsonToken.AsObject();
             ltShopifyOrder.GET(pOrderID);
@@ -849,7 +681,7 @@ codeunit 70000 "TPP Shopify Function"
         ltShopifyOrder: Record "TPP Shopify Order";
         ltJsonObject: JsonObject;
     begin
-        ConnectTOShopify('POST', 'orders/' + pOrderID + '/open.json', ltJsonObject);
+        ConnectTOShopify('POST', 'orders/' + pOrderID + '/open.json', ltJsonObject, '');
         ltShopifyOrder.GET(pOrderID);
         ltShopifyOrder.status := 'open';
         ltShopifyOrder."Closed Order" := false;
@@ -971,7 +803,9 @@ codeunit 70000 "TPP Shopify Function"
         ltJsonToken.ReadFrom(gvResponseText);
         ltJsonObject := ltJsonToken.AsObject();
         if (gvHttpResponseMessage.IsSuccessStatusCode()) then begin
-            ltResult := 'Shop ID : ' + SelectJsonTokenText(ltJsonObject, '$.shop.id');
+            ltResult := 'Status : Successfully';
+            ltResult := ltResult + '\Shop Details';
+            ltResult := ltResult + '\Shop ID : ' + SelectJsonTokenText(ltJsonObject, '$.shop.id');
             ltResult := ltResult + '\Shop Name : ' + SelectJsonTokenText(ltJsonObject, '$.shop.name');
             ltResult := ltResult + '\Shop Owner : ' + SelectJsonTokenText(ltJsonObject, '$.shop.shop_owner');
             ltResult := ltResult + '\Address : ' + SelectJsonTokenText(ltJsonObject, '$.shop.address1');
@@ -1018,7 +852,7 @@ codeunit 70000 "TPP Shopify Function"
     begin
         ltCountLine := 0;
         ShopifyConfig.GET();
-        ConnectTOShopify(pMehotd, pFind, ltJsonObject);
+        ConnectTOShopify(pMehotd, pFind, ltJsonObject, '');
         if ltJsonObject.SelectToken('$.' + pSelectToken, ltJsonToken) then begin
             ltJsonArray := ltJsonToken.AsArray();
             ltRecordRef.Open(pTableID);
@@ -1147,7 +981,7 @@ codeunit 70000 "TPP Shopify Function"
         ltDateTime: DateTime;
         ltFieldName: Text;
     begin
-        ConnectTOShopify('GET', pFind, ltJsonObject);
+        ConnectTOShopify('GET', pFind, ltJsonObject, '');
         if ltJsonObject.SelectToken('$.' + pSelectToken, ltJsonToken) then begin
             ltJsonArray := ltJsonToken.AsArray();
             ltRecordRef.Open(pTableID);
@@ -1378,7 +1212,8 @@ codeunit 70000 "TPP Shopify Function"
     /// <param name="pMethod">code[10].</param>
     /// <param name="pFind">Text.</param>
     /// <param name="pJsonObject">VAR JsonObject.</param>
-    procedure ConnectTOShopify(pMethod: code[10]; pFind: Text; var pJsonObject: JsonObject)
+    /// <param name="pJsonBody">Text.</param>
+    procedure ConnectTOShopify(pMethod: code[10]; pFind: Text; var pJsonObject: JsonObject; pJsonBody: Text)
     var
         ShopifyConfiguration: Record "TPP Shopify Configuration";
         ltUrl, gvResponseText : Text;
@@ -1397,8 +1232,18 @@ codeunit 70000 "TPP Shopify Function"
         CLEAR(gvHttpContent);
         CLEAR(gvHttpContentaddboydy);
         CLEAR(gvHttpHeadersContent);
-        gvHttpHeadersContent := gvHttpClient.DefaultRequestHeaders();
-        gvHttpHeadersContent.Add('X-Shopify-Access-Token', ShopifyConfiguration.Code);
+        if pJsonBody <> '' then begin
+            gvHttpContent.WriteFrom(pJsonBody);
+            gvHttpContent.GetHeaders(gvHttpHeadersContent);
+            gvHttpHeadersContent.Clear();
+            gvHttpHeadersContent.Add('Content-Type', 'application/json');
+            gvHttpHeadersContent.Add('X-Shopify-Access-Token', ShopifyConfiguration.Code);
+        end else begin
+            gvHttpHeadersContent := gvHttpClient.DefaultRequestHeaders();
+            gvHttpHeadersContent.Add('X-Shopify-Access-Token', ShopifyConfiguration.Code);
+        end;
+        if pJsonBody <> '' then
+            gvHttpRequestMessage.Content := gvHttpContent;
         gvHttpRequestMessage.SetRequestUri(ltUrl);
         gvHttpRequestMessage.Method := pMethod;
         gvHttpClient.Send(gvHttpRequestMessage, gvHttpResponseMessage);
@@ -1407,7 +1252,7 @@ codeunit 70000 "TPP Shopify Function"
         pJsonObject := ltJsonToken.AsObject();
         if not (gvHttpResponseMessage.IsSuccessStatusCode()) then begin
             ltResult := 'Error : ' + SelectJsonTokenText(pJsonObject, '$.errors');
-            Message(ltResult);
+            ERROR(ltResult);
         end;
     end;
 

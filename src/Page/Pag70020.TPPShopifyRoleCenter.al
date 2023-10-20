@@ -167,7 +167,7 @@ page 70020 "TPP Shopify Role Center"
             }
             group(payment)
             {
-                Caption = 'Payment';
+                Caption = 'Payments';
                 action(ShopifyPayment)
                 {
                     ApplicationArea = all;

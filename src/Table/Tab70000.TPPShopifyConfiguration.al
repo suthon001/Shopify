@@ -106,10 +106,10 @@ table 70000 "TPP Shopify Configuration"
             begin
                 if Enabled then
                     if ShopifyFunction.TESTConnect('shop.json', ltRespones) then
-                        Message('%1', ltRespones)
+                        Message(ltRespones)
                     else begin
                         rec.Enabled := false;
-                        Message('%1', ltRespones)
+                        Message(ltRespones)
                     end;
 
             end;

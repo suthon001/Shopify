@@ -3744,7 +3744,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action ShopifySalesOrder - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4290105451 - Action 1198121158 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment</source>
+          <source>Payments</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TPP Shopify Role Center - Action payment - Property Caption</note>
         </trans-unit>
